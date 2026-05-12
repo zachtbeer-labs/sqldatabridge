@@ -1,0 +1,473 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  commentId: T:Zachtbeer.SqlDataBridge.GlobalWhereClause
+  id: GlobalWhereClause
+  parent: Zachtbeer.SqlDataBridge
+  children:
+  - Zachtbeer.SqlDataBridge.GlobalWhereClause.#ctor(System.String,System.String)
+  - Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName
+  - Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause
+  langs:
+  - csharp
+  - vb
+  name: GlobalWhereClause
+  nameWithType: GlobalWhereClause
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  type: Class
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: GlobalWhereClause
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 137
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Configures a SQL Server WHERE predicate that applies to selected export tables containing a column.
+  example: []
+  syntax:
+    content: 'public sealed record GlobalWhereClause : IEquatable<GlobalWhereClause>'
+    content.vb: Public NotInheritable Class GlobalWhereClause Implements IEquatable(Of GlobalWhereClause)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{Zachtbeer.SqlDataBridge.GlobalWhereClause}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause.#ctor(System.String,System.String)
+  commentId: M:Zachtbeer.SqlDataBridge.GlobalWhereClause.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  langs:
+  - csharp
+  - vb
+  name: GlobalWhereClause(string, string)
+  nameWithType: GlobalWhereClause.GlobalWhereClause(string, string)
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause.GlobalWhereClause(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: .ctor
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 137
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Configures a SQL Server WHERE predicate that applies to selected export tables containing a column.
+  example: []
+  syntax:
+    content: public GlobalWhereClause(string ColumnName, string WhereClause)
+    parameters:
+    - id: ColumnName
+      type: System.String
+      description: The source column name that gates this predicate.
+    - id: WhereClause
+      type: System.String
+      description: The raw SQL Server predicate to append to matching table exports.
+    content.vb: Public Sub New(ColumnName As String, WhereClause As String)
+  overload: Zachtbeer.SqlDataBridge.GlobalWhereClause.#ctor*
+  nameWithType.vb: GlobalWhereClause.New(String, String)
+  fullName.vb: Zachtbeer.SqlDataBridge.GlobalWhereClause.New(String, String)
+  name.vb: New(String, String)
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName
+  commentId: P:Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName
+  id: ColumnName
+  parent: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  langs:
+  - csharp
+  - vb
+  name: ColumnName
+  nameWithType: GlobalWhereClause.ColumnName
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: ColumnName
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 137
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: The source column name that gates this predicate.
+  example: []
+  syntax:
+    content: public string ColumnName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ColumnName As String
+  overload: Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName*
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause
+  commentId: P:Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause
+  id: WhereClause
+  parent: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  langs:
+  - csharp
+  - vb
+  name: WhereClause
+  nameWithType: GlobalWhereClause.WhereClause
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: WhereClause
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 137
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: The raw SQL Server predicate to append to matching table exports.
+  example: []
+  syntax:
+    content: public string WhereClause { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WhereClause As String
+  overload: Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause*
+references:
+- uid: Zachtbeer.SqlDataBridge
+  commentId: N:Zachtbeer.SqlDataBridge
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge
+  nameWithType: Zachtbeer.SqlDataBridge
+  fullName: Zachtbeer.SqlDataBridge
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.GlobalWhereClause}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.GlobalWhereClause}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<GlobalWhereClause>
+  nameWithType: IEquatable<GlobalWhereClause>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.GlobalWhereClause>
+  nameWithType.vb: IEquatable(Of GlobalWhereClause)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.GlobalWhereClause)
+  name.vb: IEquatable(Of GlobalWhereClause)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
+    name: GlobalWhereClause
+    href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
+    name: GlobalWhereClause
+    href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.GlobalWhereClause.#ctor
+  href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html#Zachtbeer_SqlDataBridge_GlobalWhereClause__ctor_System_String_System_String_
+  name: GlobalWhereClause
+  nameWithType: GlobalWhereClause.GlobalWhereClause
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause.GlobalWhereClause
+  nameWithType.vb: GlobalWhereClause.New
+  fullName.vb: Zachtbeer.SqlDataBridge.GlobalWhereClause.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName
+  href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html#Zachtbeer_SqlDataBridge_GlobalWhereClause_ColumnName
+  name: ColumnName
+  nameWithType: GlobalWhereClause.ColumnName
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause.ColumnName
+- uid: Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause*
+  commentId: Overload:Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause
+  href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html#Zachtbeer_SqlDataBridge_GlobalWhereClause_WhereClause
+  name: WhereClause
+  nameWithType: GlobalWhereClause.WhereClause
+  fullName: Zachtbeer.SqlDataBridge.GlobalWhereClause.WhereClause

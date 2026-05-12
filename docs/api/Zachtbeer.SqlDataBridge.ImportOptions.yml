@@ -1,0 +1,864 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.ImportOptions
+  commentId: T:Zachtbeer.SqlDataBridge.ImportOptions
+  id: ImportOptions
+  parent: Zachtbeer.SqlDataBridge
+  children:
+  - Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled
+  - Zachtbeer.SqlDataBridge.ImportOptions.BatchSize
+  - Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout
+  - Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions
+  - Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize
+  - Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold
+  - Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes
+  - Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes
+  - Zachtbeer.SqlDataBridge.ImportOptions.Progress
+  - Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  - Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout
+  langs:
+  - csharp
+  - vb
+  name: ImportOptions
+  nameWithType: ImportOptions
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions
+  type: Class
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: ImportOptions
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 235
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Configures a SQLite package import into SQL Server.
+  example: []
+  syntax:
+    content: public sealed class ImportOptions
+    content.vb: Public NotInheritable Class ImportOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.BatchSize
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.BatchSize
+  id: BatchSize
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: BatchSize
+  nameWithType: ImportOptions.BatchSize
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.BatchSize
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: BatchSize
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 240
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the number of rows to import per bulk-copy batch.
+  example: []
+  syntax:
+    content: public int BatchSize { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BatchSize As Integer
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.BatchSize*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled
+  id: AdaptiveBatchingEnabled
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: AdaptiveBatchingEnabled
+  nameWithType: ImportOptions.AdaptiveBatchingEnabled
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: AdaptiveBatchingEnabled
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 245
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets whether package table size metadata should reduce bulk-copy batch sizes for large or wide tables.
+  example: []
+  syntax:
+    content: public bool AdaptiveBatchingEnabled { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AdaptiveBatchingEnabled As Boolean
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes
+  id: LargeTableThresholdBytes
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: LargeTableThresholdBytes
+  nameWithType: ImportOptions.LargeTableThresholdBytes
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: LargeTableThresholdBytes
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 250
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the estimated table size, in bytes, at which large-table batching is used.
+  example: []
+  syntax:
+    content: public long LargeTableThresholdBytes { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property LargeTableThresholdBytes As Long
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold
+  id: LargeTableRowThreshold
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: LargeTableRowThreshold
+  nameWithType: ImportOptions.LargeTableRowThreshold
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: LargeTableRowThreshold
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 255
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
+  example: []
+  syntax:
+    content: public long LargeTableRowThreshold { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property LargeTableRowThreshold As Long
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize
+  id: LargeTableBatchSize
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: LargeTableBatchSize
+  nameWithType: ImportOptions.LargeTableBatchSize
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: LargeTableBatchSize
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 260
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the row batch size used for tables at or above the configured large-table thresholds.
+  example: []
+  syntax:
+    content: public int LargeTableBatchSize { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property LargeTableBatchSize As Integer
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes
+  id: MaxBatchBytes
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxBatchBytes
+  nameWithType: ImportOptions.MaxBatchBytes
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: MaxBatchBytes
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 265
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the approximate maximum bytes represented by one bulk-copy batch when table size and row count metadata are available.
+  example: []
+  syntax:
+    content: public long MaxBatchBytes { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property MaxBatchBytes As Long
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout
+  id: ValidationCommandTimeout
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: ValidationCommandTimeout
+  nameWithType: ImportOptions.ValidationCommandTimeout
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: ValidationCommandTimeout
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 270
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the optional timeout, in seconds, for SQL Server target validation commands during import.
+  example: []
+  syntax:
+    content: public int? ValidationCommandTimeout { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property ValidationCommandTimeout As Integer?
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout
+  id: BulkCopyTimeout
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: BulkCopyTimeout
+  nameWithType: ImportOptions.BulkCopyTimeout
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: BulkCopyTimeout
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 275
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the optional timeout, in seconds, for SQL Server bulk-copy operations during import.
+  example: []
+  syntax:
+    content: public int? BulkCopyTimeout { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property BulkCopyTimeout As Integer?
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.Progress
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.Progress
+  id: Progress
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: Progress
+  nameWithType: ImportOptions.Progress
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.Progress
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Progress
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 280
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the optional progress reporter for import operations.
+  example: []
+  syntax:
+    content: public IProgress<BridgeProgress>? Progress { get; init; }
+    parameters: []
+    return:
+      type: System.IProgress{Zachtbeer.SqlDataBridge.BridgeProgress}
+    content.vb: Public Property Progress As IProgress(Of BridgeProgress)
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.Progress*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  id: SchemaDeploymentMode
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: SchemaDeploymentMode
+  nameWithType: ImportOptions.SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SchemaDeploymentMode
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 285
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets whether schema stored in the package should be deployed before data import.
+  example: []
+  syntax:
+    content: public SchemaDeploymentMode SchemaDeploymentMode { get; init; }
+    parameters: []
+    return:
+      type: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+    content.vb: Public Property SchemaDeploymentMode As SchemaDeploymentMode
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode*
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions
+  id: DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.ImportOptions
+  langs:
+  - csharp
+  - vb
+  name: DacpacDeploymentOptions
+  nameWithType: ImportOptions.DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: DacpacDeploymentOptions
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 290
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets dacpac deployment settings used when <xref href="Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode" data-throw-if-not-resolved="false"></xref> is <xref href="Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public DacpacDeploymentOptions DacpacDeploymentOptions { get; init; }
+    parameters: []
+    return:
+      type: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+    content.vb: Public Property DacpacDeploymentOptions As DacpacDeploymentOptions
+  overload: Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions*
+references:
+- uid: Zachtbeer.SqlDataBridge
+  commentId: N:Zachtbeer.SqlDataBridge
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge
+  nameWithType: Zachtbeer.SqlDataBridge
+  fullName: Zachtbeer.SqlDataBridge
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.BatchSize*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.BatchSize
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_BatchSize
+  name: BatchSize
+  nameWithType: ImportOptions.BatchSize
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.BatchSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_AdaptiveBatchingEnabled
+  name: AdaptiveBatchingEnabled
+  nameWithType: ImportOptions.AdaptiveBatchingEnabled
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.AdaptiveBatchingEnabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_LargeTableThresholdBytes
+  name: LargeTableThresholdBytes
+  nameWithType: ImportOptions.LargeTableThresholdBytes
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableThresholdBytes
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_LargeTableRowThreshold
+  name: LargeTableRowThreshold
+  nameWithType: ImportOptions.LargeTableRowThreshold
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableRowThreshold
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_LargeTableBatchSize
+  name: LargeTableBatchSize
+  nameWithType: ImportOptions.LargeTableBatchSize
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.LargeTableBatchSize
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_MaxBatchBytes
+  name: MaxBatchBytes
+  nameWithType: ImportOptions.MaxBatchBytes
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.MaxBatchBytes
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_ValidationCommandTimeout
+  name: ValidationCommandTimeout
+  nameWithType: ImportOptions.ValidationCommandTimeout
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.ValidationCommandTimeout
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_BulkCopyTimeout
+  name: BulkCopyTimeout
+  nameWithType: ImportOptions.BulkCopyTimeout
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.BulkCopyTimeout
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.Progress*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.Progress
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_Progress
+  name: Progress
+  nameWithType: ImportOptions.Progress
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.Progress
+- uid: System.IProgress{Zachtbeer.SqlDataBridge.BridgeProgress}
+  commentId: T:System.IProgress{Zachtbeer.SqlDataBridge.BridgeProgress}
+  parent: System
+  definition: System.IProgress`1
+  href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  name: IProgress<BridgeProgress>
+  nameWithType: IProgress<BridgeProgress>
+  fullName: System.IProgress<Zachtbeer.SqlDataBridge.BridgeProgress>
+  nameWithType.vb: IProgress(Of BridgeProgress)
+  fullName.vb: System.IProgress(Of Zachtbeer.SqlDataBridge.BridgeProgress)
+  name.vb: IProgress(Of BridgeProgress)
+  spec.csharp:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+    name: BridgeProgress
+    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+    name: BridgeProgress
+    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+  - name: )
+- uid: System.IProgress`1
+  commentId: T:System.IProgress`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  name: IProgress<T>
+  nameWithType: IProgress<T>
+  fullName: System.IProgress<T>
+  nameWithType.vb: IProgress(Of T)
+  fullName.vb: System.IProgress(Of T)
+  name.vb: IProgress(Of T)
+  spec.csharp:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_SchemaDeploymentMode
+  name: SchemaDeploymentMode
+  nameWithType: ImportOptions.SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  commentId: T:Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  parent: Zachtbeer.SqlDataBridge
+  href: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.html
+  name: SchemaDeploymentMode
+  nameWithType: SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  commentId: P:Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_SchemaDeploymentMode
+  name: SchemaDeploymentMode
+  nameWithType: ImportOptions.SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+  commentId: F:Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+  href: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.html#Zachtbeer_SqlDataBridge_SchemaDeploymentMode_DeployDacpac
+  name: DeployDacpac
+  nameWithType: SchemaDeploymentMode.DeployDacpac
+  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+- uid: Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions*
+  commentId: Overload:Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions
+  href: Zachtbeer.SqlDataBridge.ImportOptions.html#Zachtbeer_SqlDataBridge_ImportOptions_DacpacDeploymentOptions
+  name: DacpacDeploymentOptions
+  nameWithType: ImportOptions.DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.ImportOptions.DacpacDeploymentOptions
+- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  commentId: T:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge
+  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html
+  name: DacpacDeploymentOptions
+  nameWithType: DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions

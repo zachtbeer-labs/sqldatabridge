@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  commentId: T:Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  id: SchemaDeploymentMode
+  parent: Zachtbeer.SqlDataBridge
+  children:
+  - Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+  - Zachtbeer.SqlDataBridge.SchemaDeploymentMode.None
+  langs:
+  - csharp
+  - vb
+  name: SchemaDeploymentMode
+  nameWithType: SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  type: Enum
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SchemaDeploymentMode
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 21
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Controls whether package schema is deployed before import.
+  example: []
+  syntax:
+    content: public enum SchemaDeploymentMode
+    content.vb: Public Enum SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.None
+  commentId: F:Zachtbeer.SqlDataBridge.SchemaDeploymentMode.None
+  id: None
+  parent: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SchemaDeploymentMode.None
+  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.None
+  type: Field
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: None
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 26
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Do not deploy schema. This is the default behavior.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+  commentId: F:Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+  id: DeployDacpac
+  parent: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  langs:
+  - csharp
+  - vb
+  name: DeployDacpac
+  nameWithType: SchemaDeploymentMode.DeployDacpac
+  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.DeployDacpac
+  type: Field
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: DeployDacpac
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 31
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Deploy the dacpac stored in the SQLite package before importing data.
+  example: []
+  syntax:
+    content: DeployDacpac = 1
+    return:
+      type: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+references:
+- uid: Zachtbeer.SqlDataBridge
+  commentId: N:Zachtbeer.SqlDataBridge
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge
+  nameWithType: Zachtbeer.SqlDataBridge
+  fullName: Zachtbeer.SqlDataBridge
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  commentId: T:Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+  parent: Zachtbeer.SqlDataBridge
+  href: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.html
+  name: SchemaDeploymentMode
+  nameWithType: SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode

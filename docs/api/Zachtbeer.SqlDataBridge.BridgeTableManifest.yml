@@ -1,0 +1,853 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  commentId: T:Zachtbeer.SqlDataBridge.BridgeTableManifest
+  id: BridgeTableManifest
+  parent: Zachtbeer.SqlDataBridge
+  children:
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.#ctor(System.String,System.String,System.String,System.Int64,System.Int64,System.Int64,System.Int32,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest})
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable
+  - Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable
+  langs:
+  - csharp
+  - vb
+  name: BridgeTableManifest
+  nameWithType: BridgeTableManifest
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  type: Class
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: BridgeTableManifest
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Describes a table stored in or planned for a SQLite bridge package.
+  example: []
+  syntax:
+    content: 'public sealed record BridgeTableManifest : IEquatable<BridgeTableManifest>'
+    content.vb: Public NotInheritable Class BridgeTableManifest Implements IEquatable(Of BridgeTableManifest)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{Zachtbeer.SqlDataBridge.BridgeTableManifest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.#ctor(System.String,System.String,System.String,System.Int64,System.Int64,System.Int64,System.Int32,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest})
+  commentId: M:Zachtbeer.SqlDataBridge.BridgeTableManifest.#ctor(System.String,System.String,System.String,System.Int64,System.Int64,System.Int64,System.Int32,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest})
+  id: '#ctor(System.String,System.String,System.String,System.Int64,System.Int64,System.Int64,System.Int32,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest})'
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: BridgeTableManifest(string, string, string, long, long, long, int, IReadOnlyList<BridgeColumnManifest>)
+  nameWithType: BridgeTableManifest.BridgeTableManifest(string, string, string, long, long, long, int, IReadOnlyList<BridgeColumnManifest>)
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.BridgeTableManifest(string, string, string, long, long, long, int, System.Collections.Generic.IReadOnlyList<Zachtbeer.SqlDataBridge.BridgeColumnManifest>)
+  type: Constructor
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: .ctor
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Describes a table stored in or planned for a SQLite bridge package.
+  example: []
+  syntax:
+    content: public BridgeTableManifest(string SourceSchema, string SourceTable, string SqliteTable, long ExportedRowCount, long EstimatedSourceRowCount, long EstimatedSourceBytes, int ExportBatchSize, IReadOnlyList<BridgeColumnManifest> Columns)
+    parameters:
+    - id: SourceSchema
+      type: System.String
+    - id: SourceTable
+      type: System.String
+    - id: SqliteTable
+      type: System.String
+    - id: ExportedRowCount
+      type: System.Int64
+    - id: EstimatedSourceRowCount
+      type: System.Int64
+    - id: EstimatedSourceBytes
+      type: System.Int64
+    - id: ExportBatchSize
+      type: System.Int32
+    - id: Columns
+      type: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
+    content.vb: Public Sub New(SourceSchema As String, SourceTable As String, SqliteTable As String, ExportedRowCount As Long, EstimatedSourceRowCount As Long, EstimatedSourceBytes As Long, ExportBatchSize As Integer, Columns As IReadOnlyList(Of BridgeColumnManifest))
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.#ctor*
+  nameWithType.vb: BridgeTableManifest.New(String, String, String, Long, Long, Long, Integer, IReadOnlyList(Of BridgeColumnManifest))
+  fullName.vb: Zachtbeer.SqlDataBridge.BridgeTableManifest.New(String, String, String, Long, Long, Long, Integer, System.Collections.Generic.IReadOnlyList(Of Zachtbeer.SqlDataBridge.BridgeColumnManifest))
+  name.vb: New(String, String, String, Long, Long, Long, Integer, IReadOnlyList(Of BridgeColumnManifest))
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema
+  id: SourceSchema
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: SourceSchema
+  nameWithType: BridgeTableManifest.SourceSchema
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SourceSchema
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public string SourceSchema { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SourceSchema As String
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable
+  id: SourceTable
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: SourceTable
+  nameWithType: BridgeTableManifest.SourceTable
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SourceTable
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public string SourceTable { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SourceTable As String
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable
+  id: SqliteTable
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: SqliteTable
+  nameWithType: BridgeTableManifest.SqliteTable
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SqliteTable
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public string SqliteTable { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SqliteTable As String
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount
+  id: ExportedRowCount
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: ExportedRowCount
+  nameWithType: BridgeTableManifest.ExportedRowCount
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: ExportedRowCount
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public long ExportedRowCount { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property ExportedRowCount As Long
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount
+  id: EstimatedSourceRowCount
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: EstimatedSourceRowCount
+  nameWithType: BridgeTableManifest.EstimatedSourceRowCount
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: EstimatedSourceRowCount
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public long EstimatedSourceRowCount { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property EstimatedSourceRowCount As Long
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes
+  id: EstimatedSourceBytes
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: EstimatedSourceBytes
+  nameWithType: BridgeTableManifest.EstimatedSourceBytes
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: EstimatedSourceBytes
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public long EstimatedSourceBytes { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property EstimatedSourceBytes As Long
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize
+  id: ExportBatchSize
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: ExportBatchSize
+  nameWithType: BridgeTableManifest.ExportBatchSize
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: ExportBatchSize
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public int ExportBatchSize { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ExportBatchSize As Integer
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns
+  id: Columns
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: Columns
+  nameWithType: BridgeTableManifest.Columns
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Columns
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 56
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  syntax:
+    content: public IReadOnlyList<BridgeColumnManifest> Columns { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
+    content.vb: Public Property Columns As IReadOnlyList(Of BridgeColumnManifest)
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns*
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName
+  id: FullName
+  parent: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  langs:
+  - csharp
+  - vb
+  name: FullName
+  nameWithType: BridgeTableManifest.FullName
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: FullName
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 61
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Gets the source SQL Server table full name.
+  example: []
+  syntax:
+    content: public string FullName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FullName As String
+  overload: Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName*
+references:
+- uid: Zachtbeer.SqlDataBridge
+  commentId: N:Zachtbeer.SqlDataBridge
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge
+  nameWithType: Zachtbeer.SqlDataBridge
+  fullName: Zachtbeer.SqlDataBridge
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.BridgeTableManifest}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.BridgeTableManifest}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<BridgeTableManifest>
+  nameWithType: IEquatable<BridgeTableManifest>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.BridgeTableManifest>
+  nameWithType.vb: IEquatable(Of BridgeTableManifest)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.BridgeTableManifest)
+  name.vb: IEquatable(Of BridgeTableManifest)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
+    name: BridgeTableManifest
+    href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
+    name: BridgeTableManifest
+    href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.#ctor
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest__ctor_System_String_System_String_System_String_System_Int64_System_Int64_System_Int64_System_Int32_System_Collections_Generic_IReadOnlyList_Zachtbeer_SqlDataBridge_BridgeColumnManifest__
+  name: BridgeTableManifest
+  nameWithType: BridgeTableManifest.BridgeTableManifest
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.BridgeTableManifest
+  nameWithType.vb: BridgeTableManifest.New
+  fullName.vb: Zachtbeer.SqlDataBridge.BridgeTableManifest.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<BridgeColumnManifest>
+  nameWithType: IReadOnlyList<BridgeColumnManifest>
+  fullName: System.Collections.Generic.IReadOnlyList<Zachtbeer.SqlDataBridge.BridgeColumnManifest>
+  nameWithType.vb: IReadOnlyList(Of BridgeColumnManifest)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Zachtbeer.SqlDataBridge.BridgeColumnManifest)
+  name.vb: IReadOnlyList(Of BridgeColumnManifest)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+    name: BridgeColumnManifest
+    href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+    name: BridgeColumnManifest
+    href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_SourceSchema
+  name: SourceSchema
+  nameWithType: BridgeTableManifest.SourceSchema
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceSchema
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_SourceTable
+  name: SourceTable
+  nameWithType: BridgeTableManifest.SourceTable
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.SourceTable
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_SqliteTable
+  name: SqliteTable
+  nameWithType: BridgeTableManifest.SqliteTable
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.SqliteTable
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_ExportedRowCount
+  name: ExportedRowCount
+  nameWithType: BridgeTableManifest.ExportedRowCount
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportedRowCount
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_EstimatedSourceRowCount
+  name: EstimatedSourceRowCount
+  nameWithType: BridgeTableManifest.EstimatedSourceRowCount
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceRowCount
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_EstimatedSourceBytes
+  name: EstimatedSourceBytes
+  nameWithType: BridgeTableManifest.EstimatedSourceBytes
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.EstimatedSourceBytes
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_ExportBatchSize
+  name: ExportBatchSize
+  nameWithType: BridgeTableManifest.ExportBatchSize
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.ExportBatchSize
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_Columns
+  name: Columns
+  nameWithType: BridgeTableManifest.Columns
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.Columns
+- uid: Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName
+  href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html#Zachtbeer_SqlDataBridge_BridgeTableManifest_FullName
+  name: FullName
+  nameWithType: BridgeTableManifest.FullName
+  fullName: Zachtbeer.SqlDataBridge.BridgeTableManifest.FullName

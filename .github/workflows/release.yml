@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to publish (e.g. 1.0.0)"
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: nuget-
+
+      - run: dotnet restore SqlDataBridge.sln
+      - run: dotnet build SqlDataBridge.sln -c Release --no-restore /p:Version=${{ inputs.version }} /p:PackageVersion=${{ inputs.version }} /p:InformationalVersion=${{ inputs.version }}
+      - run: dotnet test SqlDataBridge.sln -c Release --no-build --verbosity normal
+
+      - name: Pack
+        run: dotnet pack src/SqlDataBridge/SqlDataBridge.csproj -c Release --no-build -o ./release-packages /p:Version=${{ inputs.version }} /p:PackageVersion=${{ inputs.version }} /p:InformationalVersion=${{ inputs.version }}
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: |
+            ./release-packages/*.nupkg
+            ./release-packages/*.snupkg
+
+      - name: NuGet login (OIDC trusted publishing)
+        uses: NuGet/login@v1
+        id: nuget-login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Push to NuGet.org
+        run: dotnet nuget push "./release-packages/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --skip-duplicate
+
+      - name: Push symbols to NuGet.org
+        run: dotnet nuget push "./release-packages/*.snupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --skip-duplicate
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ inputs.version }}" \
+            ./release-packages/*.nupkg \
+            -t "v${{ inputs.version }}" \
+            --generate-notes

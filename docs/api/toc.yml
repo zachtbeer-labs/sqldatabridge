@@ -1,0 +1,70 @@
+### YamlMime:TableOfContent
+items:
+- uid: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge
+  type: Namespace
+  items:
+  - uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+    name: BridgeColumnManifest
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgeException
+    name: BridgeException
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgeOptions
+    name: BridgeOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgePackageManifest
+    name: BridgePackageManifest
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgePreflightResult
+    name: BridgePreflightResult
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+    name: BridgeProgress
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgeProgressKind
+    name: BridgeProgressKind
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.BridgeResult
+    name: BridgeResult
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
+    name: BridgeTableManifest
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+    name: DacpacCaptureOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+    name: DacpacDeploymentOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.DataPackageReader
+    name: DataPackageReader
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.ExportOptions
+    name: ExportOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.ExportTableSelectionMode
+    name: ExportTableSelectionMode
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
+    name: GlobalWhereClause
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.ImportOptions
+    name: ImportOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
+    name: PerTableWhereClause
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+    name: SchemaCaptureMode
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+    name: SchemaDeploymentMode
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.SqlDataBridgeExporter
+    name: SqlDataBridgeExporter
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter
+    name: SqlDataBridgeImporter
+    type: Class
+memberLayout: SamePage

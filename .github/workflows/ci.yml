@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build and unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: nuget-
+
+      - run: dotnet restore SqlDataBridge.sln
+      - run: dotnet build SqlDataBridge.sln -c Release --no-restore
+      - run: dotnet test tests/SqlDataBridge.Tests/SqlDataBridge.Tests.csproj -c Release --no-build --verbosity normal
+      - run: dotnet pack src/SqlDataBridge/SqlDataBridge.csproj -c Release --no-build -o ./packages
+
+  integration:
+    name: Integration tests (${{ matrix.sqlserver }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - sqlserver: "2017"
+            image: mcr.microsoft.com/mssql/server:2017-latest
+          - sqlserver: "2019"
+            image: mcr.microsoft.com/mssql/server:2019-latest
+          - sqlserver: "2022"
+            image: mcr.microsoft.com/mssql/server:2022-latest
+          - sqlserver: "2025"
+            image: mcr.microsoft.com/mssql/server:2025-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ matrix.sqlserver }}-${{ hashFiles('**/*.csproj') }}
+          restore-keys: nuget-
+
+      - run: dotnet restore SqlDataBridge.sln
+      - run: dotnet build tests/SqlDataBridge.IntegrationTests/SqlDataBridge.IntegrationTests.csproj -c Release --no-restore
+      - run: dotnet test tests/SqlDataBridge.IntegrationTests/SqlDataBridge.IntegrationTests.csproj -c Release --no-build --verbosity normal
+        env:
+          SQLDATABRIDGE_SQLSERVER_IMAGE: ${{ matrix.image }}

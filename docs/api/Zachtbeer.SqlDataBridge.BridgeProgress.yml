@@ -1,0 +1,665 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress
+  commentId: T:Zachtbeer.SqlDataBridge.BridgeProgress
+  id: BridgeProgress
+  parent: Zachtbeer.SqlDataBridge
+  children:
+  - Zachtbeer.SqlDataBridge.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
+  - Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+  - Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  - Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  - Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  - Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  langs:
+  - csharp
+  - vb
+  name: BridgeProgress
+  nameWithType: BridgeProgress
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress
+  type: Class
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: BridgeProgress
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Reports progress from an export or import operation.
+  example: []
+  syntax:
+    content: 'public sealed record BridgeProgress : IEquatable<BridgeProgress>'
+    content.vb: Public NotInheritable Class BridgeProgress Implements IEquatable(Of BridgeProgress)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{Zachtbeer.SqlDataBridge.BridgeProgress}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
+  commentId: M:Zachtbeer.SqlDataBridge.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
+  id: '#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)'
+  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  langs:
+  - csharp
+  - vb
+  name: BridgeProgress(BridgeProgressKind, string?, long, long?, string?)
+  nameWithType: BridgeProgress.BridgeProgress(BridgeProgressKind, string?, long, long?, string?)
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.BridgeProgress(Zachtbeer.SqlDataBridge.BridgeProgressKind, string?, long, long?, string?)
+  type: Constructor
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: .ctor
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: Reports progress from an export or import operation.
+  example: []
+  syntax:
+    content: public BridgeProgress(BridgeProgressKind Kind, string? TableName = null, long RowsProcessed = 0, long? TotalRows = null, string? Message = null)
+    parameters:
+    - id: Kind
+      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
+      description: The progress event kind.
+    - id: TableName
+      type: System.String
+      description: The source table full name when the event is table-specific.
+    - id: RowsProcessed
+      type: System.Int64
+      description: The rows processed for the table or operation.
+    - id: TotalRows
+      type: System.Nullable{System.Int64}
+      description: The expected rows when known.
+    - id: Message
+      type: System.String
+      description: An optional human-readable message.
+    content.vb: Public Sub New(Kind As BridgeProgressKind, TableName As String = Nothing, RowsProcessed As Long = 0, TotalRows As Long? = Nothing, Message As String = Nothing)
+  overload: Zachtbeer.SqlDataBridge.BridgeProgress.#ctor*
+  nameWithType.vb: BridgeProgress.New(BridgeProgressKind, String, Long, Long?, String)
+  fullName.vb: Zachtbeer.SqlDataBridge.BridgeProgress.New(Zachtbeer.SqlDataBridge.BridgeProgressKind, String, Long, Long?, String)
+  name.vb: New(BridgeProgressKind, String, Long, Long?, String)
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+  id: Kind
+  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: BridgeProgress.Kind
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Kind
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: The progress event kind.
+  example: []
+  syntax:
+    content: public BridgeProgressKind Kind { get; init; }
+    parameters: []
+    return:
+      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
+    content.vb: Public Property Kind As BridgeProgressKind
+  overload: Zachtbeer.SqlDataBridge.BridgeProgress.Kind*
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  id: TableName
+  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  langs:
+  - csharp
+  - vb
+  name: TableName
+  nameWithType: BridgeProgress.TableName
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: TableName
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: The source table full name when the event is table-specific.
+  example: []
+  syntax:
+    content: public string? TableName { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TableName As String
+  overload: Zachtbeer.SqlDataBridge.BridgeProgress.TableName*
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  id: RowsProcessed
+  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  langs:
+  - csharp
+  - vb
+  name: RowsProcessed
+  nameWithType: BridgeProgress.RowsProcessed
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: RowsProcessed
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: The rows processed for the table or operation.
+  example: []
+  syntax:
+    content: public long RowsProcessed { get; init; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property RowsProcessed As Long
+  overload: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed*
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  id: TotalRows
+  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  langs:
+  - csharp
+  - vb
+  name: TotalRows
+  nameWithType: BridgeProgress.TotalRows
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: TotalRows
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: The expected rows when known.
+  example: []
+  syntax:
+    content: public long? TotalRows { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property TotalRows As Long?
+  overload: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows*
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  id: Message
+  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: BridgeProgress.Message
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/release-prep-3
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Message
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 46
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge
+  summary: An optional human-readable message.
+  example: []
+  syntax:
+    content: public string? Message { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: Zachtbeer.SqlDataBridge.BridgeProgress.Message*
+references:
+- uid: Zachtbeer.SqlDataBridge
+  commentId: N:Zachtbeer.SqlDataBridge
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge
+  nameWithType: Zachtbeer.SqlDataBridge
+  fullName: Zachtbeer.SqlDataBridge
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.BridgeProgress}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.BridgeProgress}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<BridgeProgress>
+  nameWithType: IEquatable<BridgeProgress>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.BridgeProgress>
+  nameWithType.vb: IEquatable(Of BridgeProgress)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.BridgeProgress)
+  name.vb: IEquatable(Of BridgeProgress)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+    name: BridgeProgress
+    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+    name: BridgeProgress
+    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.#ctor
+  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress__ctor_Zachtbeer_SqlDataBridge_BridgeProgressKind_System_String_System_Int64_System_Nullable_System_Int64__System_String_
+  name: BridgeProgress
+  nameWithType: BridgeProgress.BridgeProgress
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.BridgeProgress
+  nameWithType.vb: BridgeProgress.New
+  fullName.vb: Zachtbeer.SqlDataBridge.BridgeProgress.New
+  name.vb: New
+- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  commentId: T:Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge
+  href: Zachtbeer.SqlDataBridge.BridgeProgressKind.html
+  name: BridgeProgressKind
+  nameWithType: BridgeProgressKind
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Kind*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_Kind
+  name: Kind
+  nameWithType: BridgeProgress.Kind
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TableName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_TableName
+  name: TableName
+  nameWithType: BridgeProgress.TableName
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_RowsProcessed
+  name: RowsProcessed
+  nameWithType: BridgeProgress.RowsProcessed
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_TotalRows
+  name: TotalRows
+  nameWithType: BridgeProgress.TotalRows
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Message*
+  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_Message
+  name: Message
+  nameWithType: BridgeProgress.Message
+  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Message
