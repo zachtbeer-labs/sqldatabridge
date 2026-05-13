@@ -1,4 +1,5 @@
 using Zachtbeer.SqlDataBridge;
+using Zachtbeer.SqlDataBridge.Models;
 
 var sourceConnectionString = RequireEnvironmentVariable("ZSB_SOURCE_SQLSERVER");
 var targetConnectionString = RequireEnvironmentVariable("ZSB_TARGET_SQLSERVER");
