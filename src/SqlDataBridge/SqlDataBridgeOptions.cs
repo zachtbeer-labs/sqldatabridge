@@ -1,4 +1,6 @@
-namespace Zachtbeer.SqlDataBridge;
+using Zachtbeer.SqlDataBridge.Internal;
+
+namespace Zachtbeer.SqlDataBridge.Models;
 
 /// <summary>
 /// Controls whether SQL Server schema is captured during export.
@@ -213,22 +215,22 @@ public sealed class ExportOptions
     /// <summary>
     /// Gets the estimated table size, in bytes, at which large-table batching is used.
     /// </summary>
-    public long LargeTableThresholdBytes { get; init; } = Internal.BatchPlanner.DefaultLargeTableThresholdBytes;
+    public long LargeTableThresholdBytes { get; init; } = BatchPlanner.DefaultLargeTableThresholdBytes;
 
     /// <summary>
     /// Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
     /// </summary>
-    public long LargeTableRowThreshold { get; init; } = Internal.BatchPlanner.DefaultLargeTableRowThreshold;
+    public long LargeTableRowThreshold { get; init; } = BatchPlanner.DefaultLargeTableRowThreshold;
 
     /// <summary>
     /// Gets the row batch size used for tables at or above the configured large-table thresholds.
     /// </summary>
-    public int LargeTableBatchSize { get; init; } = Internal.BatchPlanner.DefaultLargeTableBatchSize;
+    public int LargeTableBatchSize { get; init; } = BatchPlanner.DefaultLargeTableBatchSize;
 
     /// <summary>
     /// Gets the approximate maximum bytes represented by one batch when table size and row count metadata are available.
     /// </summary>
-    public long MaxBatchBytes { get; init; } = Internal.BatchPlanner.DefaultMaxBatchBytes;
+    public long MaxBatchBytes { get; init; } = BatchPlanner.DefaultMaxBatchBytes;
 
     /// <summary>
     /// Gets the optional timeout, in seconds, for SQL Server metadata and data commands during export.
@@ -274,22 +276,22 @@ public sealed class ImportOptions
     /// <summary>
     /// Gets the estimated table size, in bytes, at which large-table batching is used.
     /// </summary>
-    public long LargeTableThresholdBytes { get; init; } = Internal.BatchPlanner.DefaultLargeTableThresholdBytes;
+    public long LargeTableThresholdBytes { get; init; } = BatchPlanner.DefaultLargeTableThresholdBytes;
 
     /// <summary>
     /// Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
     /// </summary>
-    public long LargeTableRowThreshold { get; init; } = Internal.BatchPlanner.DefaultLargeTableRowThreshold;
+    public long LargeTableRowThreshold { get; init; } = BatchPlanner.DefaultLargeTableRowThreshold;
 
     /// <summary>
     /// Gets the row batch size used for tables at or above the configured large-table thresholds.
     /// </summary>
-    public int LargeTableBatchSize { get; init; } = Internal.BatchPlanner.DefaultLargeTableBatchSize;
+    public int LargeTableBatchSize { get; init; } = BatchPlanner.DefaultLargeTableBatchSize;
 
     /// <summary>
     /// Gets the approximate maximum bytes represented by one bulk-copy batch when table size and row count metadata are available.
     /// </summary>
-    public long MaxBatchBytes { get; init; } = Internal.BatchPlanner.DefaultMaxBatchBytes;
+    public long MaxBatchBytes { get; init; } = BatchPlanner.DefaultMaxBatchBytes;
 
     /// <summary>
     /// Gets the optional timeout, in seconds, for SQL Server target validation commands during import.
@@ -366,22 +368,22 @@ public sealed class BridgeOptions
     /// <summary>
     /// Gets the estimated table size, in bytes, at which large-table batching is used.
     /// </summary>
-    public long LargeTableThresholdBytes { get; init; } = Internal.BatchPlanner.DefaultLargeTableThresholdBytes;
+    public long LargeTableThresholdBytes { get; init; } = BatchPlanner.DefaultLargeTableThresholdBytes;
 
     /// <summary>
     /// Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
     /// </summary>
-    public long LargeTableRowThreshold { get; init; } = Internal.BatchPlanner.DefaultLargeTableRowThreshold;
+    public long LargeTableRowThreshold { get; init; } = BatchPlanner.DefaultLargeTableRowThreshold;
 
     /// <summary>
     /// Gets the row batch size used for tables at or above the configured large-table thresholds.
     /// </summary>
-    public int LargeTableBatchSize { get; init; } = Internal.BatchPlanner.DefaultLargeTableBatchSize;
+    public int LargeTableBatchSize { get; init; } = BatchPlanner.DefaultLargeTableBatchSize;
 
     /// <summary>
     /// Gets the approximate maximum bytes represented by one batch when table size and row count metadata are available.
     /// </summary>
-    public long MaxBatchBytes { get; init; } = Internal.BatchPlanner.DefaultMaxBatchBytes;
+    public long MaxBatchBytes { get; init; } = BatchPlanner.DefaultMaxBatchBytes;
 
     /// <summary>
     /// Gets the optional timeout, in seconds, for SQL Server metadata and data commands during export.

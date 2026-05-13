@@ -1,3 +1,5 @@
+using Zachtbeer.SqlDataBridge.Models;
+
 namespace Zachtbeer.SqlDataBridge.Internal;
 
 internal sealed record SchemaPackage(

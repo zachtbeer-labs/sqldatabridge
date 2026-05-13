@@ -3,6 +3,7 @@ using System.Data.SqlTypes;
 using Microsoft.Data.SqlTypes;
 using System.Xml;
 using Zachtbeer.SqlDataBridge.Internal;
+using Zachtbeer.SqlDataBridge.Models;
 using Shouldly;
 using Xunit;
 

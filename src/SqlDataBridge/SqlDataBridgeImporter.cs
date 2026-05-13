@@ -1,6 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Zachtbeer.SqlDataBridge.Internal;
+using Zachtbeer.SqlDataBridge.Models;
 
 namespace Zachtbeer.SqlDataBridge;
 

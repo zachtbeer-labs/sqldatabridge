@@ -2,6 +2,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.SqlServer.Dac;
 using Microsoft.SqlServer.Dac.Model;
 using Zachtbeer.SqlDataBridge.IntegrationTests.Harness;
+using Zachtbeer.SqlDataBridge.Models;
 using Shouldly;
 using Xunit;
 

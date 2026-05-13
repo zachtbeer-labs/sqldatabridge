@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Data.SqlClient;
+using Zachtbeer.SqlDataBridge.Models;
 
 namespace Zachtbeer.SqlDataBridge.Internal;
 

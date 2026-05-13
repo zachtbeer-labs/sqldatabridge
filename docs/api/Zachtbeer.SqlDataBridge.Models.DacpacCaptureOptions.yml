@@ -1,33 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
-  commentId: T:Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   id: DacpacCaptureOptions
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
-  - Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements
-  - Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions
-  - Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings
-  - Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction
   langs:
   - csharp
   - vb
   name: DacpacCaptureOptions
   nameWithType: DacpacCaptureOptions
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DacpacCaptureOptions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 53
+    startLine: 71
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Configures dacpac schema capture during export.
   example: []
   syntax:
@@ -42,28 +43,59 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope
+  id: SchemaScope
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  langs:
+  - csharp
+  - vb
+  name: SchemaScope
+  nameWithType: DacpacCaptureOptions.SchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SchemaScope
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 76
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Gets the schema scope stored in the captured dacpac.
+  example: []
+  syntax:
+    content: public DacpacSchemaScope SchemaScope { get; init; }
+    parameters: []
+    return:
+      type: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+    content.vb: Public Property SchemaScope As DacpacSchemaScope
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements
   id: ExtractReferencedServerScopedElements
-  parent: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   langs:
   - csharp
   - vb
   name: ExtractReferencedServerScopedElements
   nameWithType: DacpacCaptureOptions.ExtractReferencedServerScopedElements
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ExtractReferencedServerScopedElements
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 58
+    startLine: 81
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether extraction should include referenced server-scoped elements, such as logins.
   example: []
   syntax:
@@ -72,29 +104,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property ExtractReferencedServerScopedElements As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements*
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
   id: ExtractApplicationScopedObjectsOnly
-  parent: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   langs:
   - csharp
   - vb
   name: ExtractApplicationScopedObjectsOnly
   nameWithType: DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ExtractApplicationScopedObjectsOnly
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 63
+    startLine: 86
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether extraction should include only objects scoped to the source application.
   example: []
   syntax:
@@ -103,29 +135,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property ExtractApplicationScopedObjectsOnly As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly*
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions
   id: IgnorePermissions
-  parent: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   langs:
   - csharp
   - vb
   name: IgnorePermissions
   nameWithType: DacpacCaptureOptions.IgnorePermissions
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: IgnorePermissions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 68
+    startLine: 91
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether permissions should be ignored while extracting the dacpac.
   example: []
   syntax:
@@ -134,29 +166,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property IgnorePermissions As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions*
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings
   id: IgnoreUserLoginMappings
-  parent: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   langs:
   - csharp
   - vb
   name: IgnoreUserLoginMappings
   nameWithType: DacpacCaptureOptions.IgnoreUserLoginMappings
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: IgnoreUserLoginMappings
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 73
+    startLine: 96
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether user-to-login mappings should be ignored while extracting the dacpac.
   example: []
   syntax:
@@ -165,29 +197,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property IgnoreUserLoginMappings As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings*
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction
   id: VerifyExtraction
-  parent: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
   langs:
   - csharp
   - vb
   name: VerifyExtraction
   nameWithType: DacpacCaptureOptions.VerifyExtraction
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: VerifyExtraction
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 78
+    startLine: 101
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether DacFx should verify the extracted model.
   example: []
   syntax:
@@ -196,14 +228,14 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property VerifyExtraction As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction*
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -212,6 +244,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -220,6 +256,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -433,12 +473,25 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements
-  href: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_DacpacCaptureOptions_ExtractReferencedServerScopedElements
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacCaptureOptions_SchemaScope
+  name: SchemaScope
+  nameWithType: DacpacCaptureOptions.SchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.SchemaScope
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.html
+  name: DacpacSchemaScope
+  nameWithType: DacpacSchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacCaptureOptions_ExtractReferencedServerScopedElements
   name: ExtractReferencedServerScopedElements
   nameWithType: DacpacCaptureOptions.ExtractReferencedServerScopedElements
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractReferencedServerScopedElements
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractReferencedServerScopedElements
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -450,27 +503,27 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
-  href: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_DacpacCaptureOptions_ExtractApplicationScopedObjectsOnly
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacCaptureOptions_ExtractApplicationScopedObjectsOnly
   name: ExtractApplicationScopedObjectsOnly
   nameWithType: DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions
-  href: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_DacpacCaptureOptions_IgnorePermissions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.ExtractApplicationScopedObjectsOnly
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacCaptureOptions_IgnorePermissions
   name: IgnorePermissions
   nameWithType: DacpacCaptureOptions.IgnorePermissions
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnorePermissions
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings
-  href: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_DacpacCaptureOptions_IgnoreUserLoginMappings
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnorePermissions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacCaptureOptions_IgnoreUserLoginMappings
   name: IgnoreUserLoginMappings
   nameWithType: DacpacCaptureOptions.IgnoreUserLoginMappings
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.IgnoreUserLoginMappings
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction
-  href: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_DacpacCaptureOptions_VerifyExtraction
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.IgnoreUserLoginMappings
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacCaptureOptions_VerifyExtraction
   name: VerifyExtraction
   nameWithType: DacpacCaptureOptions.VerifyExtraction
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.VerifyExtraction
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.VerifyExtraction

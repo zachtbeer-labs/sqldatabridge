@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Dac;
 using Microsoft.SqlServer.Dac.Model;
+using Zachtbeer.SqlDataBridge.Models;
 
 namespace Zachtbeer.SqlDataBridge.Internal;
 

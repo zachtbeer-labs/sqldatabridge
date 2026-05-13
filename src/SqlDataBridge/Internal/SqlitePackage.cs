@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Security.Cryptography;
 using Microsoft.Data.Sqlite;
+using Zachtbeer.SqlDataBridge.Models;
 
 namespace Zachtbeer.SqlDataBridge.Internal;
 

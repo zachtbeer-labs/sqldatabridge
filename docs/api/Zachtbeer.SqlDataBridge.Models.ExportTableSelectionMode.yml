@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  id: ExportTableSelectionMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  children:
+  - Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.AllExcept
+  - Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.Only
+  langs:
+  - csharp
+  - vb
+  name: ExportTableSelectionMode
+  nameWithType: ExportTableSelectionMode
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  type: Enum
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: ExportTableSelectionMode
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 55
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Controls how export table patterns are interpreted.
+  example: []
+  syntax:
+    content: public enum ExportTableSelectionMode
+    content.vb: Public Enum ExportTableSelectionMode
+- uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.AllExcept
+  commentId: F:Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.AllExcept
+  id: AllExcept
+  parent: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  langs:
+  - csharp
+  - vb
+  name: AllExcept
+  nameWithType: ExportTableSelectionMode.AllExcept
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.AllExcept
+  type: Field
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: AllExcept
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 60
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Export all user tables except those matching <xref href="Zachtbeer.SqlDataBridge.Models.ExportOptions.Tables" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: AllExcept = 0
+    return:
+      type: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+- uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.Only
+  commentId: F:Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.Only
+  id: Only
+  parent: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  langs:
+  - csharp
+  - vb
+  name: Only
+  nameWithType: ExportTableSelectionMode.Only
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.Only
+  type: Field
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Only
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 65
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Export only user tables matching <xref href="Zachtbeer.SqlDataBridge.Models.ExportOptions.Tables" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Only = 1
+    return:
+      type: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+references:
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+- uid: Zachtbeer.SqlDataBridge.Models.ExportOptions.Tables
+  commentId: P:Zachtbeer.SqlDataBridge.Models.ExportOptions.Tables
+  href: Zachtbeer.SqlDataBridge.Models.ExportOptions.html#Zachtbeer_SqlDataBridge_Models_ExportOptions_Tables
+  name: Tables
+  nameWithType: ExportOptions.Tables
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportOptions.Tables
+- uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.html
+  name: ExportTableSelectionMode
+  nameWithType: ExportTableSelectionMode
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode

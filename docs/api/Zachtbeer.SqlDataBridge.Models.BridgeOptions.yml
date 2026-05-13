@@ -1,52 +1,53 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeOptions
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeOptions
   id: BridgeOptions
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled
-  - Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize
-  - Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions
-  - Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions
-  - Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns
-  - Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout
-  - Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses
-  - Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout
-  - Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout
-  - Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize
-  - Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold
-  - Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes
-  - Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes
-  - Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage
-  - Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses
-  - Zachtbeer.SqlDataBridge.BridgeOptions.Progress
-  - Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode
-  - Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode
-  - Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-  - Zachtbeer.SqlDataBridge.BridgeOptions.Tables
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
   langs:
   - csharp
   - vb
   name: BridgeOptions
   nameWithType: BridgeOptions
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BridgeOptions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 297
+    startLine: 325
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: >-
     Shared compatibility options for callers that want to pass one options object to export and import.
 
-    Prefer <xref href="Zachtbeer.SqlDataBridge.ExportOptions" data-throw-if-not-resolved="false"></xref> and <xref href="Zachtbeer.SqlDataBridge.ImportOptions" data-throw-if-not-resolved="false"></xref> for new code.
+    Prefer <xref href="Zachtbeer.SqlDataBridge.Models.ExportOptions" data-throw-if-not-resolved="false"></xref> and <xref href="Zachtbeer.SqlDataBridge.Models.ImportOptions" data-throw-if-not-resolved="false"></xref> for new code.
   example: []
   syntax:
     content: public sealed class BridgeOptions
@@ -60,60 +61,60 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
   id: TableSelection
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: TableSelection
   nameWithType: BridgeOptions.TableSelection
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: TableSelection
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 302
+    startLine: 330
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: Gets how <xref href="Zachtbeer.SqlDataBridge.BridgeOptions.Tables" data-throw-if-not-resolved="false"></xref> is applied during export.
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Gets how <xref href="Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables" data-throw-if-not-resolved="false"></xref> is applied during export.
   example: []
   syntax:
     content: public ExportTableSelectionMode TableSelection { get; init; }
     parameters: []
     return:
-      type: Zachtbeer.SqlDataBridge.ExportTableSelectionMode
+      type: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
     content.vb: Public Property TableSelection As ExportTableSelectionMode
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.Tables
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.Tables
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
   id: Tables
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: Tables
   nameWithType: BridgeOptions.Tables
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.Tables
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Tables
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 307
+    startLine: 335
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: Gets table patterns used by <xref href="Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection" data-throw-if-not-resolved="false"></xref> during export.
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Gets table patterns used by <xref href="Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection" data-throw-if-not-resolved="false"></xref> during export. Patterns support exact source table names and <code>*</code> wildcards.
   example: []
   syntax:
     content: public IReadOnlyCollection<string> Tables { get; init; }
@@ -121,29 +122,29 @@ items:
     return:
       type: System.Collections.Generic.IReadOnlyCollection{System.String}
     content.vb: Public Property Tables As IReadOnlyCollection(Of String)
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.Tables*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns
   id: ExcludeColumns
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: ExcludeColumns
   nameWithType: BridgeOptions.ExcludeColumns
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ExcludeColumns
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 312
+    startLine: 340
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the column paths to omit during export.
   example: []
   syntax:
@@ -152,91 +153,122 @@ items:
     return:
       type: System.Collections.Generic.IReadOnlyCollection{System.String}
     content.vb: Public Property ExcludeColumns As IReadOnlyCollection(Of String)
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses
   id: GlobalWhereClauses
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: GlobalWhereClauses
   nameWithType: BridgeOptions.GlobalWhereClauses
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: GlobalWhereClauses
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 317
+    startLine: 345
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets global SQL Server WHERE predicates applied to selected export tables containing the configured source column.
   example: []
   syntax:
     content: public IReadOnlyCollection<GlobalWhereClause> GlobalWhereClauses { get; init; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.GlobalWhereClause}
+      type: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.Models.GlobalWhereClause}
     content.vb: Public Property GlobalWhereClauses As IReadOnlyCollection(Of GlobalWhereClause)
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses
   id: PerTableWhereClauses
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: PerTableWhereClauses
   nameWithType: BridgeOptions.PerTableWhereClauses
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: PerTableWhereClauses
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 322
+    startLine: 350
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets SQL Server WHERE predicates applied to exact selected source tables during export.
   example: []
   syntax:
     content: public IReadOnlyCollection<PerTableWhereClause> PerTableWhereClauses { get; init; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.PerTableWhereClause}
+      type: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.Models.PerTableWhereClause}
     content.vb: Public Property PerTableWhereClauses As IReadOnlyCollection(Of PerTableWhereClause)
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix
+  id: DataTablePrefix
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  langs:
+  - csharp
+  - vb
+  name: DataTablePrefix
+  nameWithType: BridgeOptions.DataTablePrefix
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: DataTablePrefix
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 355
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Gets the SQLite table-name prefix used for exported data tables. Use <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or an empty value to omit the prefix.
+  example: []
+  syntax:
+    content: public string? DataTablePrefix { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DataTablePrefix As String
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize
   id: BatchSize
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: BatchSize
   nameWithType: BridgeOptions.BatchSize
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BatchSize
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 327
+    startLine: 360
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the row batch size used by export and import.
   example: []
   syntax:
@@ -245,29 +277,29 @@ items:
     return:
       type: System.Int32
     content.vb: Public Property BatchSize As Integer
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled
   id: AdaptiveBatchingEnabled
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: AdaptiveBatchingEnabled
   nameWithType: BridgeOptions.AdaptiveBatchingEnabled
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: AdaptiveBatchingEnabled
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 332
+    startLine: 365
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether table size metadata should reduce batch sizes for large or wide tables.
   example: []
   syntax:
@@ -276,29 +308,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property AdaptiveBatchingEnabled As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes
   id: LargeTableThresholdBytes
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: LargeTableThresholdBytes
   nameWithType: BridgeOptions.LargeTableThresholdBytes
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: LargeTableThresholdBytes
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 337
+    startLine: 370
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the estimated table size, in bytes, at which large-table batching is used.
   example: []
   syntax:
@@ -307,29 +339,29 @@ items:
     return:
       type: System.Int64
     content.vb: Public Property LargeTableThresholdBytes As Long
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold
   id: LargeTableRowThreshold
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: LargeTableRowThreshold
   nameWithType: BridgeOptions.LargeTableRowThreshold
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: LargeTableRowThreshold
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 342
+    startLine: 375
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
   example: []
   syntax:
@@ -338,29 +370,29 @@ items:
     return:
       type: System.Int64
     content.vb: Public Property LargeTableRowThreshold As Long
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize
   id: LargeTableBatchSize
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: LargeTableBatchSize
   nameWithType: BridgeOptions.LargeTableBatchSize
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: LargeTableBatchSize
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 347
+    startLine: 380
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the row batch size used for tables at or above the configured large-table thresholds.
   example: []
   syntax:
@@ -369,29 +401,29 @@ items:
     return:
       type: System.Int32
     content.vb: Public Property LargeTableBatchSize As Integer
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes
   id: MaxBatchBytes
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: MaxBatchBytes
   nameWithType: BridgeOptions.MaxBatchBytes
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: MaxBatchBytes
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 352
+    startLine: 385
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the approximate maximum bytes represented by one batch when table size and row count metadata are available.
   example: []
   syntax:
@@ -400,29 +432,29 @@ items:
     return:
       type: System.Int64
     content.vb: Public Property MaxBatchBytes As Long
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout
   id: ExportCommandTimeout
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: ExportCommandTimeout
   nameWithType: BridgeOptions.ExportCommandTimeout
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ExportCommandTimeout
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 357
+    startLine: 390
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the optional timeout, in seconds, for SQL Server metadata and data commands during export.
   example: []
   syntax:
@@ -431,29 +463,29 @@ items:
     return:
       type: System.Nullable{System.Int32}
     content.vb: Public Property ExportCommandTimeout As Integer?
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout
   id: ImportValidationCommandTimeout
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: ImportValidationCommandTimeout
   nameWithType: BridgeOptions.ImportValidationCommandTimeout
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ImportValidationCommandTimeout
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 362
+    startLine: 395
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the optional timeout, in seconds, for SQL Server target validation commands during import.
   example: []
   syntax:
@@ -462,29 +494,29 @@ items:
     return:
       type: System.Nullable{System.Int32}
     content.vb: Public Property ImportValidationCommandTimeout As Integer?
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout
   id: ImportBulkCopyTimeout
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: ImportBulkCopyTimeout
   nameWithType: BridgeOptions.ImportBulkCopyTimeout
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ImportBulkCopyTimeout
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 367
+    startLine: 400
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the optional timeout, in seconds, for SQL Server bulk-copy operations during import.
   example: []
   syntax:
@@ -493,60 +525,60 @@ items:
     return:
       type: System.Nullable{System.Int32}
     content.vb: Public Property ImportBulkCopyTimeout As Integer?
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.Progress
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.Progress
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress
   id: Progress
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: Progress
   nameWithType: BridgeOptions.Progress
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.Progress
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Progress
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 372
+    startLine: 405
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets the optional progress reporter used by export and import operations.
   example: []
   syntax:
     content: public IProgress<BridgeProgress>? Progress { get; init; }
     parameters: []
     return:
-      type: System.IProgress{Zachtbeer.SqlDataBridge.BridgeProgress}
+      type: System.IProgress{Zachtbeer.SqlDataBridge.Models.BridgeProgress}
     content.vb: Public Property Progress As IProgress(Of BridgeProgress)
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.Progress*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage
   id: OverwriteExistingPackage
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: OverwriteExistingPackage
   nameWithType: BridgeOptions.OverwriteExistingPackage
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: OverwriteExistingPackage
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 377
+    startLine: 410
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether an existing SQLite package at the destination path may be replaced after a successful export.
   example: []
   syntax:
@@ -555,152 +587,152 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property OverwriteExistingPackage As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode
   id: SchemaCaptureMode
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: SchemaCaptureMode
   nameWithType: BridgeOptions.SchemaCaptureMode
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: SchemaCaptureMode
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 382
+    startLine: 415
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether SQL Server schema should be captured in the SQLite package during export.
   example: []
   syntax:
     content: public SchemaCaptureMode SchemaCaptureMode { get; init; }
     parameters: []
     return:
-      type: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+      type: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
     content.vb: Public Property SchemaCaptureMode As SchemaCaptureMode
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions
   id: DacpacCaptureOptions
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: DacpacCaptureOptions
   nameWithType: BridgeOptions.DacpacCaptureOptions
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DacpacCaptureOptions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 387
+    startLine: 420
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets dacpac extraction settings used when schema capture is enabled.
   example: []
   syntax:
     content: public DacpacCaptureOptions DacpacCaptureOptions { get; init; }
     parameters: []
     return:
-      type: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
+      type: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
     content.vb: Public Property DacpacCaptureOptions As DacpacCaptureOptions
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode
   id: SchemaDeploymentMode
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: SchemaDeploymentMode
   nameWithType: BridgeOptions.SchemaDeploymentMode
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: SchemaDeploymentMode
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 392
+    startLine: 425
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether schema stored in the package should be deployed before data import.
   example: []
   syntax:
     content: public SchemaDeploymentMode SchemaDeploymentMode { get; init; }
     parameters: []
     return:
-      type: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
+      type: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
     content.vb: Public Property SchemaDeploymentMode As SchemaDeploymentMode
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode*
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions
   id: DacpacDeploymentOptions
-  parent: Zachtbeer.SqlDataBridge.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeOptions
   langs:
   - csharp
   - vb
   name: DacpacDeploymentOptions
   nameWithType: BridgeOptions.DacpacDeploymentOptions
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DacpacDeploymentOptions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 397
+    startLine: 430
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets dacpac deployment settings used when schema deployment is enabled.
   example: []
   syntax:
     content: public DacpacDeploymentOptions DacpacDeploymentOptions { get; init; }
     parameters: []
     return:
-      type: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+      type: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
     content.vb: Public Property DacpacDeploymentOptions As DacpacDeploymentOptions
-  overload: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions*
 references:
-- uid: Zachtbeer.SqlDataBridge.ExportOptions
-  commentId: T:Zachtbeer.SqlDataBridge.ExportOptions
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.ExportOptions.html
+- uid: Zachtbeer.SqlDataBridge.Models.ExportOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ExportOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ExportOptions.html
   name: ExportOptions
   nameWithType: ExportOptions
-  fullName: Zachtbeer.SqlDataBridge.ExportOptions
-- uid: Zachtbeer.SqlDataBridge.ImportOptions
-  commentId: T:Zachtbeer.SqlDataBridge.ImportOptions
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.ImportOptions.html
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportOptions
+- uid: Zachtbeer.SqlDataBridge.Models.ImportOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ImportOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ImportOptions.html
   name: ImportOptions
   nameWithType: ImportOptions
-  fullName: Zachtbeer.SqlDataBridge.ImportOptions
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+  fullName: Zachtbeer.SqlDataBridge.Models.ImportOptions
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -709,6 +741,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -717,6 +753,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -930,37 +970,37 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.Tables
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.Tables
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_Tables
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_Tables
   name: Tables
   nameWithType: BridgeOptions.Tables
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.Tables
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_TableSelection
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_TableSelection
   name: TableSelection
   nameWithType: BridgeOptions.TableSelection
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-- uid: Zachtbeer.SqlDataBridge.ExportTableSelectionMode
-  commentId: T:Zachtbeer.SqlDataBridge.ExportTableSelectionMode
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.ExportTableSelectionMode.html
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+- uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.html
   name: ExportTableSelectionMode
   nameWithType: ExportTableSelectionMode
-  fullName: Zachtbeer.SqlDataBridge.ExportTableSelectionMode
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_TableSelection
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_TableSelection
   name: TableSelection
   nameWithType: BridgeOptions.TableSelection
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.TableSelection
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.Tables*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.Tables
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_Tables
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.TableSelection
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_Tables
   name: Tables
   nameWithType: BridgeOptions.Tables
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.Tables
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Tables
 - uid: System.Collections.Generic.IReadOnlyCollection{System.String}
   commentId: T:System.Collections.Generic.IReadOnlyCollection{System.String}
   parent: System.Collections.Generic
@@ -1061,28 +1101,28 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_ExcludeColumns
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_ExcludeColumns
   name: ExcludeColumns
   nameWithType: BridgeOptions.ExcludeColumns
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ExcludeColumns
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_GlobalWhereClauses
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExcludeColumns
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_GlobalWhereClauses
   name: GlobalWhereClauses
   nameWithType: BridgeOptions.GlobalWhereClauses
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.GlobalWhereClauses
-- uid: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.GlobalWhereClause}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.GlobalWhereClause}
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.GlobalWhereClauses
+- uid: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.Models.GlobalWhereClause}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.Models.GlobalWhereClause}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IReadOnlyCollection`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
   name: IReadOnlyCollection<GlobalWhereClause>
   nameWithType: IReadOnlyCollection<GlobalWhereClause>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Zachtbeer.SqlDataBridge.GlobalWhereClause>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Zachtbeer.SqlDataBridge.Models.GlobalWhereClause>
   nameWithType.vb: IReadOnlyCollection(Of GlobalWhereClause)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Zachtbeer.SqlDataBridge.GlobalWhereClause)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Zachtbeer.SqlDataBridge.Models.GlobalWhereClause)
   name.vb: IReadOnlyCollection(Of GlobalWhereClause)
   spec.csharp:
   - uid: System.Collections.Generic.IReadOnlyCollection`1
@@ -1090,9 +1130,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  - uid: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
     name: GlobalWhereClause
-    href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html
+    href: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IReadOnlyCollection`1
@@ -1102,26 +1142,26 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
+  - uid: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
     name: GlobalWhereClause
-    href: Zachtbeer.SqlDataBridge.GlobalWhereClause.html
+    href: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause.html
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_PerTableWhereClauses
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_PerTableWhereClauses
   name: PerTableWhereClauses
   nameWithType: BridgeOptions.PerTableWhereClauses
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.PerTableWhereClauses
-- uid: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.PerTableWhereClause}
-  commentId: T:System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.PerTableWhereClause}
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.PerTableWhereClauses
+- uid: System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.Models.PerTableWhereClause}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Zachtbeer.SqlDataBridge.Models.PerTableWhereClause}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IReadOnlyCollection`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
   name: IReadOnlyCollection<PerTableWhereClause>
   nameWithType: IReadOnlyCollection<PerTableWhereClause>
-  fullName: System.Collections.Generic.IReadOnlyCollection<Zachtbeer.SqlDataBridge.PerTableWhereClause>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Zachtbeer.SqlDataBridge.Models.PerTableWhereClause>
   nameWithType.vb: IReadOnlyCollection(Of PerTableWhereClause)
-  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Zachtbeer.SqlDataBridge.PerTableWhereClause)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Zachtbeer.SqlDataBridge.Models.PerTableWhereClause)
   name.vb: IReadOnlyCollection(Of PerTableWhereClause)
   spec.csharp:
   - uid: System.Collections.Generic.IReadOnlyCollection`1
@@ -1129,9 +1169,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  - uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
     name: PerTableWhereClause
-    href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html
+    href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IReadOnlyCollection`1
@@ -1141,16 +1181,33 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  - uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
     name: PerTableWhereClause
-    href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html
+    href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_BatchSize
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_DataTablePrefix
+  name: DataTablePrefix
+  nameWithType: BridgeOptions.DataTablePrefix
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DataTablePrefix
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_BatchSize
   name: BatchSize
   nameWithType: BridgeOptions.BatchSize
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.BatchSize
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.BatchSize
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1162,12 +1219,12 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_AdaptiveBatchingEnabled
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_AdaptiveBatchingEnabled
   name: AdaptiveBatchingEnabled
   nameWithType: BridgeOptions.AdaptiveBatchingEnabled
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.AdaptiveBatchingEnabled
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.AdaptiveBatchingEnabled
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1179,12 +1236,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_LargeTableThresholdBytes
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_LargeTableThresholdBytes
   name: LargeTableThresholdBytes
   nameWithType: BridgeOptions.LargeTableThresholdBytes
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableThresholdBytes
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableThresholdBytes
 - uid: System.Int64
   commentId: T:System.Int64
   parent: System
@@ -1196,30 +1253,30 @@ references:
   nameWithType.vb: Long
   fullName.vb: Long
   name.vb: Long
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_LargeTableRowThreshold
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_LargeTableRowThreshold
   name: LargeTableRowThreshold
   nameWithType: BridgeOptions.LargeTableRowThreshold
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableRowThreshold
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_LargeTableBatchSize
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableRowThreshold
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_LargeTableBatchSize
   name: LargeTableBatchSize
   nameWithType: BridgeOptions.LargeTableBatchSize
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.LargeTableBatchSize
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_MaxBatchBytes
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.LargeTableBatchSize
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_MaxBatchBytes
   name: MaxBatchBytes
   nameWithType: BridgeOptions.MaxBatchBytes
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.MaxBatchBytes
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_ExportCommandTimeout
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.MaxBatchBytes
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_ExportCommandTimeout
   name: ExportCommandTimeout
   nameWithType: BridgeOptions.ExportCommandTimeout
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ExportCommandTimeout
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ExportCommandTimeout
 - uid: System.Nullable{System.Int32}
   commentId: T:System.Nullable{System.Int32}
   parent: System
@@ -1271,34 +1328,34 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_ImportValidationCommandTimeout
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_ImportValidationCommandTimeout
   name: ImportValidationCommandTimeout
   nameWithType: BridgeOptions.ImportValidationCommandTimeout
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ImportValidationCommandTimeout
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_ImportBulkCopyTimeout
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportValidationCommandTimeout
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_ImportBulkCopyTimeout
   name: ImportBulkCopyTimeout
   nameWithType: BridgeOptions.ImportBulkCopyTimeout
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.ImportBulkCopyTimeout
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.Progress*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.Progress
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_Progress
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.ImportBulkCopyTimeout
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_Progress
   name: Progress
   nameWithType: BridgeOptions.Progress
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.Progress
-- uid: System.IProgress{Zachtbeer.SqlDataBridge.BridgeProgress}
-  commentId: T:System.IProgress{Zachtbeer.SqlDataBridge.BridgeProgress}
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.Progress
+- uid: System.IProgress{Zachtbeer.SqlDataBridge.Models.BridgeProgress}
+  commentId: T:System.IProgress{Zachtbeer.SqlDataBridge.Models.BridgeProgress}
   parent: System
   definition: System.IProgress`1
   href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
   name: IProgress<BridgeProgress>
   nameWithType: IProgress<BridgeProgress>
-  fullName: System.IProgress<Zachtbeer.SqlDataBridge.BridgeProgress>
+  fullName: System.IProgress<Zachtbeer.SqlDataBridge.Models.BridgeProgress>
   nameWithType.vb: IProgress(Of BridgeProgress)
-  fullName.vb: System.IProgress(Of Zachtbeer.SqlDataBridge.BridgeProgress)
+  fullName.vb: System.IProgress(Of Zachtbeer.SqlDataBridge.Models.BridgeProgress)
   name.vb: IProgress(Of BridgeProgress)
   spec.csharp:
   - uid: System.IProgress`1
@@ -1306,9 +1363,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
     name: BridgeProgress
-    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html
   - name: '>'
   spec.vb:
   - uid: System.IProgress`1
@@ -1318,9 +1375,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
     name: BridgeProgress
-    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html
   - name: )
 - uid: System.IProgress`1
   commentId: T:System.IProgress`1
@@ -1350,61 +1407,61 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_OverwriteExistingPackage
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_OverwriteExistingPackage
   name: OverwriteExistingPackage
   nameWithType: BridgeOptions.OverwriteExistingPackage
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.OverwriteExistingPackage
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_SchemaCaptureMode
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.OverwriteExistingPackage
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_SchemaCaptureMode
   name: SchemaCaptureMode
   nameWithType: BridgeOptions.SchemaCaptureMode
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaCaptureMode
-- uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode
-  commentId: T:Zachtbeer.SqlDataBridge.SchemaCaptureMode
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.SchemaCaptureMode.html
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaCaptureMode
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.html
   name: SchemaCaptureMode
   nameWithType: SchemaCaptureMode
-  fullName: Zachtbeer.SqlDataBridge.SchemaCaptureMode
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_DacpacCaptureOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_DacpacCaptureOptions
   name: DacpacCaptureOptions
   nameWithType: BridgeOptions.DacpacCaptureOptions
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacCaptureOptions
-- uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
-  commentId: T:Zachtbeer.SqlDataBridge.DacpacCaptureOptions
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.DacpacCaptureOptions.html
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacCaptureOptions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html
   name: DacpacCaptureOptions
   nameWithType: DacpacCaptureOptions
-  fullName: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_SchemaDeploymentMode
   name: SchemaDeploymentMode
   nameWithType: BridgeOptions.SchemaDeploymentMode
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.SchemaDeploymentMode
-- uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
-  commentId: T:Zachtbeer.SqlDataBridge.SchemaDeploymentMode
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.SchemaDeploymentMode.html
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode.html
   name: SchemaDeploymentMode
   nameWithType: SchemaDeploymentMode
-  fullName: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html#Zachtbeer_SqlDataBridge_BridgeOptions_DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html#Zachtbeer_SqlDataBridge_Models_BridgeOptions_DacpacDeploymentOptions
   name: DacpacDeploymentOptions
   nameWithType: BridgeOptions.DacpacDeploymentOptions
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions.DacpacDeploymentOptions
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
-  commentId: T:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions.DacpacDeploymentOptions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html
   name: DacpacDeploymentOptions
   nameWithType: DacpacDeploymentOptions
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions

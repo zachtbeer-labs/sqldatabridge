@@ -1,214 +1,214 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   id: BridgeProgressKind
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationCompleted
-  - Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationStarted
-  - Zachtbeer.SqlDataBridge.BridgeProgressKind.RowsCopied
-  - Zachtbeer.SqlDataBridge.BridgeProgressKind.TableCompleted
-  - Zachtbeer.SqlDataBridge.BridgeProgressKind.TableStarted
-  - Zachtbeer.SqlDataBridge.BridgeProgressKind.Warning
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationCompleted
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationStarted
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.RowsCopied
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableCompleted
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableStarted
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.Warning
   langs:
   - csharp
   - vb
   name: BridgeProgressKind
   nameWithType: BridgeProgressKind
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   type: Enum
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BridgeProgressKind
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 5
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Describes the kind of progress reported by an export or import operation.
   example: []
   syntax:
     content: public enum BridgeProgressKind
     content.vb: Public Enum BridgeProgressKind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationStarted
-  commentId: F:Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationStarted
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationStarted
+  commentId: F:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationStarted
   id: OperationStarted
-  parent: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   langs:
   - csharp
   - vb
   name: OperationStarted
   nameWithType: BridgeProgressKind.OperationStarted
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationStarted
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationStarted
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: OperationStarted
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 10
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The operation has started.
   example: []
   syntax:
     content: OperationStarted = 0
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind.TableStarted
-  commentId: F:Zachtbeer.SqlDataBridge.BridgeProgressKind.TableStarted
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableStarted
+  commentId: F:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableStarted
   id: TableStarted
-  parent: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   langs:
   - csharp
   - vb
   name: TableStarted
   nameWithType: BridgeProgressKind.TableStarted
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind.TableStarted
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableStarted
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: TableStarted
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 15
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: A table transfer has started.
   example: []
   syntax:
     content: TableStarted = 1
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind.RowsCopied
-  commentId: F:Zachtbeer.SqlDataBridge.BridgeProgressKind.RowsCopied
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.RowsCopied
+  commentId: F:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.RowsCopied
   id: RowsCopied
-  parent: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   langs:
   - csharp
   - vb
   name: RowsCopied
   nameWithType: BridgeProgressKind.RowsCopied
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind.RowsCopied
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.RowsCopied
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: RowsCopied
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 20
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Rows have been copied for the current table.
   example: []
   syntax:
     content: RowsCopied = 2
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind.TableCompleted
-  commentId: F:Zachtbeer.SqlDataBridge.BridgeProgressKind.TableCompleted
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableCompleted
+  commentId: F:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableCompleted
   id: TableCompleted
-  parent: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   langs:
   - csharp
   - vb
   name: TableCompleted
   nameWithType: BridgeProgressKind.TableCompleted
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind.TableCompleted
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.TableCompleted
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: TableCompleted
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 25
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: A table transfer has completed.
   example: []
   syntax:
     content: TableCompleted = 3
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind.Warning
-  commentId: F:Zachtbeer.SqlDataBridge.BridgeProgressKind.Warning
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.Warning
+  commentId: F:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.Warning
   id: Warning
-  parent: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   langs:
   - csharp
   - vb
   name: Warning
   nameWithType: BridgeProgressKind.Warning
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind.Warning
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.Warning
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Warning
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 30
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: A non-fatal warning was produced.
   example: []
   syntax:
     content: Warning = 4
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationCompleted
-  commentId: F:Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationCompleted
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationCompleted
+  commentId: F:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationCompleted
   id: OperationCompleted
-  parent: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
   langs:
   - csharp
   - vb
   name: OperationCompleted
   nameWithType: BridgeProgressKind.OperationCompleted
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind.OperationCompleted
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.OperationCompleted
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: OperationCompleted
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 35
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The operation has completed.
   example: []
   syntax:
     content: OperationCompleted = 5
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -217,6 +217,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -225,10 +229,14 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeProgressKind
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.BridgeProgressKind.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.html
   name: BridgeProgressKind
   nameWithType: BridgeProgressKind
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind

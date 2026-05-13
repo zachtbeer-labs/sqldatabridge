@@ -1,98 +1,98 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode
-  commentId: T:Zachtbeer.SqlDataBridge.SchemaCaptureMode
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
   id: SchemaCaptureMode
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.SchemaCaptureMode.Dacpac
-  - Zachtbeer.SqlDataBridge.SchemaCaptureMode.None
+  - Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.Dacpac
+  - Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.None
   langs:
   - csharp
   - vb
   name: SchemaCaptureMode
   nameWithType: SchemaCaptureMode
-  fullName: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
   type: Enum
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: SchemaCaptureMode
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 5
+    startLine: 7
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Controls whether SQL Server schema is captured during export.
   example: []
   syntax:
     content: public enum SchemaCaptureMode
     content.vb: Public Enum SchemaCaptureMode
-- uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode.None
-  commentId: F:Zachtbeer.SqlDataBridge.SchemaCaptureMode.None
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.None
+  commentId: F:Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.None
   id: None
-  parent: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+  parent: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
   langs:
   - csharp
   - vb
   name: None
   nameWithType: SchemaCaptureMode.None
-  fullName: Zachtbeer.SqlDataBridge.SchemaCaptureMode.None
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.None
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: None
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Do not capture SQL Server schema. This is the default data-only behavior.
   example: []
   syntax:
     content: None = 0
     return:
-      type: Zachtbeer.SqlDataBridge.SchemaCaptureMode
-- uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode.Dacpac
-  commentId: F:Zachtbeer.SqlDataBridge.SchemaCaptureMode.Dacpac
+      type: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.Dacpac
+  commentId: F:Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.Dacpac
   id: Dacpac
-  parent: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+  parent: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
   langs:
   - csharp
   - vb
   name: Dacpac
   nameWithType: SchemaCaptureMode.Dacpac
-  fullName: Zachtbeer.SqlDataBridge.SchemaCaptureMode.Dacpac
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.Dacpac
   type: Field
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Dacpac
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 15
+    startLine: 17
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Extract the source database schema as a dacpac and store it in the SQLite package.
   example: []
   syntax:
     content: Dacpac = 1
     return:
-      type: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+      type: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -101,6 +101,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -109,10 +113,14 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
-- uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode
-  commentId: T:Zachtbeer.SqlDataBridge.SchemaCaptureMode
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.SchemaCaptureMode.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.html
   name: SchemaCaptureMode
   nameWithType: SchemaCaptureMode
-  fullName: Zachtbeer.SqlDataBridge.SchemaCaptureMode
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode

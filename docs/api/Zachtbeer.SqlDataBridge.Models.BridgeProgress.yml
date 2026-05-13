@@ -1,34 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeProgress
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeProgress
   id: BridgeProgress
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
-  - Zachtbeer.SqlDataBridge.BridgeProgress.Kind
-  - Zachtbeer.SqlDataBridge.BridgeProgress.Message
-  - Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
-  - Zachtbeer.SqlDataBridge.BridgeProgress.TableName
-  - Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.Models.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows
   langs:
   - csharp
   - vb
   name: BridgeProgress
   nameWithType: BridgeProgress
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BridgeProgress
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Reports progress from an export or import operation.
   example: []
   syntax:
@@ -37,7 +37,7 @@ items:
   inheritance:
   - System.Object
   implements:
-  - System.IEquatable{Zachtbeer.SqlDataBridge.BridgeProgress}
+  - System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgeProgress}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -45,35 +45,35 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
-  commentId: M:Zachtbeer.SqlDataBridge.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
-  id: '#ctor(Zachtbeer.SqlDataBridge.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)'
-  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.Models.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
+  commentId: M:Zachtbeer.SqlDataBridge.Models.BridgeProgress.#ctor(Zachtbeer.SqlDataBridge.Models.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)
+  id: '#ctor(Zachtbeer.SqlDataBridge.Models.BridgeProgressKind,System.String,System.Int64,System.Nullable{System.Int64},System.String)'
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   langs:
   - csharp
   - vb
   name: BridgeProgress(BridgeProgressKind, string?, long, long?, string?)
   nameWithType: BridgeProgress.BridgeProgress(BridgeProgressKind, string?, long, long?, string?)
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.BridgeProgress(Zachtbeer.SqlDataBridge.BridgeProgressKind, string?, long, long?, string?)
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.BridgeProgress(Zachtbeer.SqlDataBridge.Models.BridgeProgressKind, string?, long, long?, string?)
   type: Constructor
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Reports progress from an export or import operation.
   example: []
   syntax:
     content: public BridgeProgress(BridgeProgressKind Kind, string? TableName = null, long RowsProcessed = 0, long? TotalRows = null, string? Message = null)
     parameters:
     - id: Kind
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
       description: The progress event kind.
     - id: TableName
       type: System.String
@@ -88,63 +88,63 @@ items:
       type: System.String
       description: An optional human-readable message.
     content.vb: Public Sub New(Kind As BridgeProgressKind, TableName As String = Nothing, RowsProcessed As Long = 0, TotalRows As Long? = Nothing, Message As String = Nothing)
-  overload: Zachtbeer.SqlDataBridge.BridgeProgress.#ctor*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeProgress.#ctor*
   nameWithType.vb: BridgeProgress.New(BridgeProgressKind, String, Long, Long?, String)
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeProgress.New(Zachtbeer.SqlDataBridge.BridgeProgressKind, String, Long, Long?, String)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeProgress.New(Zachtbeer.SqlDataBridge.Models.BridgeProgressKind, String, Long, Long?, String)
   name.vb: New(BridgeProgressKind, String, Long, Long?, String)
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Kind
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind
   id: Kind
-  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   langs:
   - csharp
   - vb
   name: Kind
   nameWithType: BridgeProgress.Kind
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Kind
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Kind
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The progress event kind.
   example: []
   syntax:
     content: public BridgeProgressKind Kind { get; init; }
     parameters: []
     return:
-      type: Zachtbeer.SqlDataBridge.BridgeProgressKind
+      type: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
     content.vb: Public Property Kind As BridgeProgressKind
-  overload: Zachtbeer.SqlDataBridge.BridgeProgress.Kind*
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TableName
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName
   id: TableName
-  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   langs:
   - csharp
   - vb
   name: TableName
   nameWithType: BridgeProgress.TableName
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TableName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: TableName
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The source table full name when the event is table-specific.
   example: []
   syntax:
@@ -153,29 +153,29 @@ items:
     return:
       type: System.String
     content.vb: Public Property TableName As String
-  overload: Zachtbeer.SqlDataBridge.BridgeProgress.TableName*
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed
   id: RowsProcessed
-  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   langs:
   - csharp
   - vb
   name: RowsProcessed
   nameWithType: BridgeProgress.RowsProcessed
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: RowsProcessed
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The rows processed for the table or operation.
   example: []
   syntax:
@@ -184,29 +184,29 @@ items:
     return:
       type: System.Int64
     content.vb: Public Property RowsProcessed As Long
-  overload: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed*
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows
   id: TotalRows
-  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   langs:
   - csharp
   - vb
   name: TotalRows
   nameWithType: BridgeProgress.TotalRows
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: TotalRows
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The expected rows when known.
   example: []
   syntax:
@@ -215,29 +215,29 @@ items:
     return:
       type: System.Nullable{System.Int64}
     content.vb: Public Property TotalRows As Long?
-  overload: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows*
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Message
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message
   id: Message
-  parent: Zachtbeer.SqlDataBridge.BridgeProgress
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeProgress
   langs:
   - csharp
   - vb
   name: Message
   nameWithType: BridgeProgress.Message
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Message
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 46
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: An optional human-readable message.
   example: []
   syntax:
@@ -246,14 +246,14 @@ items:
     return:
       type: System.String
     content.vb: Public Property Message As String
-  overload: Zachtbeer.SqlDataBridge.BridgeProgress.Message*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -262,6 +262,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -270,6 +274,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -281,16 +289,16 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{Zachtbeer.SqlDataBridge.BridgeProgress}
-  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.BridgeProgress}
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgeProgress}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgeProgress}
   parent: System
   definition: System.IEquatable`1
   href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   name: IEquatable<BridgeProgress>
   nameWithType: IEquatable<BridgeProgress>
-  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.BridgeProgress>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.Models.BridgeProgress>
   nameWithType.vb: IEquatable(Of BridgeProgress)
-  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.BridgeProgress)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.Models.BridgeProgress)
   name.vb: IEquatable(Of BridgeProgress)
   spec.csharp:
   - uid: System.IEquatable`1
@@ -298,9 +306,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
     name: BridgeProgress
-    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html
   - name: '>'
   spec.vb:
   - uid: System.IEquatable`1
@@ -310,9 +318,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
     name: BridgeProgress
-    href: Zachtbeer.SqlDataBridge.BridgeProgress.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -544,22 +552,22 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.#ctor*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.#ctor
-  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress__ctor_Zachtbeer_SqlDataBridge_BridgeProgressKind_System_String_System_Int64_System_Nullable_System_Int64__System_String_
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeProgress.#ctor
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html#Zachtbeer_SqlDataBridge_Models_BridgeProgress__ctor_Zachtbeer_SqlDataBridge_Models_BridgeProgressKind_System_String_System_Int64_System_Nullable_System_Int64__System_String_
   name: BridgeProgress
   nameWithType: BridgeProgress.BridgeProgress
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.BridgeProgress
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.BridgeProgress
   nameWithType.vb: BridgeProgress.New
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeProgress.New
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeProgress.New
   name.vb: New
-- uid: Zachtbeer.SqlDataBridge.BridgeProgressKind
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeProgressKind
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.BridgeProgressKind.html
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.html
   name: BridgeProgressKind
   nameWithType: BridgeProgressKind
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgressKind
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -633,33 +641,33 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Kind*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.Kind
-  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_Kind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html#Zachtbeer_SqlDataBridge_Models_BridgeProgress_Kind
   name: Kind
   nameWithType: BridgeProgress.Kind
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Kind
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TableName*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.TableName
-  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_TableName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Kind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html#Zachtbeer_SqlDataBridge_Models_BridgeProgress_TableName
   name: TableName
   nameWithType: BridgeProgress.TableName
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TableName
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
-  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_RowsProcessed
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TableName
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html#Zachtbeer_SqlDataBridge_Models_BridgeProgress_RowsProcessed
   name: RowsProcessed
   nameWithType: BridgeProgress.RowsProcessed
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.RowsProcessed
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
-  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_TotalRows
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.RowsProcessed
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html#Zachtbeer_SqlDataBridge_Models_BridgeProgress_TotalRows
   name: TotalRows
   nameWithType: BridgeProgress.TotalRows
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.TotalRows
-- uid: Zachtbeer.SqlDataBridge.BridgeProgress.Message*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeProgress.Message
-  href: Zachtbeer.SqlDataBridge.BridgeProgress.html#Zachtbeer_SqlDataBridge_BridgeProgress_Message
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.TotalRows
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html#Zachtbeer_SqlDataBridge_Models_BridgeProgress_Message
   name: Message
   nameWithType: BridgeProgress.Message
-  fullName: Zachtbeer.SqlDataBridge.BridgeProgress.Message
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress.Message

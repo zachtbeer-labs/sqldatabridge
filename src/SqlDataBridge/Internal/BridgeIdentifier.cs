@@ -1,4 +1,5 @@
 using System.Text;
+using Zachtbeer.SqlDataBridge.Models;
 
 namespace Zachtbeer.SqlDataBridge.Internal;
 
