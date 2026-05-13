@@ -1,7 +1,7 @@
 using Microsoft.Data.Sqlite;
 using Zachtbeer.SqlDataBridge.Internal;
 
-namespace Zachtbeer.SqlDataBridge;
+namespace Zachtbeer.SqlDataBridge.Models;
 
 /// <summary>
 /// Reads metadata from a Zachtbeer.SqlDataBridge SQLite package without importing rows.

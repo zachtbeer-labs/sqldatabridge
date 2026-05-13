@@ -1,37 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
-  commentId: T:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   id: DacpacDeploymentOptions
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers
-  - Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment
   langs:
   - csharp
   - vb
   name: DacpacDeploymentOptions
   nameWithType: DacpacDeploymentOptions
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DacpacDeploymentOptions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 84
+    startLine: 107
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Configures dacpac schema deployment during import.
   example: []
   syntax:
@@ -46,28 +46,28 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform
   id: AllowIncompatiblePlatform
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: AllowIncompatiblePlatform
   nameWithType: DacpacDeploymentOptions.AllowIncompatiblePlatform
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: AllowIncompatiblePlatform
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 89
+    startLine: 112
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether DacFx should allow deployment when the source and target platforms are incompatible.
   example: []
   syntax:
@@ -76,29 +76,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property AllowIncompatiblePlatform As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss
   id: BlockOnPossibleDataLoss
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: BlockOnPossibleDataLoss
   nameWithType: DacpacDeploymentOptions.BlockOnPossibleDataLoss
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BlockOnPossibleDataLoss
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 94
+    startLine: 117
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether deployment should block when DacFx detects possible data loss.
   example: []
   syntax:
@@ -107,29 +107,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property BlockOnPossibleDataLoss As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops
   id: AllowObjectDrops
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: AllowObjectDrops
   nameWithType: DacpacDeploymentOptions.AllowObjectDrops
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: AllowObjectDrops
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 99
+    startLine: 122
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether target objects absent from the package schema may be dropped.
   example: []
   syntax:
@@ -138,29 +138,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property AllowObjectDrops As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers
   id: DeployUsers
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: DeployUsers
   nameWithType: DacpacDeploymentOptions.DeployUsers
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DeployUsers
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 104
+    startLine: 127
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether database users should be deployed from the dacpac.
   example: []
   syntax:
@@ -169,29 +169,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property DeployUsers As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins
   id: DeployLogins
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: DeployLogins
   nameWithType: DacpacDeploymentOptions.DeployLogins
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DeployLogins
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 109
+    startLine: 132
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether server logins and login mappings should be deployed from the dacpac when present.
   example: []
   syntax:
@@ -200,29 +200,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property DeployLogins As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions
   id: DeployPermissions
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: DeployPermissions
   nameWithType: DacpacDeploymentOptions.DeployPermissions
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DeployPermissions
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 114
+    startLine: 137
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether permissions should be deployed from the dacpac.
   example: []
   syntax:
@@ -231,29 +231,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property DeployPermissions As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership
   id: DeployRoleMembership
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: DeployRoleMembership
   nameWithType: DacpacDeploymentOptions.DeployRoleMembership
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DeployRoleMembership
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 119
+    startLine: 142
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether role membership should be deployed from the dacpac.
   example: []
   syntax:
@@ -262,29 +262,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property DeployRoleMembership As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles
   id: DeployDatabaseFiles
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: DeployDatabaseFiles
   nameWithType: DacpacDeploymentOptions.DeployDatabaseFiles
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: DeployDatabaseFiles
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 124
+    startLine: 147
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether database files and filegroups should be deployed from the dacpac.
   example: []
   syntax:
@@ -293,29 +293,29 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property DeployDatabaseFiles As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles*
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment
-  commentId: P:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles*
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment
+  commentId: P:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment
   id: VerifyDeployment
-  parent: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
   langs:
   - csharp
   - vb
   name: VerifyDeployment
   nameWithType: DacpacDeploymentOptions.VerifyDeployment
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: VerifyDeployment
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 129
+    startLine: 152
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Gets whether DacFx should verify the deployment plan before applying changes.
   example: []
   syntax:
@@ -324,14 +324,14 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Property VerifyDeployment As Boolean
-  overload: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment*
+  overload: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -340,6 +340,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -348,6 +352,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -561,12 +569,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_AllowIncompatiblePlatform
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_AllowIncompatiblePlatform
   name: AllowIncompatiblePlatform
   nameWithType: DacpacDeploymentOptions.AllowIncompatiblePlatform
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowIncompatiblePlatform
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowIncompatiblePlatform
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -578,51 +586,51 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_BlockOnPossibleDataLoss
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_BlockOnPossibleDataLoss
   name: BlockOnPossibleDataLoss
   nameWithType: DacpacDeploymentOptions.BlockOnPossibleDataLoss
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.BlockOnPossibleDataLoss
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_AllowObjectDrops
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.BlockOnPossibleDataLoss
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_AllowObjectDrops
   name: AllowObjectDrops
   nameWithType: DacpacDeploymentOptions.AllowObjectDrops
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.AllowObjectDrops
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_DeployUsers
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.AllowObjectDrops
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_DeployUsers
   name: DeployUsers
   nameWithType: DacpacDeploymentOptions.DeployUsers
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployUsers
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_DeployLogins
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployUsers
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_DeployLogins
   name: DeployLogins
   nameWithType: DacpacDeploymentOptions.DeployLogins
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployLogins
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_DeployPermissions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployLogins
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_DeployPermissions
   name: DeployPermissions
   nameWithType: DacpacDeploymentOptions.DeployPermissions
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployPermissions
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_DeployRoleMembership
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployPermissions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_DeployRoleMembership
   name: DeployRoleMembership
   nameWithType: DacpacDeploymentOptions.DeployRoleMembership
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployRoleMembership
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_DeployDatabaseFiles
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployRoleMembership
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_DeployDatabaseFiles
   name: DeployDatabaseFiles
   nameWithType: DacpacDeploymentOptions.DeployDatabaseFiles
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.DeployDatabaseFiles
-- uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment*
-  commentId: Overload:Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment
-  href: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_DacpacDeploymentOptions_VerifyDeployment
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.DeployDatabaseFiles
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html#Zachtbeer_SqlDataBridge_Models_DacpacDeploymentOptions_VerifyDeployment
   name: VerifyDeployment
   nameWithType: DacpacDeploymentOptions.VerifyDeployment
-  fullName: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions.VerifyDeployment
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.VerifyDeployment

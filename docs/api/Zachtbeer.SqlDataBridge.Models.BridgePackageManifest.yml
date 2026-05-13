@@ -1,38 +1,39 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest
-  commentId: T:Zachtbeer.SqlDataBridge.BridgePackageManifest
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   id: BridgePackageManifest
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean)
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables
-  - Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean,System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope})
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings
   langs:
   - csharp
   - vb
   name: BridgePackageManifest
   nameWithType: BridgePackageManifest
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BridgePackageManifest
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Describes a SQLite bridge package or planned package.
   example: []
   syntax:
@@ -41,7 +42,7 @@ items:
   inheritance:
   - System.Object
   implements:
-  - System.IEquatable{Zachtbeer.SqlDataBridge.BridgePackageManifest}
+  - System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgePackageManifest}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -49,32 +50,32 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean)
-  commentId: M:Zachtbeer.SqlDataBridge.BridgePackageManifest.#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean)
-  id: '#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean)'
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean,System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope})
+  commentId: M:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean,System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope})
+  id: '#ctor(System.Int32,System.String,System.DateTimeOffset,System.String,System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},System.Boolean,System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope})'
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
-  name: BridgePackageManifest(int, string, DateTimeOffset, string, IReadOnlyList<BridgeTableManifest>, IReadOnlyList<string>, IReadOnlyList<string>, IReadOnlyList<string>, bool)
-  nameWithType: BridgePackageManifest.BridgePackageManifest(int, string, DateTimeOffset, string, IReadOnlyList<BridgeTableManifest>, IReadOnlyList<string>, IReadOnlyList<string>, IReadOnlyList<string>, bool)
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.BridgePackageManifest(int, string, System.DateTimeOffset, string, System.Collections.Generic.IReadOnlyList<Zachtbeer.SqlDataBridge.BridgeTableManifest>, System.Collections.Generic.IReadOnlyList<string>, System.Collections.Generic.IReadOnlyList<string>, System.Collections.Generic.IReadOnlyList<string>, bool)
+  name: BridgePackageManifest(int, string, DateTimeOffset, string, IReadOnlyList<BridgeTableManifest>, IReadOnlyList<string>, IReadOnlyList<string>, IReadOnlyList<string>, bool, DacpacSchemaScope?)
+  nameWithType: BridgePackageManifest.BridgePackageManifest(int, string, DateTimeOffset, string, IReadOnlyList<BridgeTableManifest>, IReadOnlyList<string>, IReadOnlyList<string>, IReadOnlyList<string>, bool, DacpacSchemaScope?)
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.BridgePackageManifest(int, string, System.DateTimeOffset, string, System.Collections.Generic.IReadOnlyList<Zachtbeer.SqlDataBridge.Models.BridgeTableManifest>, System.Collections.Generic.IReadOnlyList<string>, System.Collections.Generic.IReadOnlyList<string>, System.Collections.Generic.IReadOnlyList<string>, bool, Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope?)
   type: Constructor
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Describes a SQLite bridge package or planned package.
   example: []
   syntax:
-    content: public BridgePackageManifest(int PackageFormatVersion, string ApplicationVersion, DateTimeOffset ExportedAtUtc, string SourceSchemaHash, IReadOnlyList<BridgeTableManifest> Tables, IReadOnlyList<string> ImportOrder, IReadOnlyList<string> Exclusions, IReadOnlyList<string> Warnings, bool ContainsDacpac)
+    content: public BridgePackageManifest(int PackageFormatVersion, string ApplicationVersion, DateTimeOffset ExportedAtUtc, string SourceSchemaHash, IReadOnlyList<BridgeTableManifest> Tables, IReadOnlyList<string> ImportOrder, IReadOnlyList<string> Exclusions, IReadOnlyList<string> Warnings, bool ContainsDacpac, DacpacSchemaScope? DacpacSchemaScope)
     parameters:
     - id: PackageFormatVersion
       type: System.Int32
@@ -85,7 +86,7 @@ items:
     - id: SourceSchemaHash
       type: System.String
     - id: Tables
-      type: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest}
+      type: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest}
     - id: ImportOrder
       type: System.Collections.Generic.IReadOnlyList{System.String}
     - id: Exclusions
@@ -94,279 +95,310 @@ items:
       type: System.Collections.Generic.IReadOnlyList{System.String}
     - id: ContainsDacpac
       type: System.Boolean
-    content.vb: Public Sub New(PackageFormatVersion As Integer, ApplicationVersion As String, ExportedAtUtc As DateTimeOffset, SourceSchemaHash As String, Tables As IReadOnlyList(Of BridgeTableManifest), ImportOrder As IReadOnlyList(Of String), Exclusions As IReadOnlyList(Of String), Warnings As IReadOnlyList(Of String), ContainsDacpac As Boolean)
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.#ctor*
-  nameWithType.vb: BridgePackageManifest.New(Integer, String, DateTimeOffset, String, IReadOnlyList(Of BridgeTableManifest), IReadOnlyList(Of String), IReadOnlyList(Of String), IReadOnlyList(Of String), Boolean)
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgePackageManifest.New(Integer, String, System.DateTimeOffset, String, System.Collections.Generic.IReadOnlyList(Of Zachtbeer.SqlDataBridge.BridgeTableManifest), System.Collections.Generic.IReadOnlyList(Of String), System.Collections.Generic.IReadOnlyList(Of String), System.Collections.Generic.IReadOnlyList(Of String), Boolean)
-  name.vb: New(Integer, String, DateTimeOffset, String, IReadOnlyList(Of BridgeTableManifest), IReadOnlyList(Of String), IReadOnlyList(Of String), IReadOnlyList(Of String), Boolean)
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion
+    - id: DacpacSchemaScope
+      type: System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope}
+    content.vb: Public Sub New(PackageFormatVersion As Integer, ApplicationVersion As String, ExportedAtUtc As DateTimeOffset, SourceSchemaHash As String, Tables As IReadOnlyList(Of BridgeTableManifest), ImportOrder As IReadOnlyList(Of String), Exclusions As IReadOnlyList(Of String), Warnings As IReadOnlyList(Of String), ContainsDacpac As Boolean, DacpacSchemaScope As DacpacSchemaScope?)
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.#ctor*
+  nameWithType.vb: BridgePackageManifest.New(Integer, String, DateTimeOffset, String, IReadOnlyList(Of BridgeTableManifest), IReadOnlyList(Of String), IReadOnlyList(Of String), IReadOnlyList(Of String), Boolean, DacpacSchemaScope?)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.New(Integer, String, System.DateTimeOffset, String, System.Collections.Generic.IReadOnlyList(Of Zachtbeer.SqlDataBridge.Models.BridgeTableManifest), System.Collections.Generic.IReadOnlyList(Of String), System.Collections.Generic.IReadOnlyList(Of String), System.Collections.Generic.IReadOnlyList(Of String), Boolean, Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope?)
+  name.vb: New(Integer, String, DateTimeOffset, String, IReadOnlyList(Of BridgeTableManifest), IReadOnlyList(Of String), IReadOnlyList(Of String), IReadOnlyList(Of String), Boolean, DacpacSchemaScope?)
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion
   id: PackageFormatVersion
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: PackageFormatVersion
   nameWithType: BridgePackageManifest.PackageFormatVersion
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: PackageFormatVersion
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public int PackageFormatVersion { get; init; }
     parameters: []
     return:
       type: System.Int32
     content.vb: Public Property PackageFormatVersion As Integer
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion
   id: ApplicationVersion
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: ApplicationVersion
   nameWithType: BridgePackageManifest.ApplicationVersion
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ApplicationVersion
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public string ApplicationVersion { get; init; }
     parameters: []
     return:
       type: System.String
     content.vb: Public Property ApplicationVersion As String
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc
   id: ExportedAtUtc
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: ExportedAtUtc
   nameWithType: BridgePackageManifest.ExportedAtUtc
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ExportedAtUtc
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public DateTimeOffset ExportedAtUtc { get; init; }
     parameters: []
     return:
       type: System.DateTimeOffset
     content.vb: Public Property ExportedAtUtc As DateTimeOffset
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash
   id: SourceSchemaHash
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: SourceSchemaHash
   nameWithType: BridgePackageManifest.SourceSchemaHash
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: SourceSchemaHash
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public string SourceSchemaHash { get; init; }
     parameters: []
     return:
       type: System.String
     content.vb: Public Property SourceSchemaHash As String
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables
   id: Tables
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: Tables
   nameWithType: BridgePackageManifest.Tables
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Tables
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public IReadOnlyList<BridgeTableManifest> Tables { get; init; }
     parameters: []
     return:
-      type: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest}
+      type: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest}
     content.vb: Public Property Tables As IReadOnlyList(Of BridgeTableManifest)
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder
   id: ImportOrder
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: ImportOrder
   nameWithType: BridgePackageManifest.ImportOrder
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ImportOrder
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public IReadOnlyList<string> ImportOrder { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.String}
     content.vb: Public Property ImportOrder As IReadOnlyList(Of String)
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions
   id: Exclusions
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: Exclusions
   nameWithType: BridgePackageManifest.Exclusions
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Exclusions
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public IReadOnlyList<string> Exclusions { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.String}
     content.vb: Public Property Exclusions As IReadOnlyList(Of String)
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings
   id: Warnings
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: Warnings
   nameWithType: BridgePackageManifest.Warnings
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Warnings
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public IReadOnlyList<string> Warnings { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.String}
     content.vb: Public Property Warnings As IReadOnlyList(Of String)
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings*
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac
-  commentId: P:Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac
   id: ContainsDacpac
-  parent: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
   langs:
   - csharp
   - vb
   name: ContainsDacpac
   nameWithType: BridgePackageManifest.ContainsDacpac
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ContainsDacpac
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 67
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public bool ContainsDacpac { get; init; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: Public Property ContainsDacpac As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope
+  id: DacpacSchemaScope
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  langs:
+  - csharp
+  - vb
+  name: DacpacSchemaScope
+  nameWithType: BridgePackageManifest.DacpacSchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: DacpacSchemaScope
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 67
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  syntax:
+    content: public DacpacSchemaScope? DacpacSchemaScope { get; init; }
+    parameters: []
+    return:
+      type: System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope}
+    content.vb: Public Property DacpacSchemaScope As DacpacSchemaScope?
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -375,6 +407,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -383,6 +419,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -394,16 +434,16 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{Zachtbeer.SqlDataBridge.BridgePackageManifest}
-  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.BridgePackageManifest}
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgePackageManifest}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgePackageManifest}
   parent: System
   definition: System.IEquatable`1
   href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   name: IEquatable<BridgePackageManifest>
   nameWithType: IEquatable<BridgePackageManifest>
-  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.BridgePackageManifest>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.Models.BridgePackageManifest>
   nameWithType.vb: IEquatable(Of BridgePackageManifest)
-  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.BridgePackageManifest)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.Models.BridgePackageManifest)
   name.vb: IEquatable(Of BridgePackageManifest)
   spec.csharp:
   - uid: System.IEquatable`1
@@ -411,9 +451,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
     name: BridgePackageManifest
-    href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html
   - name: '>'
   spec.vb:
   - uid: System.IEquatable`1
@@ -423,9 +463,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgePackageManifest
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
     name: BridgePackageManifest
-    href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -657,14 +697,14 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.#ctor*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.#ctor
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest__ctor_System_Int32_System_String_System_DateTimeOffset_System_String_System_Collections_Generic_IReadOnlyList_Zachtbeer_SqlDataBridge_BridgeTableManifest__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__System_Boolean_
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.#ctor
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest__ctor_System_Int32_System_String_System_DateTimeOffset_System_String_System_Collections_Generic_IReadOnlyList_Zachtbeer_SqlDataBridge_Models_BridgeTableManifest__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__System_Boolean_System_Nullable_Zachtbeer_SqlDataBridge_Models_DacpacSchemaScope__
   name: BridgePackageManifest
   nameWithType: BridgePackageManifest.BridgePackageManifest
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.BridgePackageManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.BridgePackageManifest
   nameWithType.vb: BridgePackageManifest.New
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgePackageManifest.New
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.New
   name.vb: New
 - uid: System.Int32
   commentId: T:System.Int32
@@ -696,16 +736,16 @@ references:
   name: DateTimeOffset
   nameWithType: DateTimeOffset
   fullName: System.DateTimeOffset
-- uid: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest}
-  commentId: T:System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.BridgeTableManifest}
+- uid: System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest}
+  commentId: T:System.Collections.Generic.IReadOnlyList{Zachtbeer.SqlDataBridge.Models.BridgeTableManifest}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IReadOnlyList`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   name: IReadOnlyList<BridgeTableManifest>
   nameWithType: IReadOnlyList<BridgeTableManifest>
-  fullName: System.Collections.Generic.IReadOnlyList<Zachtbeer.SqlDataBridge.BridgeTableManifest>
+  fullName: System.Collections.Generic.IReadOnlyList<Zachtbeer.SqlDataBridge.Models.BridgeTableManifest>
   nameWithType.vb: IReadOnlyList(Of BridgeTableManifest)
-  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Zachtbeer.SqlDataBridge.BridgeTableManifest)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of Zachtbeer.SqlDataBridge.Models.BridgeTableManifest)
   name.vb: IReadOnlyList(Of BridgeTableManifest)
   spec.csharp:
   - uid: System.Collections.Generic.IReadOnlyList`1
@@ -713,9 +753,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
     name: BridgeTableManifest
-    href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IReadOnlyList`1
@@ -725,9 +765,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
     name: BridgeTableManifest
-    href: Zachtbeer.SqlDataBridge.BridgeTableManifest.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest.html
   - name: )
 - uid: System.Collections.Generic.IReadOnlyList{System.String}
   commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
@@ -775,6 +815,24 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope}
+  commentId: T:System.Nullable{Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope}
+  parent: System
+  definition: System.Nullable`1
+  href: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.html
+  name: DacpacSchemaScope?
+  nameWithType: DacpacSchemaScope?
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope?
+  spec.csharp:
+  - uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+    name: DacpacSchemaScope
+    href: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.html
+  - name: '?'
+  spec.vb:
+  - uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+    name: DacpacSchemaScope
+    href: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.html
+  - name: '?'
 - uid: System.Collections.Generic.IReadOnlyList`1
   commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true
@@ -840,57 +898,91 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_PackageFormatVersion
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_PackageFormatVersion
   name: PackageFormatVersion
   nameWithType: BridgePackageManifest.PackageFormatVersion
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.PackageFormatVersion
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_ApplicationVersion
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.PackageFormatVersion
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_ApplicationVersion
   name: ApplicationVersion
   nameWithType: BridgePackageManifest.ApplicationVersion
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ApplicationVersion
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_ExportedAtUtc
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ApplicationVersion
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_ExportedAtUtc
   name: ExportedAtUtc
   nameWithType: BridgePackageManifest.ExportedAtUtc
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ExportedAtUtc
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_SourceSchemaHash
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ExportedAtUtc
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_SourceSchemaHash
   name: SourceSchemaHash
   nameWithType: BridgePackageManifest.SourceSchemaHash
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.SourceSchemaHash
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_Tables
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.SourceSchemaHash
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_Tables
   name: Tables
   nameWithType: BridgePackageManifest.Tables
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.Tables
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_ImportOrder
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Tables
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_ImportOrder
   name: ImportOrder
   nameWithType: BridgePackageManifest.ImportOrder
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ImportOrder
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_Exclusions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ImportOrder
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_Exclusions
   name: Exclusions
   nameWithType: BridgePackageManifest.Exclusions
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.Exclusions
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_Warnings
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Exclusions
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_Warnings
   name: Warnings
   nameWithType: BridgePackageManifest.Warnings
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.Warnings
-- uid: Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac
-  href: Zachtbeer.SqlDataBridge.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_BridgePackageManifest_ContainsDacpac
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.Warnings
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_ContainsDacpac
   name: ContainsDacpac
   nameWithType: BridgePackageManifest.ContainsDacpac
-  fullName: Zachtbeer.SqlDataBridge.BridgePackageManifest.ContainsDacpac
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.ContainsDacpac
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html#Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_DacpacSchemaScope
+  name: DacpacSchemaScope
+  nameWithType: BridgePackageManifest.DacpacSchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.DacpacSchemaScope

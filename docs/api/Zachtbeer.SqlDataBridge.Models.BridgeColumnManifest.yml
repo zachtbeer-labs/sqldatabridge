@@ -1,40 +1,40 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeColumnManifest
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   id: BridgeColumnManifest
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale
-  - Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName
   langs:
   - csharp
   - vb
   name: BridgeColumnManifest
   nameWithType: BridgeColumnManifest
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BridgeColumnManifest
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Describes a column stored in a SQLite bridge package.
   example: []
   syntax:
@@ -43,7 +43,7 @@ items:
   inheritance:
   - System.Object
   implements:
-  - System.IEquatable{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
+  - System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -51,28 +51,28 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
-  commentId: M:Zachtbeer.SqlDataBridge.BridgeColumnManifest.#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
+  commentId: M:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)
   id: '#ctor(System.String,System.Int32,System.String,System.Int16,System.Byte,System.Byte,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)'
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: BridgeColumnManifest(string, int, string, short, byte, byte, bool, bool, bool, bool, string?)
   nameWithType: BridgeColumnManifest.BridgeColumnManifest(string, int, string, short, byte, byte, bool, bool, bool, bool, string?)
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.BridgeColumnManifest(string, int, string, short, byte, byte, bool, bool, bool, bool, string?)
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.BridgeColumnManifest(string, int, string, short, byte, byte, bool, bool, bool, bool, string?)
   type: Constructor
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Describes a column stored in a SQLite bridge package.
   example: []
   syntax:
@@ -101,336 +101,336 @@ items:
     - id: CollationName
       type: System.String
     content.vb: Public Sub New(Name As String, Ordinal As Integer, SqlServerTypeName As String, MaxLength As Short, Precision As Byte, Scale As Byte, IsNullable As Boolean, IsIdentity As Boolean, IsComputed As Boolean, IsExcluded As Boolean, CollationName As String)
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.#ctor*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.#ctor*
   nameWithType.vb: BridgeColumnManifest.New(String, Integer, String, Short, Byte, Byte, Boolean, Boolean, Boolean, Boolean, String)
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeColumnManifest.New(String, Integer, String, Short, Byte, Byte, Boolean, Boolean, Boolean, Boolean, String)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.New(String, Integer, String, Short, Byte, Byte, Boolean, Boolean, Boolean, Boolean, String)
   name.vb: New(String, Integer, String, Short, Byte, Byte, Boolean, Boolean, Boolean, Boolean, String)
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name
   id: Name
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: Name
   nameWithType: BridgeColumnManifest.Name
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Name
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public string Name { get; init; }
     parameters: []
     return:
       type: System.String
     content.vb: Public Property Name As String
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal
   id: Ordinal
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: Ordinal
   nameWithType: BridgeColumnManifest.Ordinal
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Ordinal
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public int Ordinal { get; init; }
     parameters: []
     return:
       type: System.Int32
     content.vb: Public Property Ordinal As Integer
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName
   id: SqlServerTypeName
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: SqlServerTypeName
   nameWithType: BridgeColumnManifest.SqlServerTypeName
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: SqlServerTypeName
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public string SqlServerTypeName { get; init; }
     parameters: []
     return:
       type: System.String
     content.vb: Public Property SqlServerTypeName As String
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength
   id: MaxLength
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: MaxLength
   nameWithType: BridgeColumnManifest.MaxLength
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: MaxLength
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public short MaxLength { get; init; }
     parameters: []
     return:
       type: System.Int16
     content.vb: Public Property MaxLength As Short
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision
   id: Precision
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: Precision
   nameWithType: BridgeColumnManifest.Precision
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Precision
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public byte Precision { get; init; }
     parameters: []
     return:
       type: System.Byte
     content.vb: Public Property Precision As Byte
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale
   id: Scale
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: Scale
   nameWithType: BridgeColumnManifest.Scale
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Scale
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public byte Scale { get; init; }
     parameters: []
     return:
       type: System.Byte
     content.vb: Public Property Scale As Byte
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable
   id: IsNullable
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: IsNullable
   nameWithType: BridgeColumnManifest.IsNullable
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: IsNullable
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public bool IsNullable { get; init; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: Public Property IsNullable As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity
   id: IsIdentity
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: IsIdentity
   nameWithType: BridgeColumnManifest.IsIdentity
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: IsIdentity
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public bool IsIdentity { get; init; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: Public Property IsIdentity As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed
   id: IsComputed
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: IsComputed
   nameWithType: BridgeColumnManifest.IsComputed
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: IsComputed
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public bool IsComputed { get; init; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: Public Property IsComputed As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded
   id: IsExcluded
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: IsExcluded
   nameWithType: BridgeColumnManifest.IsExcluded
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: IsExcluded
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public bool IsExcluded { get; init; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: Public Property IsExcluded As Boolean
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded*
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName
   id: CollationName
-  parent: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
   langs:
   - csharp
   - vb
   name: CollationName
   nameWithType: BridgeColumnManifest.CollationName
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/BridgeOperationalModels.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: CollationName
     path: src/SqlDataBridge/BridgeOperationalModels.cs
     startLine: 51
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public string? CollationName { get; init; }
     parameters: []
     return:
       type: System.String
     content.vb: Public Property CollationName As String
-  overload: Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -439,6 +439,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -447,6 +451,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -458,16 +466,16 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
-  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.BridgeColumnManifest}
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest}
   parent: System
   definition: System.IEquatable`1
   href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   name: IEquatable<BridgeColumnManifest>
   nameWithType: IEquatable<BridgeColumnManifest>
-  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.BridgeColumnManifest>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest>
   nameWithType.vb: IEquatable(Of BridgeColumnManifest)
-  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.BridgeColumnManifest)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest)
   name.vb: IEquatable(Of BridgeColumnManifest)
   spec.csharp:
   - uid: System.IEquatable`1
@@ -475,9 +483,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
     name: BridgeColumnManifest
-    href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html
   - name: '>'
   spec.vb:
   - uid: System.IEquatable`1
@@ -487,9 +495,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
     name: BridgeColumnManifest
-    href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -721,14 +729,14 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.#ctor*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.#ctor
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest__ctor_System_String_System_Int32_System_String_System_Int16_System_Byte_System_Byte_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.#ctor
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest__ctor_System_String_System_Int32_System_String_System_Int16_System_Byte_System_Byte_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_String_
   name: BridgeColumnManifest
   nameWithType: BridgeColumnManifest.BridgeColumnManifest
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.BridgeColumnManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.BridgeColumnManifest
   nameWithType.vb: BridgeColumnManifest.New
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeColumnManifest.New
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.New
   name.vb: New
 - uid: System.String
   commentId: T:System.String
@@ -785,69 +793,69 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_Name
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_Name
   name: Name
   nameWithType: BridgeColumnManifest.Name
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Name
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_Ordinal
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Name
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_Ordinal
   name: Ordinal
   nameWithType: BridgeColumnManifest.Ordinal
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Ordinal
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_SqlServerTypeName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Ordinal
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_SqlServerTypeName
   name: SqlServerTypeName
   nameWithType: BridgeColumnManifest.SqlServerTypeName
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.SqlServerTypeName
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_MaxLength
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.SqlServerTypeName
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_MaxLength
   name: MaxLength
   nameWithType: BridgeColumnManifest.MaxLength
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.MaxLength
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_Precision
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.MaxLength
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_Precision
   name: Precision
   nameWithType: BridgeColumnManifest.Precision
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Precision
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_Scale
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Precision
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_Scale
   name: Scale
   nameWithType: BridgeColumnManifest.Scale
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.Scale
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_IsNullable
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.Scale
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_IsNullable
   name: IsNullable
   nameWithType: BridgeColumnManifest.IsNullable
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsNullable
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_IsIdentity
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsNullable
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_IsIdentity
   name: IsIdentity
   nameWithType: BridgeColumnManifest.IsIdentity
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsIdentity
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_IsComputed
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsIdentity
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_IsComputed
   name: IsComputed
   nameWithType: BridgeColumnManifest.IsComputed
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsComputed
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_IsExcluded
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsComputed
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_IsExcluded
   name: IsExcluded
   nameWithType: BridgeColumnManifest.IsExcluded
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.IsExcluded
-- uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName
-  href: Zachtbeer.SqlDataBridge.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_BridgeColumnManifest_CollationName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.IsExcluded
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html#Zachtbeer_SqlDataBridge_Models_BridgeColumnManifest_CollationName
   name: CollationName
   nameWithType: BridgeColumnManifest.CollationName
-  fullName: Zachtbeer.SqlDataBridge.BridgeColumnManifest.CollationName
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.CollationName

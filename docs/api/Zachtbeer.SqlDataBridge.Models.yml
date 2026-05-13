@@ -1,0 +1,197 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
+  id: Zachtbeer.SqlDataBridge.Models
+  children:
+  - Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
+  - Zachtbeer.SqlDataBridge.Models.BridgeException
+  - Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  - Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  - Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgress
+  - Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  - Zachtbeer.SqlDataBridge.Models.BridgeResult
+  - Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
+  - Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  - Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+  - Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  - Zachtbeer.SqlDataBridge.Models.DataPackageReader
+  - Zachtbeer.SqlDataBridge.Models.ExportOptions
+  - Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  - Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
+  - Zachtbeer.SqlDataBridge.Models.ImportOptions
+  - Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
+  - Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  - Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+  langs:
+  - csharp
+  - vb
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
+  type: Namespace
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+references:
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind.html
+  name: BridgeProgressKind
+  nameWithType: BridgeProgressKind
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeProgress
+  href: Zachtbeer.SqlDataBridge.Models.BridgeProgress.html
+  name: BridgeProgress
+  nameWithType: BridgeProgress
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeProgress
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
+  href: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest.html
+  name: BridgeColumnManifest
+  nameWithType: BridgeColumnManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
+  href: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest.html
+  name: BridgeTableManifest
+  nameWithType: BridgeTableManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html
+  name: BridgePackageManifest
+  nameWithType: BridgePackageManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+  href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html
+  name: BridgePreflightResult
+  nameWithType: BridgePreflightResult
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+- uid: Zachtbeer.SqlDataBridge.Models.DataPackageReader
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DataPackageReader
+  href: Zachtbeer.SqlDataBridge.Models.DataPackageReader.html
+  name: DataPackageReader
+  nameWithType: DataPackageReader
+  fullName: Zachtbeer.SqlDataBridge.Models.DataPackageReader
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode.html
+  name: SchemaCaptureMode
+  nameWithType: SchemaCaptureMode
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+- uid: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode.html
+  name: SchemaDeploymentMode
+  nameWithType: SchemaDeploymentMode
+  fullName: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.html
+  name: DacpacSchemaScope
+  nameWithType: DacpacSchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+- uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode.html
+  name: ExportTableSelectionMode
+  nameWithType: ExportTableSelectionMode
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions.html
+  name: DacpacCaptureOptions
+  nameWithType: DacpacCaptureOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions.html
+  name: DacpacDeploymentOptions
+  nameWithType: DacpacDeploymentOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+- uid: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
+  commentId: T:Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
+  href: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause.html
+  name: GlobalWhereClause
+  nameWithType: GlobalWhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
+  commentId: T:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
+  href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html
+  name: PerTableWhereClause
+  nameWithType: PerTableWhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
+- uid: Zachtbeer.SqlDataBridge.Models.ExportOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ExportOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ExportOptions.html
+  name: ExportOptions
+  nameWithType: ExportOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.ExportOptions
+- uid: Zachtbeer.SqlDataBridge.Models.ImportOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ImportOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ImportOptions.html
+  name: ImportOptions
+  nameWithType: ImportOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.ImportOptions
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html
+  name: BridgeOptions
+  nameWithType: BridgeOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeResult
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeResult
+  href: Zachtbeer.SqlDataBridge.Models.BridgeResult.html
+  name: BridgeResult
+  nameWithType: BridgeResult
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeResult
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeException
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeException
+  href: Zachtbeer.SqlDataBridge.Models.BridgeException.html
+  name: BridgeException
+  nameWithType: BridgeException
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeException
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html

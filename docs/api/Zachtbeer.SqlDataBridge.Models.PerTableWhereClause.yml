@@ -1,31 +1,31 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
-  commentId: T:Zachtbeer.SqlDataBridge.PerTableWhereClause
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
+  commentId: T:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
   id: PerTableWhereClause
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.PerTableWhereClause.#ctor(System.String,System.String)
-  - Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName
-  - Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause
+  - Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.#ctor(System.String,System.String)
+  - Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName
+  - Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause
   langs:
   - csharp
   - vb
   name: PerTableWhereClause
   nameWithType: PerTableWhereClause
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: PerTableWhereClause
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 144
+    startLine: 167
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Configures a SQL Server WHERE predicate that applies to one selected export table.
   example: []
   syntax:
@@ -34,7 +34,7 @@ items:
   inheritance:
   - System.Object
   implements:
-  - System.IEquatable{Zachtbeer.SqlDataBridge.PerTableWhereClause}
+  - System.IEquatable{Zachtbeer.SqlDataBridge.Models.PerTableWhereClause}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -42,28 +42,28 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause.#ctor(System.String,System.String)
-  commentId: M:Zachtbeer.SqlDataBridge.PerTableWhereClause.#ctor(System.String,System.String)
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.#ctor(System.String,System.String)
+  commentId: M:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.#ctor(System.String,System.String)
   id: '#ctor(System.String,System.String)'
-  parent: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  parent: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
   langs:
   - csharp
   - vb
   name: PerTableWhereClause(string, string)
   nameWithType: PerTableWhereClause.PerTableWhereClause(string, string)
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause.PerTableWhereClause(string, string)
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.PerTableWhereClause(string, string)
   type: Constructor
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 144
+    startLine: 167
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Configures a SQL Server WHERE predicate that applies to one selected export table.
   example: []
   syntax:
@@ -76,32 +76,32 @@ items:
       type: System.String
       description: The raw SQL Server predicate to append to the table export.
     content.vb: Public Sub New(TableName As String, WhereClause As String)
-  overload: Zachtbeer.SqlDataBridge.PerTableWhereClause.#ctor*
+  overload: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.#ctor*
   nameWithType.vb: PerTableWhereClause.New(String, String)
-  fullName.vb: Zachtbeer.SqlDataBridge.PerTableWhereClause.New(String, String)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.New(String, String)
   name.vb: New(String, String)
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName
-  commentId: P:Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName
+  commentId: P:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName
   id: TableName
-  parent: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  parent: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
   langs:
   - csharp
   - vb
   name: TableName
   nameWithType: PerTableWhereClause.TableName
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: TableName
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 144
+    startLine: 167
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The source table name formatted as <code>&lt;schema&gt;.&lt;table&gt;</code>.
   example: []
   syntax:
@@ -110,29 +110,29 @@ items:
     return:
       type: System.String
     content.vb: Public Property TableName As String
-  overload: Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName*
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause
-  commentId: P:Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause
+  overload: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName*
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause
+  commentId: P:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause
   id: WhereClause
-  parent: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  parent: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
   langs:
   - csharp
   - vb
   name: WhereClause
   nameWithType: PerTableWhereClause.WhereClause
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause
   type: Property
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: WhereClause
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 144
+    startLine: 167
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: The raw SQL Server predicate to append to the table export.
   example: []
   syntax:
@@ -141,14 +141,14 @@ items:
     return:
       type: System.String
     content.vb: Public Property WhereClause As String
-  overload: Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause*
+  overload: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -157,6 +157,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -165,6 +169,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -176,16 +184,16 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{Zachtbeer.SqlDataBridge.PerTableWhereClause}
-  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.PerTableWhereClause}
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.Models.PerTableWhereClause}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.Models.PerTableWhereClause}
   parent: System
   definition: System.IEquatable`1
   href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   name: IEquatable<PerTableWhereClause>
   nameWithType: IEquatable<PerTableWhereClause>
-  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.PerTableWhereClause>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.Models.PerTableWhereClause>
   nameWithType.vb: IEquatable(Of PerTableWhereClause)
-  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.PerTableWhereClause)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.Models.PerTableWhereClause)
   name.vb: IEquatable(Of PerTableWhereClause)
   spec.csharp:
   - uid: System.IEquatable`1
@@ -193,9 +201,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  - uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
     name: PerTableWhereClause
-    href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html
+    href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html
   - name: '>'
   spec.vb:
   - uid: System.IEquatable`1
@@ -205,9 +213,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
+  - uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
     name: PerTableWhereClause
-    href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html
+    href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -439,14 +447,14 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause.#ctor*
-  commentId: Overload:Zachtbeer.SqlDataBridge.PerTableWhereClause.#ctor
-  href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html#Zachtbeer_SqlDataBridge_PerTableWhereClause__ctor_System_String_System_String_
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.#ctor
+  href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html#Zachtbeer_SqlDataBridge_Models_PerTableWhereClause__ctor_System_String_System_String_
   name: PerTableWhereClause
   nameWithType: PerTableWhereClause.PerTableWhereClause
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause.PerTableWhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.PerTableWhereClause
   nameWithType.vb: PerTableWhereClause.New
-  fullName.vb: Zachtbeer.SqlDataBridge.PerTableWhereClause.New
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.New
   name.vb: New
 - uid: System.String
   commentId: T:System.String
@@ -459,15 +467,15 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName*
-  commentId: Overload:Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName
-  href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html#Zachtbeer_SqlDataBridge_PerTableWhereClause_TableName
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName
+  href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html#Zachtbeer_SqlDataBridge_Models_PerTableWhereClause_TableName
   name: TableName
   nameWithType: PerTableWhereClause.TableName
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause.TableName
-- uid: Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause*
-  commentId: Overload:Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause
-  href: Zachtbeer.SqlDataBridge.PerTableWhereClause.html#Zachtbeer_SqlDataBridge_PerTableWhereClause_WhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.TableName
+- uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause
+  href: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.html#Zachtbeer_SqlDataBridge_Models_PerTableWhereClause_WhereClause
   name: WhereClause
   nameWithType: PerTableWhereClause.WhereClause
-  fullName: Zachtbeer.SqlDataBridge.PerTableWhereClause.WhereClause
+  fullName: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause.WhereClause

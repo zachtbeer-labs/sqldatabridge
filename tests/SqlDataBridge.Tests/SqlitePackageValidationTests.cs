@@ -1,5 +1,6 @@
 using Microsoft.Data.Sqlite;
 using Zachtbeer.SqlDataBridge.Internal;
+using Zachtbeer.SqlDataBridge.Models;
 using Shouldly;
 using Xunit;
 

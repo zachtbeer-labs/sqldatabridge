@@ -1,30 +1,30 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgeException
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeException
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeException
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeException
   id: BridgeException
-  parent: Zachtbeer.SqlDataBridge
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgeException.#ctor(System.String)
-  - Zachtbeer.SqlDataBridge.BridgeException.#ctor(System.String,System.Exception)
+  - Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor(System.String)
+  - Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor(System.String,System.Exception)
   langs:
   - csharp
   - vb
   name: BridgeException
   nameWithType: BridgeException
-  fullName: Zachtbeer.SqlDataBridge.BridgeException
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeException
   type: Class
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: BridgeException
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 452
+    startLine: 486
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
   summary: Represents a validation or bridge operation error that callers can handle explicitly.
   example: []
   syntax:
@@ -51,29 +51,29 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.GetHashCode
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: Zachtbeer.SqlDataBridge.BridgeException.#ctor(System.String)
-  commentId: M:Zachtbeer.SqlDataBridge.BridgeException.#ctor(System.String)
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor(System.String)
+  commentId: M:Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor(System.String)
   id: '#ctor(System.String)'
-  parent: Zachtbeer.SqlDataBridge.BridgeException
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeException
   langs:
   - csharp
   - vb
   name: BridgeException(string)
   nameWithType: BridgeException.BridgeException(string)
-  fullName: Zachtbeer.SqlDataBridge.BridgeException.BridgeException(string)
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeException.BridgeException(string)
   type: Constructor
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 458
+    startLine: 492
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: Initializes a new instance of the <xref href="Zachtbeer.SqlDataBridge.BridgeException" data-throw-if-not-resolved="false"></xref> class.
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Initializes a new instance of the <xref href="Zachtbeer.SqlDataBridge.Models.BridgeException" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
     content: public BridgeException(string message)
@@ -82,33 +82,33 @@ items:
       type: System.String
       description: The error message.
     content.vb: Public Sub New(message As String)
-  overload: Zachtbeer.SqlDataBridge.BridgeException.#ctor*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor*
   nameWithType.vb: BridgeException.New(String)
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeException.New(String)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeException.New(String)
   name.vb: New(String)
-- uid: Zachtbeer.SqlDataBridge.BridgeException.#ctor(System.String,System.Exception)
-  commentId: M:Zachtbeer.SqlDataBridge.BridgeException.#ctor(System.String,System.Exception)
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor(System.String,System.Exception)
+  commentId: M:Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor(System.String,System.Exception)
   id: '#ctor(System.String,System.Exception)'
-  parent: Zachtbeer.SqlDataBridge.BridgeException
+  parent: Zachtbeer.SqlDataBridge.Models.BridgeException
   langs:
   - csharp
   - vb
   name: BridgeException(string, Exception)
   nameWithType: BridgeException.BridgeException(string, Exception)
-  fullName: Zachtbeer.SqlDataBridge.BridgeException.BridgeException(string, System.Exception)
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeException.BridgeException(string, System.Exception)
   type: Constructor
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
     path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 467
+    startLine: 501
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: Initializes a new instance of the <xref href="Zachtbeer.SqlDataBridge.BridgeException" data-throw-if-not-resolved="false"></xref> class with an inner exception.
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Initializes a new instance of the <xref href="Zachtbeer.SqlDataBridge.Models.BridgeException" data-throw-if-not-resolved="false"></xref> class with an inner exception.
   example: []
   syntax:
     content: public BridgeException(string message, Exception innerException)
@@ -120,17 +120,17 @@ items:
       type: System.Exception
       description: The exception that caused this error.
     content.vb: Public Sub New(message As String, innerException As Exception)
-  overload: Zachtbeer.SqlDataBridge.BridgeException.#ctor*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor*
   nameWithType.vb: BridgeException.New(String, Exception)
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeException.New(String, System.Exception)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeException.New(String, System.Exception)
   name.vb: New(String, Exception)
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -139,6 +139,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -147,6 +151,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -495,20 +503,20 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: Zachtbeer.SqlDataBridge.BridgeException
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeException
-  href: Zachtbeer.SqlDataBridge.BridgeException.html
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeException
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeException
+  href: Zachtbeer.SqlDataBridge.Models.BridgeException.html
   name: BridgeException
   nameWithType: BridgeException
-  fullName: Zachtbeer.SqlDataBridge.BridgeException
-- uid: Zachtbeer.SqlDataBridge.BridgeException.#ctor*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeException.#ctor
-  href: Zachtbeer.SqlDataBridge.BridgeException.html#Zachtbeer_SqlDataBridge_BridgeException__ctor_System_String_
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeException
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgeException.#ctor
+  href: Zachtbeer.SqlDataBridge.Models.BridgeException.html#Zachtbeer_SqlDataBridge_Models_BridgeException__ctor_System_String_
   name: BridgeException
   nameWithType: BridgeException.BridgeException
-  fullName: Zachtbeer.SqlDataBridge.BridgeException.BridgeException
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeException.BridgeException
   nameWithType.vb: BridgeException.New
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeException.New
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgeException.New
   name.vb: New
 - uid: System.String
   commentId: T:System.String

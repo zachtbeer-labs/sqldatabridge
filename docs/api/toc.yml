@@ -4,67 +4,77 @@ items:
   name: Zachtbeer.SqlDataBridge
   type: Namespace
   items:
-  - uid: Zachtbeer.SqlDataBridge.BridgeColumnManifest
-    name: BridgeColumnManifest
+  - uid: Zachtbeer.SqlDataBridge.SqlDataBridge
+    name: SqlDataBridge
     type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgeException
-    name: BridgeException
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgeOptions
-    name: BridgeOptions
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgePackageManifest
-    name: BridgePackageManifest
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgePreflightResult
-    name: BridgePreflightResult
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgeProgress
-    name: BridgeProgress
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgeProgressKind
-    name: BridgeProgressKind
-    type: Enum
-  - uid: Zachtbeer.SqlDataBridge.BridgeResult
-    name: BridgeResult
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.BridgeTableManifest
-    name: BridgeTableManifest
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.DacpacCaptureOptions
-    name: DacpacCaptureOptions
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.DacpacDeploymentOptions
-    name: DacpacDeploymentOptions
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.DataPackageReader
-    name: DataPackageReader
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.ExportOptions
-    name: ExportOptions
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.ExportTableSelectionMode
-    name: ExportTableSelectionMode
-    type: Enum
-  - uid: Zachtbeer.SqlDataBridge.GlobalWhereClause
-    name: GlobalWhereClause
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.ImportOptions
-    name: ImportOptions
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.PerTableWhereClause
-    name: PerTableWhereClause
-    type: Class
-  - uid: Zachtbeer.SqlDataBridge.SchemaCaptureMode
-    name: SchemaCaptureMode
-    type: Enum
-  - uid: Zachtbeer.SqlDataBridge.SchemaDeploymentMode
-    name: SchemaDeploymentMode
-    type: Enum
   - uid: Zachtbeer.SqlDataBridge.SqlDataBridgeExporter
     name: SqlDataBridgeExporter
     type: Class
   - uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter
     name: SqlDataBridgeImporter
     type: Class
+- uid: Zachtbeer.SqlDataBridge.Models
+  name: Zachtbeer.SqlDataBridge.Models
+  type: Namespace
+  items:
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeColumnManifest
+    name: BridgeColumnManifest
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeException
+    name: BridgeException
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions
+    name: BridgeOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+    name: BridgePackageManifest
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+    name: BridgePreflightResult
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeProgress
+    name: BridgeProgress
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeProgressKind
+    name: BridgeProgressKind
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeResult
+    name: BridgeResult
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeTableManifest
+    name: BridgeTableManifest
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.DacpacCaptureOptions
+    name: DacpacCaptureOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.DacpacDeploymentOptions
+    name: DacpacDeploymentOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+    name: DacpacSchemaScope
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.Models.DataPackageReader
+    name: DataPackageReader
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.ExportOptions
+    name: ExportOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.ExportTableSelectionMode
+    name: ExportTableSelectionMode
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.Models.GlobalWhereClause
+    name: GlobalWhereClause
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.ImportOptions
+    name: ImportOptions
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.PerTableWhereClause
+    name: PerTableWhereClause
+    type: Class
+  - uid: Zachtbeer.SqlDataBridge.Models.SchemaCaptureMode
+    name: SchemaCaptureMode
+    type: Enum
+  - uid: Zachtbeer.SqlDataBridge.Models.SchemaDeploymentMode
+    name: SchemaDeploymentMode
+    type: Enum
 memberLayout: SamePage

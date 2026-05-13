@@ -1,4 +1,4 @@
-namespace Zachtbeer.SqlDataBridge;
+namespace Zachtbeer.SqlDataBridge.Models;
 
 /// <summary>
 /// Describes the kind of progress reported by an export or import operation.

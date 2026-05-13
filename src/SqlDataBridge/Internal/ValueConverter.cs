@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Data.SqlTypes;
 using Microsoft.Data.SqlTypes;
 using Microsoft.Data.Sqlite;
+using Zachtbeer.SqlDataBridge.Models;
 
 namespace Zachtbeer.SqlDataBridge.Internal;
 

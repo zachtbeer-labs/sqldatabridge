@@ -1,41 +1,42 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Zachtbeer.SqlDataBridge.BridgeResult
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeResult
-  id: BridgeResult
-  parent: Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+  id: BridgePreflightResult
+  parent: Zachtbeer.SqlDataBridge.Models
   children:
-  - Zachtbeer.SqlDataBridge.BridgeResult.#ctor(System.Int32,System.Int64,System.Collections.Generic.IReadOnlyList{System.String})
-  - Zachtbeer.SqlDataBridge.BridgeResult.RowCount
-  - Zachtbeer.SqlDataBridge.BridgeResult.TableCount
-  - Zachtbeer.SqlDataBridge.BridgeResult.Warnings
+  - Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.#ctor(System.Boolean,System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},Zachtbeer.SqlDataBridge.Models.BridgePackageManifest)
+  - Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors
+  - Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid
+  - Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest
+  - Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings
   langs:
   - csharp
   - vb
-  name: BridgeResult
-  nameWithType: BridgeResult
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult
+  name: BridgePreflightResult
+  nameWithType: BridgePreflightResult
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
   type: Class
   source:
     remote:
-      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
-    id: BridgeResult
-    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 447
+    id: BridgePreflightResult
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 72
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: Summarizes the tables, rows, and non-fatal warnings produced by an export or import operation.
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Summarizes validation performed before an export or import copies rows.
   example: []
   syntax:
-    content: 'public sealed record BridgeResult : IEquatable<BridgeResult>'
-    content.vb: Public NotInheritable Class BridgeResult Implements IEquatable(Of BridgeResult)
+    content: 'public sealed record BridgePreflightResult : IEquatable<BridgePreflightResult>'
+    content.vb: Public NotInheritable Class BridgePreflightResult Implements IEquatable(Of BridgePreflightResult)
   inheritance:
   - System.Object
   implements:
-  - System.IEquatable{Zachtbeer.SqlDataBridge.BridgeResult}
+  - System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgePreflightResult}
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -43,147 +44,169 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.#ctor(System.Int32,System.Int64,System.Collections.Generic.IReadOnlyList{System.String})
-  commentId: M:Zachtbeer.SqlDataBridge.BridgeResult.#ctor(System.Int32,System.Int64,System.Collections.Generic.IReadOnlyList{System.String})
-  id: '#ctor(System.Int32,System.Int64,System.Collections.Generic.IReadOnlyList{System.String})'
-  parent: Zachtbeer.SqlDataBridge.BridgeResult
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.#ctor(System.Boolean,System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},Zachtbeer.SqlDataBridge.Models.BridgePackageManifest)
+  commentId: M:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.#ctor(System.Boolean,System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},Zachtbeer.SqlDataBridge.Models.BridgePackageManifest)
+  id: '#ctor(System.Boolean,System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String},Zachtbeer.SqlDataBridge.Models.BridgePackageManifest)'
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
   langs:
   - csharp
   - vb
-  name: BridgeResult(int, long, IReadOnlyList<string>)
-  nameWithType: BridgeResult.BridgeResult(int, long, IReadOnlyList<string>)
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.BridgeResult(int, long, System.Collections.Generic.IReadOnlyList<string>)
+  name: BridgePreflightResult(bool, IReadOnlyList<string>, IReadOnlyList<string>, BridgePackageManifest?)
+  nameWithType: BridgePreflightResult.BridgePreflightResult(bool, IReadOnlyList<string>, IReadOnlyList<string>, BridgePackageManifest?)
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.BridgePreflightResult(bool, System.Collections.Generic.IReadOnlyList<string>, System.Collections.Generic.IReadOnlyList<string>, Zachtbeer.SqlDataBridge.Models.BridgePackageManifest?)
   type: Constructor
   source:
     remote:
-      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: .ctor
-    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 447
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 72
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: Summarizes the tables, rows, and non-fatal warnings produced by an export or import operation.
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Summarizes validation performed before an export or import copies rows.
   example: []
   syntax:
-    content: public BridgeResult(int TableCount, long RowCount, IReadOnlyList<string> Warnings)
+    content: public BridgePreflightResult(bool IsValid, IReadOnlyList<string> Errors, IReadOnlyList<string> Warnings, BridgePackageManifest? Manifest)
     parameters:
-    - id: TableCount
-      type: System.Int32
-      description: The number of tables processed.
-    - id: RowCount
-      type: System.Int64
-      description: The number of rows processed across all tables.
+    - id: IsValid
+      type: System.Boolean
+    - id: Errors
+      type: System.Collections.Generic.IReadOnlyList{System.String}
     - id: Warnings
       type: System.Collections.Generic.IReadOnlyList{System.String}
-      description: The warning messages produced by the operation.
-    content.vb: Public Sub New(TableCount As Integer, RowCount As Long, Warnings As IReadOnlyList(Of String))
-  overload: Zachtbeer.SqlDataBridge.BridgeResult.#ctor*
-  nameWithType.vb: BridgeResult.New(Integer, Long, IReadOnlyList(Of String))
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeResult.New(Integer, Long, System.Collections.Generic.IReadOnlyList(Of String))
-  name.vb: New(Integer, Long, IReadOnlyList(Of String))
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.TableCount
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeResult.TableCount
-  id: TableCount
-  parent: Zachtbeer.SqlDataBridge.BridgeResult
+    - id: Manifest
+      type: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+    content.vb: Public Sub New(IsValid As Boolean, Errors As IReadOnlyList(Of String), Warnings As IReadOnlyList(Of String), Manifest As BridgePackageManifest)
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.#ctor*
+  nameWithType.vb: BridgePreflightResult.New(Boolean, IReadOnlyList(Of String), IReadOnlyList(Of String), BridgePackageManifest)
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.New(Boolean, System.Collections.Generic.IReadOnlyList(Of String), System.Collections.Generic.IReadOnlyList(Of String), Zachtbeer.SqlDataBridge.Models.BridgePackageManifest)
+  name.vb: New(Boolean, IReadOnlyList(Of String), IReadOnlyList(Of String), BridgePackageManifest)
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid
+  id: IsValid
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
   langs:
   - csharp
   - vb
-  name: TableCount
-  nameWithType: BridgeResult.TableCount
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.TableCount
+  name: IsValid
+  nameWithType: BridgePreflightResult.IsValid
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid
   type: Property
   source:
     remote:
-      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
-    id: TableCount
-    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 447
+    id: IsValid
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 72
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: The number of tables processed.
-  example: []
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
-    content: public int TableCount { get; init; }
+    content: public bool IsValid { get; init; }
     parameters: []
     return:
-      type: System.Int32
-    content.vb: Public Property TableCount As Integer
-  overload: Zachtbeer.SqlDataBridge.BridgeResult.TableCount*
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.RowCount
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeResult.RowCount
-  id: RowCount
-  parent: Zachtbeer.SqlDataBridge.BridgeResult
+      type: System.Boolean
+    content.vb: Public Property IsValid As Boolean
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors
+  id: Errors
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
   langs:
   - csharp
   - vb
-  name: RowCount
-  nameWithType: BridgeResult.RowCount
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.RowCount
+  name: Errors
+  nameWithType: BridgePreflightResult.Errors
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors
   type: Property
   source:
     remote:
-      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
-    id: RowCount
-    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 447
+    id: Errors
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 72
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: The number of rows processed across all tables.
-  example: []
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
-    content: public long RowCount { get; init; }
+    content: public IReadOnlyList<string> Errors { get; init; }
     parameters: []
     return:
-      type: System.Int64
-    content.vb: Public Property RowCount As Long
-  overload: Zachtbeer.SqlDataBridge.BridgeResult.RowCount*
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.Warnings
-  commentId: P:Zachtbeer.SqlDataBridge.BridgeResult.Warnings
+      type: System.Collections.Generic.IReadOnlyList{System.String}
+    content.vb: Public Property Errors As IReadOnlyList(Of String)
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings
   id: Warnings
-  parent: Zachtbeer.SqlDataBridge.BridgeResult
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
   langs:
   - csharp
   - vb
   name: Warnings
-  nameWithType: BridgeResult.Warnings
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.Warnings
+  nameWithType: BridgePreflightResult.Warnings
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings
   type: Property
   source:
     remote:
-      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-      branch: zb/release-prep-3
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: Warnings
-    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
-    startLine: 447
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 72
   assemblies:
   - Zachtbeer.SqlDataBridge
-  namespace: Zachtbeer.SqlDataBridge
-  summary: The warning messages produced by the operation.
-  example: []
+  namespace: Zachtbeer.SqlDataBridge.Models
   syntax:
     content: public IReadOnlyList<string> Warnings { get; init; }
     parameters: []
     return:
       type: System.Collections.Generic.IReadOnlyList{System.String}
     content.vb: Public Property Warnings As IReadOnlyList(Of String)
-  overload: Zachtbeer.SqlDataBridge.BridgeResult.Warnings*
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings*
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest
+  commentId: P:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest
+  id: Manifest
+  parent: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+  langs:
+  - csharp
+  - vb
+  name: Manifest
+  nameWithType: BridgePreflightResult.Manifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest
+  type: Property
+  source:
+    remote:
+      path: src/SqlDataBridge/BridgeOperationalModels.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Manifest
+    path: src/SqlDataBridge/BridgeOperationalModels.cs
+    startLine: 72
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  syntax:
+    content: public BridgePackageManifest? Manifest { get; init; }
+    parameters: []
+    return:
+      type: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+    content.vb: Public Property Manifest As BridgePackageManifest
+  overload: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest*
 references:
-- uid: Zachtbeer.SqlDataBridge
-  commentId: N:Zachtbeer.SqlDataBridge
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
   href: Zachtbeer.html
-  name: Zachtbeer.SqlDataBridge
-  nameWithType: Zachtbeer.SqlDataBridge
-  fullName: Zachtbeer.SqlDataBridge
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
   spec.csharp:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -192,6 +215,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
   spec.vb:
   - uid: Zachtbeer
     name: Zachtbeer
@@ -200,6 +227,10 @@ references:
   - uid: Zachtbeer.SqlDataBridge
     name: SqlDataBridge
     href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -211,26 +242,26 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System.IEquatable{Zachtbeer.SqlDataBridge.BridgeResult}
-  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.BridgeResult}
+- uid: System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgePreflightResult}
+  commentId: T:System.IEquatable{Zachtbeer.SqlDataBridge.Models.BridgePreflightResult}
   parent: System
   definition: System.IEquatable`1
   href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
-  name: IEquatable<BridgeResult>
-  nameWithType: IEquatable<BridgeResult>
-  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.BridgeResult>
-  nameWithType.vb: IEquatable(Of BridgeResult)
-  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.BridgeResult)
-  name.vb: IEquatable(Of BridgeResult)
+  name: IEquatable<BridgePreflightResult>
+  nameWithType: IEquatable<BridgePreflightResult>
+  fullName: System.IEquatable<Zachtbeer.SqlDataBridge.Models.BridgePreflightResult>
+  nameWithType.vb: IEquatable(Of BridgePreflightResult)
+  fullName.vb: System.IEquatable(Of Zachtbeer.SqlDataBridge.Models.BridgePreflightResult)
+  name.vb: IEquatable(Of BridgePreflightResult)
   spec.csharp:
   - uid: System.IEquatable`1
     name: IEquatable
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgeResult
-    name: BridgeResult
-    href: Zachtbeer.SqlDataBridge.BridgeResult.html
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+    name: BridgePreflightResult
+    href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html
   - name: '>'
   spec.vb:
   - uid: System.IEquatable`1
@@ -240,9 +271,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgeResult
-    name: BridgeResult
-    href: Zachtbeer.SqlDataBridge.BridgeResult.html
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
+    name: BridgePreflightResult
+    href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html
   - name: )
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
@@ -474,37 +505,26 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.#ctor*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeResult.#ctor
-  href: Zachtbeer.SqlDataBridge.BridgeResult.html#Zachtbeer_SqlDataBridge_BridgeResult__ctor_System_Int32_System_Int64_System_Collections_Generic_IReadOnlyList_System_String__
-  name: BridgeResult
-  nameWithType: BridgeResult.BridgeResult
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.BridgeResult
-  nameWithType.vb: BridgeResult.New
-  fullName.vb: Zachtbeer.SqlDataBridge.BridgeResult.New
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.#ctor*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.#ctor
+  href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html#Zachtbeer_SqlDataBridge_Models_BridgePreflightResult__ctor_System_Boolean_System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__Zachtbeer_SqlDataBridge_Models_BridgePackageManifest_
+  name: BridgePreflightResult
+  nameWithType: BridgePreflightResult.BridgePreflightResult
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.BridgePreflightResult
+  nameWithType.vb: BridgePreflightResult.New
+  fullName.vb: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.New
   name.vb: New
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: System.Int64
-  commentId: T:System.Int64
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64
-  name: long
-  nameWithType: long
-  fullName: long
-  nameWithType.vb: Long
-  fullName.vb: Long
-  name.vb: Long
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: System.Collections.Generic.IReadOnlyList{System.String}
   commentId: T:System.Collections.Generic.IReadOnlyList{System.String}
   parent: System.Collections.Generic
@@ -540,6 +560,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest.html
+  name: BridgePackageManifest
+  nameWithType: BridgePackageManifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePackageManifest
 - uid: System.Collections.Generic.IReadOnlyList`1
   commentId: T:System.Collections.Generic.IReadOnlyList`1
   isExternal: true
@@ -605,21 +632,27 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.TableCount*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeResult.TableCount
-  href: Zachtbeer.SqlDataBridge.BridgeResult.html#Zachtbeer_SqlDataBridge_BridgeResult_TableCount
-  name: TableCount
-  nameWithType: BridgeResult.TableCount
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.TableCount
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.RowCount*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeResult.RowCount
-  href: Zachtbeer.SqlDataBridge.BridgeResult.html#Zachtbeer_SqlDataBridge_BridgeResult_RowCount
-  name: RowCount
-  nameWithType: BridgeResult.RowCount
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.RowCount
-- uid: Zachtbeer.SqlDataBridge.BridgeResult.Warnings*
-  commentId: Overload:Zachtbeer.SqlDataBridge.BridgeResult.Warnings
-  href: Zachtbeer.SqlDataBridge.BridgeResult.html#Zachtbeer_SqlDataBridge_BridgeResult_Warnings
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid
+  href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html#Zachtbeer_SqlDataBridge_Models_BridgePreflightResult_IsValid
+  name: IsValid
+  nameWithType: BridgePreflightResult.IsValid
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.IsValid
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors
+  href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html#Zachtbeer_SqlDataBridge_Models_BridgePreflightResult_Errors
+  name: Errors
+  nameWithType: BridgePreflightResult.Errors
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Errors
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings
+  href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html#Zachtbeer_SqlDataBridge_Models_BridgePreflightResult_Warnings
   name: Warnings
-  nameWithType: BridgeResult.Warnings
-  fullName: Zachtbeer.SqlDataBridge.BridgeResult.Warnings
+  nameWithType: BridgePreflightResult.Warnings
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Warnings
+- uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest*
+  commentId: Overload:Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest
+  href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html#Zachtbeer_SqlDataBridge_Models_BridgePreflightResult_Manifest
+  name: Manifest
+  nameWithType: BridgePreflightResult.Manifest
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.Manifest

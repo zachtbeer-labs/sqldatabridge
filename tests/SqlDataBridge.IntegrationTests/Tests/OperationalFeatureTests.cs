@@ -1,4 +1,5 @@
 using Zachtbeer.SqlDataBridge.IntegrationTests.Harness;
+using Zachtbeer.SqlDataBridge.Models;
 using Shouldly;
 using Xunit;
 

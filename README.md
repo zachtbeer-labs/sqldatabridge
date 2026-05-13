@@ -44,14 +44,20 @@ using Zachtbeer.SqlDataBridge;
 
 var packagePath = "database.sqlite";
 
-await new SqlDataBridgeExporter().ExportAsync(sourceSqlServerConnectionString, packagePath, new ExportOptions());
+await SqlDataBridge.ExportAsync(sourceSqlServerConnectionString, packagePath);
 
-await new SqlDataBridgeImporter().ImportAsync(packagePath, targetSqlServerConnectionString, new ImportOptions());
+await SqlDataBridge.ImportAsync(packagePath, targetSqlServerConnectionString);
 ```
 
 Before importing, the target SQL Server tables must exist and be empty. If you want the SQLite file to carry schema too, export with dacpac capture and opt into dacpac deployment during import.
 
 ## Real-World Examples
+
+In addition to `using Zachtbeer.SqlDataBridge;`, configured examples use the model types namespace:
+
+```csharp
+using Zachtbeer.SqlDataBridge.Models;
+```
 
 Export only the tables needed to reproduce an issue:
 

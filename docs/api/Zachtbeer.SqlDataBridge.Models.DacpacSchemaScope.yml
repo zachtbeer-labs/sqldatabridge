@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  id: DacpacSchemaScope
+  parent: Zachtbeer.SqlDataBridge.Models
+  children:
+  - Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.Database
+  - Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.SelectedExportTables
+  langs:
+  - csharp
+  - vb
+  name: DacpacSchemaScope
+  nameWithType: DacpacSchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  type: Enum
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: DacpacSchemaScope
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 39
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Controls which schema objects are stored in a dacpac captured during export.
+  example: []
+  syntax:
+    content: public enum DacpacSchemaScope
+    content.vb: Public Enum DacpacSchemaScope
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.Database
+  commentId: F:Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.Database
+  id: Database
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  langs:
+  - csharp
+  - vb
+  name: Database
+  nameWithType: DacpacSchemaScope.Database
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.Database
+  type: Field
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: Database
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 44
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Capture the source database schema model.
+  example: []
+  syntax:
+    content: Database = 0
+    return:
+      type: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.SelectedExportTables
+  commentId: F:Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.SelectedExportTables
+  id: SelectedExportTables
+  parent: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  langs:
+  - csharp
+  - vb
+  name: SelectedExportTables
+  nameWithType: DacpacSchemaScope.SelectedExportTables
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.SelectedExportTables
+  type: Field
+  source:
+    remote:
+      path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+      branch: zb/namespace-cleanup
+      repo: https://github.com/zachtbeer-labs/sqldatabridge.git
+    id: SelectedExportTables
+    path: src/SqlDataBridge/SqlDataBridgeOptions.cs
+    startLine: 49
+  assemblies:
+  - Zachtbeer.SqlDataBridge
+  namespace: Zachtbeer.SqlDataBridge.Models
+  summary: Capture only tables selected by the export plan and required scriptable dependencies.
+  example: []
+  syntax:
+    content: SelectedExportTables = 1
+    return:
+      type: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+references:
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+- uid: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  commentId: T:Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope.html
+  name: DacpacSchemaScope
+  nameWithType: DacpacSchemaScope
+  fullName: Zachtbeer.SqlDataBridge.Models.DacpacSchemaScope

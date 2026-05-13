@@ -2,12 +2,73 @@ using System.Reflection;
 using Microsoft.SqlServer.Dac;
 using Shouldly;
 using Zachtbeer.SqlDataBridge.Internal;
+using Zachtbeer.SqlDataBridge.Models;
 using Xunit;
 
 namespace Zachtbeer.SqlDataBridge.Tests;
 
 public sealed class ApiShapeTests
 {
+    [Fact]
+    public void EntryPoints_RemainInBaseNamespace()
+    {
+        typeof(SqlDataBridgeExporter).Namespace.ShouldBe("Zachtbeer.SqlDataBridge");
+        typeof(SqlDataBridgeImporter).Namespace.ShouldBe("Zachtbeer.SqlDataBridge");
+        typeof(global::Zachtbeer.SqlDataBridge.SqlDataBridge).Namespace.ShouldBe("Zachtbeer.SqlDataBridge");
+    }
+
+    [Fact]
+    public void SupportingPublicTypes_AreInModelsNamespace()
+    {
+        var types = new[]
+        {
+            typeof(ExportOptions),
+            typeof(ImportOptions),
+            typeof(BridgeOptions),
+            typeof(BridgeResult),
+            typeof(BridgePreflightResult),
+            typeof(BridgePackageManifest),
+            typeof(BridgeTableManifest),
+            typeof(BridgeColumnManifest),
+            typeof(BridgeProgress),
+            typeof(BridgeProgressKind),
+            typeof(BridgeException),
+            typeof(DataPackageReader),
+            typeof(SchemaCaptureMode),
+            typeof(SchemaDeploymentMode),
+            typeof(DacpacCaptureOptions),
+            typeof(DacpacDeploymentOptions),
+            typeof(DacpacSchemaScope),
+            typeof(ExportTableSelectionMode),
+            typeof(GlobalWhereClause),
+            typeof(PerTableWhereClause)
+        };
+
+        types.Select(type => type.Namespace).Distinct().ShouldBe(["Zachtbeer.SqlDataBridge.Models"]);
+    }
+
+    [Fact]
+    public void StaticFacade_ExposesSimpleExportAndImportMethods()
+    {
+        var export = FindMethod(
+            typeof(global::Zachtbeer.SqlDataBridge.SqlDataBridge),
+            nameof(global::Zachtbeer.SqlDataBridge.SqlDataBridge.ExportAsync),
+            typeof(string),
+            typeof(string),
+            typeof(ExportOptions),
+            typeof(CancellationToken));
+        var import = FindMethod(
+            typeof(global::Zachtbeer.SqlDataBridge.SqlDataBridge),
+            nameof(global::Zachtbeer.SqlDataBridge.SqlDataBridge.ImportAsync),
+            typeof(string),
+            typeof(string),
+            typeof(ImportOptions),
+            typeof(CancellationToken));
+
+        export.ShouldNotBeNull();
+        import.ShouldNotBeNull();
+    }
+
     [Fact]
     public void Exporter_ExposesPreferredExportOptionsOverload()
     {

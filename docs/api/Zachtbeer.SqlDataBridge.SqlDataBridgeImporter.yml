@@ -5,9 +5,9 @@ items:
   id: SqlDataBridgeImporter
   parent: Zachtbeer.SqlDataBridge
   children:
-  - Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.BridgeOptions,System.Threading.CancellationToken)
-  - Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
-  - Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
+  - Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.BridgeOptions,System.Threading.CancellationToken)
+  - Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
+  - Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
   langs:
   - csharp
   - vb
@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: SqlDataBridgeImporter
     path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - Zachtbeer.SqlDataBridge
   namespace: Zachtbeer.SqlDataBridge
@@ -40,25 +40,25 @@ items:
   - System.Object.GetType
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
-  commentId: M:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
-  id: ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
+- uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
+  commentId: M:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
+  id: ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
   parent: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter
   langs:
   - csharp
   - vb
   name: ImportAsync(string, string, ImportOptions?, CancellationToken)
   nameWithType: SqlDataBridgeImporter.ImportAsync(string, string, ImportOptions?, CancellationToken)
-  fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(string, string, Zachtbeer.SqlDataBridge.ImportOptions?, System.Threading.CancellationToken)
+  fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(string, string, Zachtbeer.SqlDataBridge.Models.ImportOptions?, System.Threading.CancellationToken)
   type: Method
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ImportAsync
     path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - Zachtbeer.SqlDataBridge
   namespace: Zachtbeer.SqlDataBridge
@@ -74,38 +74,38 @@ items:
       type: System.String
       description: The SQL Server target connection string.
     - id: options
-      type: Zachtbeer.SqlDataBridge.ImportOptions
+      type: Zachtbeer.SqlDataBridge.Models.ImportOptions
       description: The import options.
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A token used to cancel the operation.
     return:
-      type: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgeResult}
+      type: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgeResult}
       description: A summary of imported tables and rows.
     content.vb: Public Function ImportAsync(sqliteFilePath As String, sqlServerConnectionString As String, options As ImportOptions = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of BridgeResult)
   overload: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync*
   nameWithType.vb: SqlDataBridgeImporter.ImportAsync(String, String, ImportOptions, CancellationToken)
-  fullName.vb: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(String, String, Zachtbeer.SqlDataBridge.ImportOptions, System.Threading.CancellationToken)
+  fullName.vb: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(String, String, Zachtbeer.SqlDataBridge.Models.ImportOptions, System.Threading.CancellationToken)
   name.vb: ImportAsync(String, String, ImportOptions, CancellationToken)
-- uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.BridgeOptions,System.Threading.CancellationToken)
-  commentId: M:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.BridgeOptions,System.Threading.CancellationToken)
-  id: ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.BridgeOptions,System.Threading.CancellationToken)
+- uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.BridgeOptions,System.Threading.CancellationToken)
+  commentId: M:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.BridgeOptions,System.Threading.CancellationToken)
+  id: ImportAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.BridgeOptions,System.Threading.CancellationToken)
   parent: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter
   langs:
   - csharp
   - vb
   name: ImportAsync(string, string, BridgeOptions, CancellationToken)
   nameWithType: SqlDataBridgeImporter.ImportAsync(string, string, BridgeOptions, CancellationToken)
-  fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(string, string, Zachtbeer.SqlDataBridge.BridgeOptions, System.Threading.CancellationToken)
+  fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(string, string, Zachtbeer.SqlDataBridge.Models.BridgeOptions, System.Threading.CancellationToken)
   type: Method
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: ImportAsync
     path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-    startLine: 111
+    startLine: 112
   assemblies:
   - Zachtbeer.SqlDataBridge
   namespace: Zachtbeer.SqlDataBridge
@@ -121,38 +121,38 @@ items:
       type: System.String
       description: The SQL Server target connection string.
     - id: options
-      type: Zachtbeer.SqlDataBridge.BridgeOptions
+      type: Zachtbeer.SqlDataBridge.Models.BridgeOptions
       description: The shared options to map to import options.
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A token used to cancel the operation.
     return:
-      type: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgeResult}
+      type: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgeResult}
       description: A summary of imported tables and rows.
     content.vb: Public Function ImportAsync(sqliteFilePath As String, sqlServerConnectionString As String, options As BridgeOptions, cancellationToken As CancellationToken = Nothing) As Task(Of BridgeResult)
   overload: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync*
   nameWithType.vb: SqlDataBridgeImporter.ImportAsync(String, String, BridgeOptions, CancellationToken)
-  fullName.vb: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(String, String, Zachtbeer.SqlDataBridge.BridgeOptions, System.Threading.CancellationToken)
+  fullName.vb: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync(String, String, Zachtbeer.SqlDataBridge.Models.BridgeOptions, System.Threading.CancellationToken)
   name.vb: ImportAsync(String, String, BridgeOptions, CancellationToken)
-- uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
-  commentId: M:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
-  id: PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.ImportOptions,System.Threading.CancellationToken)
+- uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
+  commentId: M:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
+  id: PreflightAsync(System.String,System.String,Zachtbeer.SqlDataBridge.Models.ImportOptions,System.Threading.CancellationToken)
   parent: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter
   langs:
   - csharp
   - vb
   name: PreflightAsync(string, string, ImportOptions?, CancellationToken)
   nameWithType: SqlDataBridgeImporter.PreflightAsync(string, string, ImportOptions?, CancellationToken)
-  fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(string, string, Zachtbeer.SqlDataBridge.ImportOptions?, System.Threading.CancellationToken)
+  fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(string, string, Zachtbeer.SqlDataBridge.Models.ImportOptions?, System.Threading.CancellationToken)
   type: Method
   source:
     remote:
       path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-      branch: zb/release-prep-3
+      branch: zb/namespace-cleanup
       repo: https://github.com/zachtbeer-labs/sqldatabridge.git
     id: PreflightAsync
     path: src/SqlDataBridge/SqlDataBridgeImporter.cs
-    startLine: 126
+    startLine: 127
   assemblies:
   - Zachtbeer.SqlDataBridge
   namespace: Zachtbeer.SqlDataBridge
@@ -168,18 +168,18 @@ items:
       type: System.String
       description: The SQL Server target connection string.
     - id: options
-      type: Zachtbeer.SqlDataBridge.ImportOptions
+      type: Zachtbeer.SqlDataBridge.Models.ImportOptions
       description: The import options.
     - id: cancellationToken
       type: System.Threading.CancellationToken
       description: A token used to cancel the operation.
     return:
-      type: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgePreflightResult}
+      type: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgePreflightResult}
       description: The preflight validation result.
     content.vb: Public Function PreflightAsync(sqliteFilePath As String, sqlServerConnectionString As String, options As ImportOptions = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of BridgePreflightResult)
   overload: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync*
   nameWithType.vb: SqlDataBridgeImporter.PreflightAsync(String, String, ImportOptions, CancellationToken)
-  fullName.vb: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(String, String, Zachtbeer.SqlDataBridge.ImportOptions, System.Threading.CancellationToken)
+  fullName.vb: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync(String, String, Zachtbeer.SqlDataBridge.Models.ImportOptions, System.Threading.CancellationToken)
   name.vb: PreflightAsync(String, String, ImportOptions, CancellationToken)
 references:
 - uid: Zachtbeer.SqlDataBridge
@@ -419,7 +419,7 @@ references:
   fullName: System
 - uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync*
   commentId: Overload:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync
-  href: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.html#Zachtbeer_SqlDataBridge_SqlDataBridgeImporter_ImportAsync_System_String_System_String_Zachtbeer_SqlDataBridge_ImportOptions_System_Threading_CancellationToken_
+  href: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.html#Zachtbeer_SqlDataBridge_SqlDataBridgeImporter_ImportAsync_System_String_System_String_Zachtbeer_SqlDataBridge_Models_ImportOptions_System_Threading_CancellationToken_
   name: ImportAsync
   nameWithType: SqlDataBridgeImporter.ImportAsync
   fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.ImportAsync
@@ -434,13 +434,13 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: Zachtbeer.SqlDataBridge.ImportOptions
-  commentId: T:Zachtbeer.SqlDataBridge.ImportOptions
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.ImportOptions.html
+- uid: Zachtbeer.SqlDataBridge.Models.ImportOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.ImportOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.ImportOptions.html
   name: ImportOptions
   nameWithType: ImportOptions
-  fullName: Zachtbeer.SqlDataBridge.ImportOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.ImportOptions
 - uid: System.Threading.CancellationToken
   commentId: T:System.Threading.CancellationToken
   parent: System.Threading
@@ -449,16 +449,16 @@ references:
   name: CancellationToken
   nameWithType: CancellationToken
   fullName: System.Threading.CancellationToken
-- uid: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgeResult}
-  commentId: T:System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgeResult}
+- uid: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgeResult}
+  commentId: T:System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgeResult}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   name: Task<BridgeResult>
   nameWithType: Task<BridgeResult>
-  fullName: System.Threading.Tasks.Task<Zachtbeer.SqlDataBridge.BridgeResult>
+  fullName: System.Threading.Tasks.Task<Zachtbeer.SqlDataBridge.Models.BridgeResult>
   nameWithType.vb: Task(Of BridgeResult)
-  fullName.vb: System.Threading.Tasks.Task(Of Zachtbeer.SqlDataBridge.BridgeResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Zachtbeer.SqlDataBridge.Models.BridgeResult)
   name.vb: Task(Of BridgeResult)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
@@ -466,9 +466,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgeResult
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeResult
     name: BridgeResult
-    href: Zachtbeer.SqlDataBridge.BridgeResult.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeResult.html
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -478,10 +478,40 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgeResult
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgeResult
     name: BridgeResult
-    href: Zachtbeer.SqlDataBridge.BridgeResult.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgeResult.html
   - name: )
+- uid: Zachtbeer.SqlDataBridge.Models
+  commentId: N:Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.html
+  name: Zachtbeer.SqlDataBridge.Models
+  nameWithType: Zachtbeer.SqlDataBridge.Models
+  fullName: Zachtbeer.SqlDataBridge.Models
+  spec.csharp:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
+  spec.vb:
+  - uid: Zachtbeer
+    name: Zachtbeer
+    href: Zachtbeer.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge
+    name: SqlDataBridge
+    href: Zachtbeer.SqlDataBridge.html
+  - name: .
+  - uid: Zachtbeer.SqlDataBridge.Models
+    name: Models
+    href: Zachtbeer.SqlDataBridge.Models.html
 - uid: System.Threading
   commentId: N:System.Threading
   isExternal: true
@@ -574,29 +604,29 @@ references:
     name: Tasks
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
-- uid: Zachtbeer.SqlDataBridge.BridgeOptions
-  commentId: T:Zachtbeer.SqlDataBridge.BridgeOptions
-  parent: Zachtbeer.SqlDataBridge
-  href: Zachtbeer.SqlDataBridge.BridgeOptions.html
+- uid: Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  commentId: T:Zachtbeer.SqlDataBridge.Models.BridgeOptions
+  parent: Zachtbeer.SqlDataBridge.Models
+  href: Zachtbeer.SqlDataBridge.Models.BridgeOptions.html
   name: BridgeOptions
   nameWithType: BridgeOptions
-  fullName: Zachtbeer.SqlDataBridge.BridgeOptions
+  fullName: Zachtbeer.SqlDataBridge.Models.BridgeOptions
 - uid: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync*
   commentId: Overload:Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync
-  href: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.html#Zachtbeer_SqlDataBridge_SqlDataBridgeImporter_PreflightAsync_System_String_System_String_Zachtbeer_SqlDataBridge_ImportOptions_System_Threading_CancellationToken_
+  href: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.html#Zachtbeer_SqlDataBridge_SqlDataBridgeImporter_PreflightAsync_System_String_System_String_Zachtbeer_SqlDataBridge_Models_ImportOptions_System_Threading_CancellationToken_
   name: PreflightAsync
   nameWithType: SqlDataBridgeImporter.PreflightAsync
   fullName: Zachtbeer.SqlDataBridge.SqlDataBridgeImporter.PreflightAsync
-- uid: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgePreflightResult}
-  commentId: T:System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.BridgePreflightResult}
+- uid: System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgePreflightResult}
+  commentId: T:System.Threading.Tasks.Task{Zachtbeer.SqlDataBridge.Models.BridgePreflightResult}
   parent: System.Threading.Tasks
   definition: System.Threading.Tasks.Task`1
   href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   name: Task<BridgePreflightResult>
   nameWithType: Task<BridgePreflightResult>
-  fullName: System.Threading.Tasks.Task<Zachtbeer.SqlDataBridge.BridgePreflightResult>
+  fullName: System.Threading.Tasks.Task<Zachtbeer.SqlDataBridge.Models.BridgePreflightResult>
   nameWithType.vb: Task(Of BridgePreflightResult)
-  fullName.vb: System.Threading.Tasks.Task(Of Zachtbeer.SqlDataBridge.BridgePreflightResult)
+  fullName.vb: System.Threading.Tasks.Task(Of Zachtbeer.SqlDataBridge.Models.BridgePreflightResult)
   name.vb: Task(Of BridgePreflightResult)
   spec.csharp:
   - uid: System.Threading.Tasks.Task`1
@@ -604,9 +634,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
   - name: <
-  - uid: Zachtbeer.SqlDataBridge.BridgePreflightResult
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
     name: BridgePreflightResult
-    href: Zachtbeer.SqlDataBridge.BridgePreflightResult.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html
   - name: '>'
   spec.vb:
   - uid: System.Threading.Tasks.Task`1
@@ -616,7 +646,7 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: Zachtbeer.SqlDataBridge.BridgePreflightResult
+  - uid: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult
     name: BridgePreflightResult
-    href: Zachtbeer.SqlDataBridge.BridgePreflightResult.html
+    href: Zachtbeer.SqlDataBridge.Models.BridgePreflightResult.html
   - name: )
