@@ -135,4 +135,58 @@ internal static class TargetSchemaScripts
             );
             """;
     }
+
+    public static string RvAudit(bool includeRowversion = true)
+    {
+        var rv = includeRowversion ? "," + Environment.NewLine + "                Rv ROWVERSION" : string.Empty;
+        return $$"""
+            CREATE TABLE dbo.RvAudit (
+                Id INT IDENTITY(1,1) PRIMARY KEY,
+                Name NVARCHAR(50) NOT NULL{{rv}}
+            );
+            """;
+    }
+
+    public static string SparseRows()
+    {
+        return """
+            CREATE TABLE dbo.SparseRows (
+                Id INT IDENTITY(1,1) PRIMARY KEY,
+                A NVARCHAR(50) NULL,
+                B NVARCHAR(50) NULL,
+                C NVARCHAR(50) NULL,
+                D INT NULL,
+                E DECIMAL(18,4) NULL,
+                F DATETIME2(7) NULL,
+                G VARBINARY(64) NULL,
+                H UNIQUEIDENTIFIER NULL
+            );
+            """;
+    }
+
+    public static string UnicodeRows()
+    {
+        return """
+            CREATE TABLE dbo.UnicodeRows (
+                Id INT IDENTITY(1,1) PRIMARY KEY,
+                Label NVARCHAR(200) NOT NULL
+            );
+            """;
+    }
+
+    public static string DateExtremes()
+    {
+        return """
+            CREATE TABLE dbo.DateExtremes (
+                Id INT IDENTITY(1,1) PRIMARY KEY,
+                Dt2Min DATETIME2(7) NOT NULL,
+                Dt2Max DATETIME2(7) NOT NULL,
+                DtoMin DATETIMEOFFSET(7) NOT NULL,
+                DtoMax DATETIMEOFFSET(7) NOT NULL,
+                Dt2NoFrac DATETIME2(0) NOT NULL,
+                DecBig DECIMAL(28,10) NOT NULL,
+                DecTight DECIMAL(5,5) NOT NULL
+            );
+            """;
+    }
 }

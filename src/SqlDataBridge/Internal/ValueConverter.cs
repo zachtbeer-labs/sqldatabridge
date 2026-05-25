@@ -27,17 +27,21 @@ internal static class ValueConverter
 
     private static readonly HashSet<string> BlobTypes = new(StringComparer.OrdinalIgnoreCase)
     {
-        "binary", "varbinary", "image"
+        "binary", "varbinary", "image", "timestamp", "rowversion"
     };
 
     public static bool IsUnsupported(string typeName)
     {
         return typeName.Equals("sql_variant", StringComparison.OrdinalIgnoreCase)
-            || typeName.Equals("timestamp", StringComparison.OrdinalIgnoreCase)
-            || typeName.Equals("rowversion", StringComparison.OrdinalIgnoreCase)
             || typeName.Equals("geography", StringComparison.OrdinalIgnoreCase)
             || typeName.Equals("geometry", StringComparison.OrdinalIgnoreCase)
             || typeName.Equals("hierarchyid", StringComparison.OrdinalIgnoreCase);
+    }
+
+    public static bool IsServerGenerated(string typeName)
+    {
+        return typeName.Equals("timestamp", StringComparison.OrdinalIgnoreCase)
+            || typeName.Equals("rowversion", StringComparison.OrdinalIgnoreCase);
     }
 
     public static string SqliteTypeFor(ColumnMetadata column)

@@ -310,17 +310,18 @@ Supported types:
 - JSON text-preserved values: native `json` columns on SQL Server 2025 and Azure SQL
 - Binary: `binary`, `varbinary`, `image`
 - Identifiers: `uniqueidentifier`
+- Server-generated: `timestamp`, `rowversion`
 
 Unsupported included types fail export preflight:
 
 - `sql_variant`
-- `timestamp`
-- `rowversion`
 - `geography`
 - `geometry`
 - `hierarchyid`
 
 Exclude unsupported columns with `ExcludeColumns`.
+
+`rowversion` / `timestamp` columns are captured as 8-byte `BLOB` values during export (for inspection) but skipped during import — SQL Server generates fresh values on the target. Export and import each emit a warning when one of these columns is present.
 
 XML columns are stored as SQLite `TEXT` and imported back into SQL Server `xml` columns. If a package is edited and an XML value is no longer valid XML, import fails with SQL Server's XML conversion error.
 

@@ -12,4 +12,5 @@ All notable changes to Zachtbeer.SqlDataBridge are documented in this file.
 - Protect existing package files by default with explicit `OverwriteExistingPackage` opt-in.
 - Write exports through a temporary SQLite file before replacing the destination package.
 - Document supported SQL Server types, target schema requirements, and known v1 behavior.
+- Support `rowversion` / `timestamp` columns: export captures the bytes as `BLOB` (informational), import skips them so SQL Server generates fresh values. Both sides emit a warning.
 - Add GitHub Actions CI and release workflows.
