@@ -49,6 +49,7 @@ internal static class SqlServerSchemaReader
 
         ValidateGlobalWhereClauseMatches(tables, options.GlobalWhereClauses);
         ValidateSupported(tables);
+        warnings.AddRange(BuildServerGeneratedColumnWarnings(tables));
 
         var allForeignKeys = await ReadForeignKeysAsync(connection, options.CommandTimeout, cancellationToken);
         var selectedNames = selected.Select(t => t.FullName).ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -98,6 +99,11 @@ internal static class SqlServerSchemaReader
             var targetColumns = await ReadTargetColumnsAsync(connection, table.Name, commandTimeout, cancellationToken);
             foreach (var column in table.ExportedColumns)
             {
+                if (ValueConverter.IsServerGenerated(column.SqlServerTypeName))
+                {
+                    continue;
+                }
+
                 if (!targetColumns.TryGetValue(column.Name, out _))
                 {
                     throw new BridgeException($"Target column '{table.Name.FullName}.{column.Name}' does not exist. Create the target column before import or exclude the source column during export.");
@@ -108,7 +114,8 @@ internal static class SqlServerSchemaReader
             {
                 if (table.ExportedColumns.Any(c => string.Equals(c.Name, target.Name, StringComparison.OrdinalIgnoreCase))
                     || target.IsComputed
-                    || target.IsIdentity)
+                    || target.IsIdentity
+                    || ValueConverter.IsServerGenerated(target.SqlServerTypeName))
                 {
                     continue;
                 }
@@ -445,6 +452,16 @@ internal static class SqlServerSchemaReader
         return result;
     }
 
+    private static IReadOnlyList<string> BuildServerGeneratedColumnWarnings(IEnumerable<TableMetadata> tables)
+    {
+        return tables
+            .SelectMany(t => t.ExportedColumns
+                .Where(c => ValueConverter.IsServerGenerated(c.SqlServerTypeName))
+                .Select(c => $"Table '{t.Name.FullName}' column '{c.Name}' is a {c.SqlServerTypeName}. Bytes are captured for inspection but SQL Server will generate fresh values on import."))
+            .Order(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+    }
+
     private static IReadOnlyList<string> BuildForeignKeyScopeWarnings(
         IReadOnlyList<ForeignKeyMetadata> foreignKeys,
         ISet<string> selectedTables)
@@ -499,7 +516,7 @@ internal static class SqlServerSchemaReader
         return Convert.ToInt64(await command.ExecuteScalarAsync(cancellationToken)) == 1;
     }
 
-    private sealed record TargetColumn(string Name, bool IsNullable, bool IsIdentity, bool IsComputed, bool HasDefault);
+    private sealed record TargetColumn(string Name, string SqlServerTypeName, bool IsNullable, bool IsIdentity, bool IsComputed, bool HasDefault);
 
     private sealed record TableSizeEstimate(long EstimatedSourceRowCount, long EstimatedSourceBytes);
 
@@ -510,10 +527,11 @@ internal static class SqlServerSchemaReader
         CancellationToken cancellationToken)
     {
         const string sql = """
-            SELECT c.name, c.is_nullable, c.is_identity, c.is_computed, CASE WHEN dc.object_id IS NULL THEN 0 ELSE 1 END
+            SELECT c.name, ty.name, c.is_nullable, c.is_identity, c.is_computed, CASE WHEN dc.object_id IS NULL THEN 0 ELSE 1 END
             FROM sys.columns c
             INNER JOIN sys.tables t ON t.object_id = c.object_id
             INNER JOIN sys.schemas s ON s.schema_id = t.schema_id
+            INNER JOIN sys.types ty ON ty.user_type_id = c.user_type_id
             LEFT JOIN sys.default_constraints dc ON dc.parent_object_id = c.object_id AND dc.parent_column_id = c.column_id
             WHERE s.name = @schema AND t.name = @table;
             """;
@@ -526,7 +544,7 @@ internal static class SqlServerSchemaReader
         await using var reader = await command.ExecuteReaderAsync(cancellationToken);
         while (await reader.ReadAsync(cancellationToken))
         {
-            var column = new TargetColumn(reader.GetString(0), reader.GetBoolean(1), reader.GetBoolean(2), reader.GetBoolean(3), reader.GetInt32(4) == 1);
+            var column = new TargetColumn(reader.GetString(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3), reader.GetBoolean(4), reader.GetInt32(5) == 1);
             result[column.Name] = column;
         }
 

@@ -18,9 +18,16 @@ public sealed class DataPackageReader
     {
         var sqliteBuilder = new SqliteConnectionStringBuilder { DataSource = sqliteFilePath, Mode = SqliteOpenMode.ReadOnly };
         await using var sqlite = new SqliteConnection(sqliteBuilder.ConnectionString);
-        await sqlite.OpenAsync(cancellationToken);
+        try
+        {
+            await sqlite.OpenAsync(cancellationToken);
 
-        await SqlitePackage.ValidateForImportAsync(sqlite, cancellationToken);
-        return await SqlitePackage.ReadManifestAsync(sqlite, cancellationToken);
+            await SqlitePackage.ValidateForImportAsync(sqlite, cancellationToken);
+            return await SqlitePackage.ReadManifestAsync(sqlite, cancellationToken);
+        }
+        finally
+        {
+            try { SqliteConnection.ClearPool(sqlite); } catch { /* best effort */ }
+        }
     }
 }

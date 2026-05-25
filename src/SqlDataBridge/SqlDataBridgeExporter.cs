@@ -41,11 +41,11 @@ public sealed class SqlDataBridgeExporter
             _ => throw new BridgeException($"SchemaCaptureMode '{options.SchemaCaptureMode}' is not supported.")
         };
         var tempPath = CreateTemporaryPackagePath(destinationPath);
+        var sqliteBuilder = new SqliteConnectionStringBuilder { DataSource = tempPath };
+        await using var sqlite = new SqliteConnection(sqliteBuilder.ConnectionString);
 
         try
         {
-            var sqliteBuilder = new SqliteConnectionStringBuilder { DataSource = tempPath };
-            await using var sqlite = new SqliteConnection(sqliteBuilder.ConnectionString);
             await sqlite.OpenAsync(cancellationToken);
             await SqlitePackage.InitializeAsync(sqlite, plan, cancellationToken);
             if (schemaPackage is not null)
@@ -68,6 +68,9 @@ public sealed class SqlDataBridgeExporter
             }
 
             await sqlite.CloseAsync();
+            // Pooling keeps the sqlite3 file handle alive past CloseAsync/Dispose.
+            // Evict it so the move/delete below can succeed on Windows.
+            SqliteConnection.ClearPool(sqlite);
             File.Move(tempPath, destinationPath, options.OverwriteExistingPackage);
 
             options.Progress?.Report(new BridgeProgress(BridgeProgressKind.OperationCompleted, RowsProcessed: totalRows, TotalRows: totalRows, Message: "Export completed."));
@@ -75,6 +78,7 @@ public sealed class SqlDataBridgeExporter
         }
         catch
         {
+            try { SqliteConnection.ClearPool(sqlite); } catch { /* best effort */ }
             DeleteTemporaryPackage(tempPath);
             throw;
         }

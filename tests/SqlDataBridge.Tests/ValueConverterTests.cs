@@ -37,6 +37,8 @@ public sealed class ValueConverterTests
     [InlineData("json", "TEXT")]
     [InlineData("binary", "BLOB")]
     [InlineData("varbinary", "BLOB")]
+    [InlineData("timestamp", "BLOB")]
+    [InlineData("rowversion", "BLOB")]
     public void SqliteTypeFor_SupportedTypes_ReturnsExpectedStorageType(string sqlServerType, string expectedSqliteType)
     {
         var column = Column(sqlServerType);
@@ -46,14 +48,31 @@ public sealed class ValueConverterTests
 
     [Theory]
     [InlineData("sql_variant")]
-    [InlineData("timestamp")]
-    [InlineData("rowversion")]
     [InlineData("geography")]
     [InlineData("geometry")]
     [InlineData("hierarchyid")]
     public void IsUnsupported_UnsupportedTypes_ReturnsTrue(string sqlServerType)
     {
         ValueConverter.IsUnsupported(sqlServerType).ShouldBeTrue();
+    }
+
+    [Theory]
+    [InlineData("timestamp")]
+    [InlineData("rowversion")]
+    [InlineData("TIMESTAMP")]
+    public void IsServerGenerated_RowversionAndTimestamp_ReturnsTrue(string sqlServerType)
+    {
+        ValueConverter.IsServerGenerated(sqlServerType).ShouldBeTrue();
+        ValueConverter.IsUnsupported(sqlServerType).ShouldBeFalse();
+    }
+
+    [Theory]
+    [InlineData("int")]
+    [InlineData("varbinary")]
+    [InlineData("nvarchar")]
+    public void IsServerGenerated_OtherTypes_ReturnsFalse(string sqlServerType)
+    {
+        ValueConverter.IsServerGenerated(sqlServerType).ShouldBeFalse();
     }
 
     [Theory]

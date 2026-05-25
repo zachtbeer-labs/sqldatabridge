@@ -20,6 +20,11 @@ internal sealed class SqliteTempFileHarness : IAsyncDisposable
 
     public ValueTask DisposeAsync()
     {
+        // Tests may open a SqliteConnection against FilePath to inspect the package.
+        // Microsoft.Data.Sqlite pools that connection, keeping a file handle alive
+        // past Dispose. Evict pooled handles before deleting so Windows lets go.
+        SqliteConnection.ClearAllPools();
+
         if (File.Exists(FilePath))
         {
             File.Delete(FilePath);

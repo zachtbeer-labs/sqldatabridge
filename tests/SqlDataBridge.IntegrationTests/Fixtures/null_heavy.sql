@@ -1,0 +1,33 @@
+CREATE TABLE dbo.SparseRows (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    A NVARCHAR(50) NULL,
+    B NVARCHAR(50) NULL,
+    C NVARCHAR(50) NULL,
+    D INT NULL,
+    E DECIMAL(18,4) NULL,
+    F DATETIME2(7) NULL,
+    G VARBINARY(64) NULL,
+    H UNIQUEIDENTIFIER NULL
+);
+
+-- Two fully-populated rows so every column has at least one non-NULL.
+INSERT INTO dbo.SparseRows (A, B, C, D, E, F, G, H) VALUES
+    (N'a1', N'b1', N'c1', 11, CAST(11.1111 AS DECIMAL(18,4)),
+     CAST('2024-01-01T01:02:03.1234567' AS DATETIME2(7)),
+     0xDEADBEEF, CAST('11111111-1111-1111-1111-111111111111' AS UNIQUEIDENTIFIER)),
+    (N'a2', N'b2', N'c2', 22, CAST(22.2222 AS DECIMAL(18,4)),
+     CAST('2024-02-02T02:03:04.7654321' AS DATETIME2(7)),
+     0xCAFEBABE, CAST('22222222-2222-2222-2222-222222222222' AS UNIQUEIDENTIFIER));
+
+-- Six rows that are entirely NULL apart from Id.
+INSERT INTO dbo.SparseRows DEFAULT VALUES;
+INSERT INTO dbo.SparseRows DEFAULT VALUES;
+INSERT INTO dbo.SparseRows DEFAULT VALUES;
+INSERT INTO dbo.SparseRows DEFAULT VALUES;
+INSERT INTO dbo.SparseRows DEFAULT VALUES;
+INSERT INTO dbo.SparseRows DEFAULT VALUES;
+
+-- Two rows with partial NULLs spread across columns.
+INSERT INTO dbo.SparseRows (A, D, G) VALUES
+    (N'partial-a', 99, 0x00),
+    (NULL, NULL, 0xFFFF);

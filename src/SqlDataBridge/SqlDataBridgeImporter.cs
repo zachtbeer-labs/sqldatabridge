@@ -28,78 +28,87 @@ public sealed class SqlDataBridgeImporter
         var sqliteBuilder = new SqliteConnectionStringBuilder
             { DataSource = sqliteFilePath, Mode = SqliteOpenMode.ReadOnly };
         await using var sqlite = new SqliteConnection(sqliteBuilder.ConnectionString);
-        await sqlite.OpenAsync(cancellationToken);
-
-        await SqlitePackage.ValidateForImportAsync(sqlite, cancellationToken);
-
-        switch (options.SchemaDeploymentMode)
+        try
         {
-            case SchemaDeploymentMode.None:
-                break;
-            case SchemaDeploymentMode.DeployDacpac:
-                var schemaPackage = await SqlitePackage.ReadSchemaPackageAsync(sqlite, cancellationToken);
-                if (schemaPackage is null)
+            await sqlite.OpenAsync(cancellationToken);
+
+            await SqlitePackage.ValidateForImportAsync(sqlite, cancellationToken);
+
+            switch (options.SchemaDeploymentMode)
+            {
+                case SchemaDeploymentMode.None:
+                    break;
+                case SchemaDeploymentMode.DeployDacpac:
+                    var schemaPackage = await SqlitePackage.ReadSchemaPackageAsync(sqlite, cancellationToken);
+                    if (schemaPackage is null)
+                    {
+                        throw new BridgeException(
+                            "SQLite package does not contain a dacpac schema package. Export with SchemaCaptureMode.Dacpac before deploying schema during import.");
+                    }
+
+                    await DacpacSchemaManager.DeployAsync(sqlServerConnectionString, schemaPackage,
+                        options.DacpacDeploymentOptions, allowDacpacObjectDrops: false, cancellationToken);
+                    break;
+                default:
+                    throw new BridgeException($"SchemaDeploymentMode '{options.SchemaDeploymentMode}' is not supported.");
+            }
+
+            var tables = await SqlitePackage.ReadTablesAsync(sqlite, cancellationToken);
+            var importOrder = await SqlitePackage.ReadImportOrderAsync(sqlite, cancellationToken);
+            var packageWarnings = await SqlitePackage.ReadWarningsAsync(sqlite, cancellationToken);
+            var warnings = new List<string>(packageWarnings);
+
+            await SqlServerSchemaReader.ValidateImportTargetAsync(sqlServerConnectionString, tables,
+                options.ValidationCommandTimeout, cancellationToken);
+            ReportWarnings(options.Progress, warnings);
+
+            await using var sqlServer = new SqlConnection(sqlServerConnectionString);
+            await sqlServer.OpenAsync(cancellationToken);
+
+            long totalRows = 0;
+            foreach (var name in importOrder)
+            {
+                var table = tables.Single(t =>
+                    string.Equals(t.Name.FullName, name.FullName, StringComparison.OrdinalIgnoreCase));
+                var expected = await SqlitePackage.ReadExpectedRowCountAsync(sqlite, table, cancellationToken);
+                var batchSize = BatchPlanner.GetEffectiveBatchSize(options, expected, table.EstimatedSourceBytes);
+                if (options.AdaptiveBatchingEnabled)
                 {
-                    throw new BridgeException(
-                        "SQLite package does not contain a dacpac schema package. Export with SchemaCaptureMode.Dacpac before deploying schema during import.");
+                    batchSize = Math.Min(batchSize, table.ExportBatchSize);
                 }
 
-                await DacpacSchemaManager.DeployAsync(sqlServerConnectionString, schemaPackage,
-                    options.DacpacDeploymentOptions, allowDacpacObjectDrops: false, cancellationToken);
-                break;
-            default:
-                throw new BridgeException($"SchemaDeploymentMode '{options.SchemaDeploymentMode}' is not supported.");
+                if (options.AdaptiveBatchingEnabled && batchSize < options.BatchSize)
+                {
+                    AddWarning(warnings,
+                        $"Adaptive batching set import batch size for '{table.Name.FullName}' to {batchSize} rows.",
+                        options.Progress);
+                }
+
+                options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableStarted, table.Name.FullName,
+                    TotalRows: expected));
+                var rows = await ImportTableAsync(sqlite, sqlServer, table, batchSize, options.BulkCopyTimeout,
+                    options.Progress, expected, cancellationToken);
+                if (rows != expected)
+                {
+                    throw new BridgeException(
+                        $"Imported row count for '{table.Name.FullName}' was {rows}, expected {expected}.");
+                }
+
+                totalRows += rows;
+                options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableCompleted, table.Name.FullName, rows,
+                    expected));
+            }
+
+            options.Progress?.Report(new BridgeProgress(BridgeProgressKind.OperationCompleted, RowsProcessed: totalRows,
+                TotalRows: totalRows, Message: "Import completed."));
+            return new BridgeResult(tables.Count, totalRows, warnings.Distinct(StringComparer.Ordinal).ToArray());
         }
-
-        var tables = await SqlitePackage.ReadTablesAsync(sqlite, cancellationToken);
-        var importOrder = await SqlitePackage.ReadImportOrderAsync(sqlite, cancellationToken);
-        var packageWarnings = await SqlitePackage.ReadWarningsAsync(sqlite, cancellationToken);
-        var warnings = new List<string>(packageWarnings);
-
-        await SqlServerSchemaReader.ValidateImportTargetAsync(sqlServerConnectionString, tables,
-            options.ValidationCommandTimeout, cancellationToken);
-        ReportWarnings(options.Progress, warnings);
-
-        await using var sqlServer = new SqlConnection(sqlServerConnectionString);
-        await sqlServer.OpenAsync(cancellationToken);
-
-        long totalRows = 0;
-        foreach (var name in importOrder)
+        finally
         {
-            var table = tables.Single(t =>
-                string.Equals(t.Name.FullName, name.FullName, StringComparison.OrdinalIgnoreCase));
-            var expected = await SqlitePackage.ReadExpectedRowCountAsync(sqlite, table, cancellationToken);
-            var batchSize = BatchPlanner.GetEffectiveBatchSize(options, expected, table.EstimatedSourceBytes);
-            if (options.AdaptiveBatchingEnabled)
-            {
-                batchSize = Math.Min(batchSize, table.ExportBatchSize);
-            }
-
-            if (options.AdaptiveBatchingEnabled && batchSize < options.BatchSize)
-            {
-                AddWarning(warnings,
-                    $"Adaptive batching set import batch size for '{table.Name.FullName}' to {batchSize} rows.",
-                    options.Progress);
-            }
-
-            options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableStarted, table.Name.FullName,
-                TotalRows: expected));
-            var rows = await ImportTableAsync(sqlite, sqlServer, table, batchSize, options.BulkCopyTimeout,
-                options.Progress, expected, cancellationToken);
-            if (rows != expected)
-            {
-                throw new BridgeException(
-                    $"Imported row count for '{table.Name.FullName}' was {rows}, expected {expected}.");
-            }
-
-            totalRows += rows;
-            options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableCompleted, table.Name.FullName, rows,
-                expected));
+            // Release the pooled sqlite3 file handle so callers (and tests) can
+            // safely delete or move the package file on Windows.
+            try { SqliteConnection.ClearPool(sqlite); } catch { /* best effort */ }
         }
-
-        options.Progress?.Report(new BridgeProgress(BridgeProgressKind.OperationCompleted, RowsProcessed: totalRows,
-            TotalRows: totalRows, Message: "Import completed."));
-        return new BridgeResult(tables.Count, totalRows, warnings.Distinct(StringComparer.Ordinal).ToArray());
     }
 
     /// <summary>
@@ -136,10 +145,12 @@ public sealed class SqlDataBridgeImporter
             var sqliteBuilder = new SqliteConnectionStringBuilder
                 { DataSource = sqliteFilePath, Mode = SqliteOpenMode.ReadOnly };
             await using var sqlite = new SqliteConnection(sqliteBuilder.ConnectionString);
-            await sqlite.OpenAsync(cancellationToken);
+            try
+            {
+                await sqlite.OpenAsync(cancellationToken);
 
-            await SqlitePackage.ValidateForImportAsync(sqlite, cancellationToken);
-            var manifest = await SqlitePackage.ReadManifestAsync(sqlite, cancellationToken);
+                await SqlitePackage.ValidateForImportAsync(sqlite, cancellationToken);
+                var manifest = await SqlitePackage.ReadManifestAsync(sqlite, cancellationToken);
             if (options.SchemaDeploymentMode == SchemaDeploymentMode.DeployDacpac && !manifest.ContainsDacpac)
             {
                 errors.Add(
@@ -168,8 +179,13 @@ public sealed class SqlDataBridgeImporter
                 errors.Add(exception.Message);
             }
 
-            var warnings = BuildImportWarnings(tables, manifest.Warnings, options);
-            return new BridgePreflightResult(errors.Count == 0, errors, warnings, manifest);
+                var warnings = BuildImportWarnings(tables, manifest.Warnings, options);
+                return new BridgePreflightResult(errors.Count == 0, errors, warnings, manifest);
+            }
+            finally
+            {
+                try { SqliteConnection.ClearPool(sqlite); } catch { /* best effort */ }
+            }
         }
         catch (BridgeException exception)
         {
@@ -187,7 +203,9 @@ public sealed class SqlDataBridgeImporter
         TableMetadata table, int batchSize, int? bulkCopyTimeout, IProgress<BridgeProgress>? progress,
         long expectedRows, CancellationToken cancellationToken)
     {
-        var columns = table.ExportedColumns;
+        var columns = table.ExportedColumns
+            .Where(c => !ValueConverter.IsServerGenerated(c.SqlServerTypeName))
+            .ToArray();
         var sqliteColumns = string.Join(", ", columns.Select(c => BridgeIdentifier.QuoteSqliteName(c.Name)));
 
         await using var select = sqlite.CreateCommand();
@@ -248,6 +266,11 @@ public sealed class SqlDataBridgeImporter
             {
                 warnings.Add(
                     $"Adaptive batching set import batch size for '{table.Name.FullName}' to {batchSize} rows.");
+            }
+
+            foreach (var column in table.ExportedColumns.Where(c => ValueConverter.IsServerGenerated(c.SqlServerTypeName)))
+            {
+                warnings.Add($"Table '{table.Name.FullName}' column '{column.Name}' is a {column.SqlServerTypeName}; values from the package are skipped and SQL Server will generate fresh values on import.");
             }
         }
 

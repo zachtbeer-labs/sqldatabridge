@@ -8,8 +8,13 @@ on:
 
 jobs:
   build:
-    name: Build and unit tests
-    runs-on: ubuntu-latest
+    name: Build and unit tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v4
@@ -25,13 +30,90 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
-          key: nuget-${{ hashFiles('**/*.csproj') }}
-          restore-keys: nuget-
+          key: nuget-${{ matrix.os }}-${{ hashFiles('**/*.csproj') }}
+          restore-keys: nuget-${{ matrix.os }}-
 
       - run: dotnet restore SqlDataBridge.sln
       - run: dotnet build SqlDataBridge.sln -c Release --no-restore
       - run: dotnet test tests/SqlDataBridge.Tests/SqlDataBridge.Tests.csproj -c Release --no-build --verbosity normal
-      - run: dotnet pack src/SqlDataBridge/SqlDataBridge.csproj -c Release --no-build -o ./packages
+      - if: matrix.os == 'ubuntu-latest'
+        run: dotnet pack src/SqlDataBridge/SqlDataBridge.csproj -c Release --no-build -o ./packages
+
+  windows-smoke:
+    name: Windows smoke (LocalDB + samples)
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-windows-smoke-${{ hashFiles('**/*.csproj') }}
+          restore-keys: nuget-windows-smoke-
+
+      - name: Start LocalDB
+        shell: pwsh
+        run: |
+          sqllocaldb start MSSQLLocalDB
+          sqllocaldb info MSSQLLocalDB
+
+      - name: Create and seed databases
+        shell: pwsh
+        run: |
+          $instance = "(localdb)\MSSQLLocalDB"
+          sqlcmd -S $instance -b -Q "CREATE DATABASE SmokeSource; CREATE DATABASE SmokeTarget1; CREATE DATABASE SmokeTarget2;"
+          sqlcmd -S $instance -d SmokeSource -b -i samples/sql/smoke-schema.sql
+          sqlcmd -S $instance -d SmokeSource -b -i samples/sql/smoke-seed.sql
+          sqlcmd -S $instance -d SmokeTarget1 -b -i samples/sql/smoke-schema.sql
+          sqlcmd -S $instance -d SmokeTarget2 -b -i samples/sql/smoke-schema.sql
+
+      - name: Build samples
+        run: |
+          dotnet build samples/SqlDataBridge.Sample/SqlDataBridge.Sample.csproj -c Release
+          dotnet build samples/SqlDataBridge.WorkflowSample/SqlDataBridge.WorkflowSample.csproj -c Release
+
+      - name: Run SqlDataBridge.Sample
+        shell: pwsh
+        env:
+          ZSB_SOURCE_SQLSERVER: 'Server=(localdb)\MSSQLLocalDB;Database=SmokeSource;Integrated Security=True;TrustServerCertificate=True'
+          ZSB_TARGET_SQLSERVER: 'Server=(localdb)\MSSQLLocalDB;Database=SmokeTarget1;Integrated Security=True;TrustServerCertificate=True'
+          ZSB_PACKAGE_PATH: 'sample-package.sqlite'
+        run: dotnet run --project samples/SqlDataBridge.Sample -c Release --no-build
+
+      - name: Verify SqlDataBridge.Sample results
+        shell: pwsh
+        run: |
+          if (-not (Test-Path 'sample-package.sqlite')) { throw 'Expected package file sample-package.sqlite was not produced.' }
+          $instance = '(localdb)\MSSQLLocalDB'
+          $customers = (sqlcmd -S $instance -d SmokeTarget1 -h -1 -W -Q 'SET NOCOUNT ON; SELECT COUNT(*) FROM dbo.Customer').Trim()
+          if ($customers -ne '2') { throw "Customer count: expected 2, got '$customers'" }
+          $orders = (sqlcmd -S $instance -d SmokeTarget1 -h -1 -W -Q 'SET NOCOUNT ON; SELECT COUNT(*) FROM dbo.[Order]').Trim()
+          if ($orders -ne '3') { throw "Order count: expected 3, got '$orders'" }
+          $rvNulls = (sqlcmd -S $instance -d SmokeTarget1 -h -1 -W -Q 'SET NOCOUNT ON; SELECT COUNT(*) FROM dbo.Customer WHERE Rv IS NULL').Trim()
+          if ($rvNulls -ne '0') { throw "Expected all target Rv values to be server-generated; '$rvNulls' were NULL." }
+
+      - name: Run SqlDataBridge.WorkflowSample
+        shell: pwsh
+        env:
+          ZSB_SOURCE_SQLSERVER: 'Server=(localdb)\MSSQLLocalDB;Database=SmokeSource;Integrated Security=True;TrustServerCertificate=True'
+          ZSB_TARGET_SQLSERVER: 'Server=(localdb)\MSSQLLocalDB;Database=SmokeTarget2;Integrated Security=True;TrustServerCertificate=True'
+          ZSB_PACKAGE_PATH: 'workflow-sample.sqlite'
+        run: dotnet run --project samples/SqlDataBridge.WorkflowSample -c Release --no-build
+
+      - name: Verify SqlDataBridge.WorkflowSample results
+        shell: pwsh
+        run: |
+          if (-not (Test-Path 'workflow-sample.sqlite')) { throw 'Expected package file workflow-sample.sqlite was not produced.' }
+          $instance = '(localdb)\MSSQLLocalDB'
+          $customers = (sqlcmd -S $instance -d SmokeTarget2 -h -1 -W -Q 'SET NOCOUNT ON; SELECT COUNT(*) FROM dbo.Customer').Trim()
+          if ($customers -ne '2') { throw "Workflow Customer count: expected 2, got '$customers'" }
+          $orders = (sqlcmd -S $instance -d SmokeTarget2 -h -1 -W -Q 'SET NOCOUNT ON; SELECT COUNT(*) FROM dbo.[Order]').Trim()
+          if ($orders -ne '3') { throw "Workflow Order count: expected 3, got '$orders'" }
 
   integration:
     name: Integration tests (${{ matrix.sqlserver }})
