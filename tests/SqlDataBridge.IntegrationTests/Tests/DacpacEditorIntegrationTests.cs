@@ -28,7 +28,7 @@ public sealed class DacpacEditorIntegrationTests
         await source.ExecuteSqlAsync("""
             CREATE TABLE dbo.KeepA (Id INT NOT NULL PRIMARY KEY);
             CREATE TABLE dbo.KeepB (Id INT NOT NULL PRIMARY KEY);
-            CREATE TABLE dbo.ToRemove (Id INT NOT NULL PRIMARY KEY);
+            CREATE TABLE dbo.ToRemove (Id INT NOT NULL);
             """);
 
         var dacpacPath = ExtractDacpac(source);
