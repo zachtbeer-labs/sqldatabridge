@@ -54,11 +54,11 @@ Native SQL Server `json` columns are supported as text-preserved values on SQL S
 Export does not replace an existing SQLite package by default. Delete the file yourself or opt in to replacement:
 
 ```csharp
-var options = new ExportOptions
-{
-    OverwriteExistingPackage = true
-};
+var options = ExportOptions.Default;
+options.OverwriteExistingPackage = true;
 ```
+
+`ExportOptions.Default` returns a fresh instance with the documented defaults — tweak only the fields you need.
 
 Replacement happens only after a successful export. Failed exports should not replace the previous package.
 
@@ -73,14 +73,9 @@ If format metadata is missing, recreate the package with Zachtbeer.SqlDataBridge
 Dacpac deployment blocks possible data loss by default. Review the target database and only opt out when that risk is acceptable:
 
 ```csharp
-var options = new ImportOptions
-{
-    SchemaDeploymentMode = SchemaDeploymentMode.DeployDacpac,
-    DacpacDeploymentOptions = new DacpacDeploymentOptions
-    {
-        BlockOnPossibleDataLoss = false
-    }
-};
+var options = ImportOptions.Default;
+options.SchemaDeploymentMode = SchemaDeploymentMode.DeployDacpac;
+options.DacpacDeploymentOptions.BlockOnPossibleDataLoss = false;
 ```
 
 Object drops are still disabled unless `AllowObjectDrops` is also set.

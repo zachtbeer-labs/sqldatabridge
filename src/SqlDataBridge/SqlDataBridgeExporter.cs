@@ -20,7 +20,7 @@ public sealed class SqlDataBridgeExporter
     /// <returns>A summary of exported tables, rows, and warnings.</returns>
     public async Task<BridgeResult> ExportAsync(string sqlServerConnectionString, string sqliteFilePath, ExportOptions? options = null, CancellationToken cancellationToken = default)
     {
-        options ??= new ExportOptions();
+        options ??= ExportOptions.Default;
         BatchPlanner.Validate(options);
         options.Progress?.Report(new BridgeProgress(BridgeProgressKind.OperationStarted, Message: "Export started."));
 
@@ -114,7 +114,7 @@ public sealed class SqlDataBridgeExporter
         ExportOptions? options = null,
         CancellationToken cancellationToken = default)
     {
-        options ??= new ExportOptions();
+        options ??= ExportOptions.Default;
         var errors = new List<string>();
         try
         {

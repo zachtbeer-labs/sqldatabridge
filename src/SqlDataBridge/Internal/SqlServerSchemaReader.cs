@@ -7,10 +7,7 @@ namespace Zachtbeer.SqlDataBridge.Internal;
 
 internal static class SqlServerSchemaReader
 {
-    public static async Task<ExportPlan> CreateExportPlanAsync(
-        string connectionString,
-        ExportOptions options,
-        CancellationToken cancellationToken)
+    public static async Task<ExportPlan> CreateExportPlanAsync(string connectionString, ExportOptions options, CancellationToken cancellationToken)
     {
         BridgeIdentifier.NormalizeSqliteDataTablePrefix(options.DataTablePrefix);
         await using var connection = new SqlConnection(connectionString);
@@ -35,7 +32,7 @@ internal static class SqlServerSchemaReader
             var columns = await ReadColumnsAsync(connection, table, excludedColumnSet, options.CommandTimeout, cancellationToken);
             var whereClauses = ResolveWhereClauses(table, columns, options);
             tableStats.TryGetValue(table.FullName, out var stats);
-            var estimatedRows = whereClauses.Count == 0
+            var estimatedRows = whereClauses.Length == 0
                 ? stats?.EstimatedSourceRowCount ?? 0
                 : await CountFilteredRowsAsync(connection, table, whereClauses, options.CommandTimeout, cancellationToken);
             tables.Add(new TableMetadata(
@@ -80,11 +77,7 @@ internal static class SqlServerSchemaReader
             schemaHash);
     }
 
-    public static async Task ValidateImportTargetAsync(
-        string connectionString,
-        IReadOnlyList<TableMetadata> tables,
-        int? commandTimeout,
-        CancellationToken cancellationToken)
+    public static async Task ValidateImportTargetAsync(string connectionString, IReadOnlyList<TableMetadata> tables, int? commandTimeout, CancellationToken cancellationToken)
     {
         await using var connection = new SqlConnection(connectionString);
         await connection.OpenAsync(cancellationToken);
@@ -134,7 +127,7 @@ internal static class SqlServerSchemaReader
         }
     }
 
-    private static async Task<IReadOnlyList<TableName>> ReadTablesAsync(SqlConnection connection, int? commandTimeout, CancellationToken cancellationToken)
+    private static async Task<List<TableName>> ReadTablesAsync(SqlConnection connection, int? commandTimeout, CancellationToken cancellationToken)
     {
         const string sql = """
             SELECT s.name, t.name
@@ -156,7 +149,7 @@ internal static class SqlServerSchemaReader
         return result;
     }
 
-    private static async Task<IReadOnlyDictionary<string, TableSizeEstimate>> ReadTableStatsAsync(
+    private static async Task<Dictionary<string, TableSizeEstimate>> ReadTableStatsAsync(
         SqlConnection connection,
         int? commandTimeout,
         List<string> warnings,
@@ -195,7 +188,7 @@ internal static class SqlServerSchemaReader
         return result;
     }
 
-    private static IReadOnlyList<TableName> ResolveTables(IReadOnlyList<TableName> allTables, ExportOptions options)
+    private static List<TableName> ResolveTables(List<TableName> allTables, ExportOptions options)
     {
         foreach (var pattern in options.Tables)
         {
@@ -229,7 +222,7 @@ internal static class SqlServerSchemaReader
         return result;
     }
 
-    private static void ValidateColumnExclusions(IReadOnlyList<TableName> selected, ExportOptions options)
+    private static void ValidateColumnExclusions(List<TableName> selected, ExportOptions options)
     {
         foreach (var exclusion in options.ExcludeColumns)
         {
@@ -259,7 +252,7 @@ internal static class SqlServerSchemaReader
         }
     }
 
-    private static void ValidatePerTableWhereClauses(IReadOnlyList<TableName> selected, ExportOptions options)
+    private static void ValidatePerTableWhereClauses(List<TableName> selected, ExportOptions options)
     {
         foreach (var clause in options.PerTableWhereClauses)
         {
@@ -280,19 +273,14 @@ internal static class SqlServerSchemaReader
         }
     }
 
-    private static IReadOnlyList<string> ResolveWhereClauses(
-        TableName table,
-        IReadOnlyList<ColumnMetadata> columns,
-        ExportOptions options)
+    private static string[] ResolveWhereClauses(TableName table, List<ColumnMetadata> columns, ExportOptions options)
     {
         return ResolveGlobalWhereClauses(columns, options.GlobalWhereClauses)
             .Concat(ResolvePerTableWhereClauses(table, options.PerTableWhereClauses))
             .ToArray();
     }
 
-    private static IReadOnlyList<string> ResolveGlobalWhereClauses(
-        IReadOnlyList<ColumnMetadata> columns,
-        IReadOnlyCollection<GlobalWhereClause> globalWhereClauses)
+    private static string[] ResolveGlobalWhereClauses(List<ColumnMetadata> columns, IEnumerable<GlobalWhereClause> globalWhereClauses)
     {
         return globalWhereClauses
             .Where(clause => columns.Any(c => string.Equals(c.Name, clause.ColumnName, StringComparison.OrdinalIgnoreCase)))
@@ -300,9 +288,7 @@ internal static class SqlServerSchemaReader
             .ToArray();
     }
 
-    private static IReadOnlyList<string> ResolvePerTableWhereClauses(
-        TableName table,
-        IReadOnlyCollection<PerTableWhereClause> perTableWhereClauses)
+    private static string[] ResolvePerTableWhereClauses(TableName table, IEnumerable<PerTableWhereClause> perTableWhereClauses)
     {
         return perTableWhereClauses
             .Where(clause => string.Equals(table.FullName, clause.TableName.Trim(), StringComparison.OrdinalIgnoreCase))
@@ -310,9 +296,7 @@ internal static class SqlServerSchemaReader
             .ToArray();
     }
 
-    private static void ValidateGlobalWhereClauseMatches(
-        IReadOnlyList<TableMetadata> tables,
-        IReadOnlyCollection<GlobalWhereClause> globalWhereClauses)
+    private static void ValidateGlobalWhereClauseMatches(List<TableMetadata> tables, IEnumerable<GlobalWhereClause> globalWhereClauses)
     {
         foreach (var clause in globalWhereClauses)
         {
@@ -323,12 +307,7 @@ internal static class SqlServerSchemaReader
         }
     }
 
-    private static async Task<long> CountFilteredRowsAsync(
-        SqlConnection connection,
-        TableName table,
-        IReadOnlyList<string> whereClauses,
-        int? commandTimeout,
-        CancellationToken cancellationToken)
+    private static async Task<long> CountFilteredRowsAsync(SqlConnection connection, TableName table, string[] whereClauses, int? commandTimeout, CancellationToken cancellationToken)
     {
         var whereSql = BuildWhereSql(whereClauses);
         return await ScalarLongAsync(connection, $"SELECT COUNT_BIG(*) FROM {BridgeIdentifier.QuoteSqlServerTable(table)}{whereSql}", commandTimeout, cancellationToken);
@@ -344,12 +323,7 @@ internal static class SqlServerSchemaReader
         return " WHERE " + string.Join(" AND ", whereClauses.Select(clause => $"({clause})"));
     }
 
-    private static async Task<IReadOnlyList<ColumnMetadata>> ReadColumnsAsync(
-        SqlConnection connection,
-        TableName table,
-        ISet<string> excludedColumns,
-        int? commandTimeout,
-        CancellationToken cancellationToken)
+    private static async Task<List<ColumnMetadata>> ReadColumnsAsync(SqlConnection connection, TableName table, HashSet<string> excludedColumns, int? commandTimeout, CancellationToken cancellationToken)
     {
         const string sql = """
             SELECT
@@ -420,10 +394,7 @@ internal static class SqlServerSchemaReader
         }
     }
 
-    private static async Task<IReadOnlyList<ForeignKeyMetadata>> ReadForeignKeysAsync(
-        SqlConnection connection,
-        int? commandTimeout,
-        CancellationToken cancellationToken)
+    private static async Task<List<ForeignKeyMetadata>> ReadForeignKeysAsync(SqlConnection connection, int? commandTimeout, CancellationToken cancellationToken)
     {
         const string sql = """
             SELECT
@@ -452,7 +423,7 @@ internal static class SqlServerSchemaReader
         return result;
     }
 
-    private static IReadOnlyList<string> BuildServerGeneratedColumnWarnings(IEnumerable<TableMetadata> tables)
+    private static string[] BuildServerGeneratedColumnWarnings(IEnumerable<TableMetadata> tables)
     {
         return tables
             .SelectMany(t => t.ExportedColumns
@@ -462,9 +433,7 @@ internal static class SqlServerSchemaReader
             .ToArray();
     }
 
-    private static IReadOnlyList<string> BuildForeignKeyScopeWarnings(
-        IReadOnlyList<ForeignKeyMetadata> foreignKeys,
-        ISet<string> selectedTables)
+    private static string[] BuildForeignKeyScopeWarnings(List<ForeignKeyMetadata> foreignKeys, HashSet<string> selectedTables)
     {
         return foreignKeys
             .Where(fk => selectedTables.Contains(fk.ParentTable.FullName)
@@ -475,7 +444,7 @@ internal static class SqlServerSchemaReader
             .ToArray();
     }
 
-    private static string ComputeSchemaHash(IReadOnlyList<TableMetadata> tables)
+    private static string ComputeSchemaHash(List<TableMetadata> tables)
     {
         var builder = new StringBuilder();
         foreach (var table in tables.OrderBy(t => t.Name.FullName, StringComparer.OrdinalIgnoreCase))
@@ -520,11 +489,7 @@ internal static class SqlServerSchemaReader
 
     private sealed record TableSizeEstimate(long EstimatedSourceRowCount, long EstimatedSourceBytes);
 
-    private static async Task<IReadOnlyDictionary<string, TargetColumn>> ReadTargetColumnsAsync(
-        SqlConnection connection,
-        TableName table,
-        int? commandTimeout,
-        CancellationToken cancellationToken)
+    private static async Task<Dictionary<string, TargetColumn>> ReadTargetColumnsAsync(SqlConnection connection, TableName table, int? commandTimeout, CancellationToken cancellationToken)
     {
         const string sql = """
             SELECT c.name, ty.name, c.is_nullable, c.is_identity, c.is_computed, CASE WHEN dc.object_id IS NULL THEN 0 ELSE 1 END

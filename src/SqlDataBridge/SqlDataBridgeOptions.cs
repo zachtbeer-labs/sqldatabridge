@@ -3,154 +3,185 @@ using Zachtbeer.SqlDataBridge.Internal;
 namespace Zachtbeer.SqlDataBridge.Models;
 
 /// <summary>
-/// Controls whether SQL Server schema is captured during export.
+/// Selects whether export captures SQL Server schema alongside data. Defaults to <see cref="None"/> (data-only).
 /// </summary>
 public enum SchemaCaptureMode
 {
     /// <summary>
-    /// Do not capture SQL Server schema. This is the default data-only behavior.
+    /// Skips schema capture; the package contains data only. This is the default.
     /// </summary>
     None = 0,
 
     /// <summary>
-    /// Extract the source database schema as a dacpac and store it in the SQLite package.
+    /// Extracts the source database schema as a dacpac and embeds it in the SQLite package, so import can recreate the schema.
     /// </summary>
     Dacpac = 1
 }
 
 /// <summary>
-/// Controls whether package schema is deployed before import.
+/// Selects whether import deploys the package's schema before loading data. Defaults to <see cref="None"/> (assume schema already exists).
 /// </summary>
 public enum SchemaDeploymentMode
 {
     /// <summary>
-    /// Do not deploy schema. This is the default behavior.
+    /// Skips schema deployment; the target database must already contain matching tables. This is the default.
     /// </summary>
     None = 0,
 
     /// <summary>
-    /// Deploy the dacpac stored in the SQLite package before importing data.
+    /// Deploys the dacpac embedded in the SQLite package against the target before importing data.
     /// </summary>
     DeployDacpac = 1
 }
 
 /// <summary>
-/// Controls which schema objects are stored in a dacpac captured during export.
+/// Selects which schema objects an export-time dacpac extraction includes. Defaults to <see cref="Database"/> (whole database model).
 /// </summary>
 public enum DacpacSchemaScope
 {
     /// <summary>
-    /// Capture the source database schema model.
+    /// Captures the entire source database schema model. This is the default and matches DacFx's standard extract behavior.
     /// </summary>
     Database = 0,
 
     /// <summary>
-    /// Capture only tables selected by the export plan and required scriptable dependencies.
+    /// Captures only the tables chosen by the export plan plus the dependencies DacFx needs to script them — produces a smaller, plan-scoped dacpac.
     /// </summary>
     SelectedExportTables = 1
 }
 
 /// <summary>
-/// Controls how export table patterns are interpreted.
+/// Selects how <see cref="ExportOptions.Tables"/> patterns filter the export. Defaults to <see cref="AllExcept"/>.
 /// </summary>
 public enum ExportTableSelectionMode
 {
     /// <summary>
-    /// Export all user tables except those matching <see cref="ExportOptions.Tables"/>.
+    /// Exports every user table except those matching <see cref="ExportOptions.Tables"/> (i.e. patterns act as an exclusion list). This is the default.
     /// </summary>
     AllExcept = 0,
 
     /// <summary>
-    /// Export only user tables matching <see cref="ExportOptions.Tables"/>.
+    /// Exports only the user tables matching <see cref="ExportOptions.Tables"/> (i.e. patterns act as an inclusion list).
     /// </summary>
     Only = 1
 }
 
 /// <summary>
-/// Configures dacpac schema capture during export.
+/// Tunes how the dacpac is extracted when <see cref="ExportOptions.SchemaCaptureMode"/> is <see cref="SchemaCaptureMode.Dacpac"/>.
 /// </summary>
 public sealed class DacpacCaptureOptions
 {
     /// <summary>
-    /// Gets the schema scope stored in the captured dacpac.
+    /// Returns a new <see cref="DacpacCaptureOptions"/> populated with the documented defaults — a convenient starting point to tweak.
+    /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public DacpacSchemaScope SchemaScope { get; init; } = DacpacSchemaScope.Database;
+    public static DacpacCaptureOptions Default => new()
+    {
+        SchemaScope = DacpacSchemaScope.Database,
+        ExtractReferencedServerScopedElements = false,
+        ExtractApplicationScopedObjectsOnly = false,
+        IgnorePermissions = true,
+        IgnoreUserLoginMappings = true,
+        VerifyExtraction = true
+    };
 
     /// <summary>
-    /// Gets whether extraction should include referenced server-scoped elements, such as logins.
+    /// Controls which schema objects are extracted into the dacpac. Defaults to <see cref="DacpacSchemaScope.Database"/> (full database model).
     /// </summary>
-    public bool ExtractReferencedServerScopedElements { get; init; }
+    public DacpacSchemaScope SchemaScope { get; set; } = DacpacSchemaScope.Database;
 
     /// <summary>
-    /// Gets whether extraction should include only objects scoped to the source application.
+    /// Includes server-scoped objects referenced by the database (e.g. logins) in the extracted dacpac. Defaults to <see langword="false"/>.
     /// </summary>
-    public bool ExtractApplicationScopedObjectsOnly { get; init; }
+    public bool ExtractReferencedServerScopedElements { get; set; }
 
     /// <summary>
-    /// Gets whether permissions should be ignored while extracting the dacpac.
+    /// Restricts extraction to objects owned by the source application, skipping shared or system objects. Defaults to <see langword="false"/>.
     /// </summary>
-    public bool IgnorePermissions { get; init; } = true;
+    public bool ExtractApplicationScopedObjectsOnly { get; set; }
 
     /// <summary>
-    /// Gets whether user-to-login mappings should be ignored while extracting the dacpac.
+    /// Strips GRANT/DENY/REVOKE statements from the extracted dacpac so the captured schema does not carry environment-specific permissions. Defaults to <see langword="true"/>.
     /// </summary>
-    public bool IgnoreUserLoginMappings { get; init; } = true;
+    public bool IgnorePermissions { get; set; } = true;
 
     /// <summary>
-    /// Gets whether DacFx should verify the extracted model.
+    /// Strips user-to-login mappings from the extracted dacpac so the captured schema is portable across servers. Defaults to <see langword="true"/>.
     /// </summary>
-    public bool VerifyExtraction { get; init; } = true;
+    public bool IgnoreUserLoginMappings { get; set; } = true;
+
+    /// <summary>
+    /// Runs DacFx's post-extraction model verification; disable to skip the validation pass for faster extraction at the cost of catching model issues later. Defaults to <see langword="true"/>.
+    /// </summary>
+    public bool VerifyExtraction { get; set; } = true;
 }
 
 /// <summary>
-/// Configures dacpac schema deployment during import.
+/// Tunes how the package's embedded dacpac is deployed when <see cref="ImportOptions.SchemaDeploymentMode"/> is <see cref="SchemaDeploymentMode.DeployDacpac"/>.
 /// </summary>
 public sealed class DacpacDeploymentOptions
 {
     /// <summary>
-    /// Gets whether DacFx should allow deployment when the source and target platforms are incompatible.
+    /// Returns a new <see cref="DacpacDeploymentOptions"/> populated with the documented defaults — a convenient starting point to tweak.
+    /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public bool AllowIncompatiblePlatform { get; init; }
+    public static DacpacDeploymentOptions Default => new()
+    {
+        AllowIncompatiblePlatform = false,
+        BlockOnPossibleDataLoss = true,
+        AllowObjectDrops = false,
+        DeployUsers = false,
+        DeployLogins = false,
+        DeployPermissions = false,
+        DeployRoleMembership = false,
+        DeployDatabaseFiles = false,
+        VerifyDeployment = true
+    };
 
     /// <summary>
-    /// Gets whether deployment should block when DacFx detects possible data loss.
+    /// Allows DacFx to deploy even when the source and target SQL platforms differ (e.g. on-prem dacpac to Azure SQL). Defaults to <see langword="false"/> (fail-fast on platform mismatch).
     /// </summary>
-    public bool BlockOnPossibleDataLoss { get; init; } = true;
+    public bool AllowIncompatiblePlatform { get; set; }
 
     /// <summary>
-    /// Gets whether target objects absent from the package schema may be dropped.
+    /// Blocks deployment when DacFx detects an operation that could lose existing data (e.g. dropping a populated column). Defaults to <see langword="true"/>; set to <see langword="false"/> only for known-destructive migrations.
     /// </summary>
-    public bool AllowObjectDrops { get; init; }
+    public bool BlockOnPossibleDataLoss { get; set; } = true;
 
     /// <summary>
-    /// Gets whether database users should be deployed from the dacpac.
+    /// Permits DacFx to drop target objects that are absent from the package schema. Defaults to <see langword="false"/> (extra target objects are preserved).
     /// </summary>
-    public bool DeployUsers { get; init; }
+    public bool AllowObjectDrops { get; set; }
 
     /// <summary>
-    /// Gets whether server logins and login mappings should be deployed from the dacpac when present.
+    /// Deploys database users from the dacpac. Defaults to <see langword="false"/> because users are usually environment-specific.
     /// </summary>
-    public bool DeployLogins { get; init; }
+    public bool DeployUsers { get; set; }
 
     /// <summary>
-    /// Gets whether permissions should be deployed from the dacpac.
+    /// Deploys server logins and their user mappings from the dacpac, when present. Defaults to <see langword="false"/>; only useful when the captured dacpac actually carries login info.
     /// </summary>
-    public bool DeployPermissions { get; init; }
+    public bool DeployLogins { get; set; }
 
     /// <summary>
-    /// Gets whether role membership should be deployed from the dacpac.
+    /// Deploys GRANT/DENY/REVOKE statements from the dacpac. Defaults to <see langword="false"/>; turn on only when the source permissions should follow the schema.
     /// </summary>
-    public bool DeployRoleMembership { get; init; }
+    public bool DeployPermissions { get; set; }
 
     /// <summary>
-    /// Gets whether database files and filegroups should be deployed from the dacpac.
+    /// Deploys role membership assignments from the dacpac. Defaults to <see langword="false"/>.
     /// </summary>
-    public bool DeployDatabaseFiles { get; init; }
+    public bool DeployRoleMembership { get; set; }
 
     /// <summary>
-    /// Gets whether DacFx should verify the deployment plan before applying changes.
+    /// Deploys database file and filegroup definitions from the dacpac. Defaults to <see langword="false"/> because storage layout is usually managed per-environment.
     /// </summary>
-    public bool VerifyDeployment { get; init; } = true;
+    public bool DeployDatabaseFiles { get; set; }
+
+    /// <summary>
+    /// Runs DacFx's deployment-plan verification before applying changes; disable to skip the pre-flight check at the cost of catching issues only at apply time. Defaults to <see langword="true"/>.
+    /// </summary>
+    public bool VerifyDeployment { get; set; } = true;
 }
 
 /// <summary>
@@ -173,89 +204,107 @@ public sealed record PerTableWhereClause(string TableName, string WhereClause);
 public sealed class ExportOptions
 {
     /// <summary>
-    /// Gets how <see cref="Tables"/> is applied during export.
+    /// Returns a new <see cref="ExportOptions"/> populated with the documented defaults — a convenient starting point to tweak.
+    /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public ExportTableSelectionMode TableSelection { get; init; } = ExportTableSelectionMode.AllExcept;
+    public static ExportOptions Default => new()
+    {
+        TableSelection = ExportTableSelectionMode.AllExcept,
+        DataTablePrefix = "zsb_data",
+        BatchSize = 1_000,
+        AdaptiveBatchingEnabled = true,
+        LargeTableThresholdBytes = BatchPlanner.DefaultLargeTableThresholdBytes,
+        LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
+        LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
+        MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
+        OverwriteExistingPackage = false,
+        SchemaCaptureMode = SchemaCaptureMode.None
+    };
 
     /// <summary>
-    /// Gets table patterns used by <see cref="TableSelection"/>. Patterns support exact source table names and <c>*</c> wildcards.
+    /// Controls how <see cref="Tables"/> is interpreted: <see cref="ExportTableSelectionMode.AllExcept"/> uses it as an exclusion list against a full export, <see cref="ExportTableSelectionMode.Only"/> uses it as an inclusion list. Defaults to <see cref="ExportTableSelectionMode.AllExcept"/>.
     /// </summary>
-    public IReadOnlyCollection<string> Tables { get; init; } = [];
+    public ExportTableSelectionMode TableSelection { get; set; } = ExportTableSelectionMode.AllExcept;
 
     /// <summary>
-    /// Gets the column paths to omit from the package, formatted as <c>&lt;schema&gt;.&lt;table&gt;.&lt;column&gt;</c>.
+    /// Table-name patterns that <see cref="TableSelection"/> applies to (exact <c>schema.table</c> names or <c>*</c> wildcards). Defaults to an empty list, which under <see cref="ExportTableSelectionMode.AllExcept"/> means export everything.
     /// </summary>
-    public IReadOnlyCollection<string> ExcludeColumns { get; init; } = [];
+    public IList<string> Tables { get; set; } = new List<string>();
 
     /// <summary>
-    /// Gets global SQL Server WHERE predicates applied to selected tables containing the configured source column.
+    /// Fully qualified column paths (<c>schema.table.column</c>) to omit from the exported package. Defaults to an empty list (export every column of every selected table).
     /// </summary>
-    public IReadOnlyCollection<GlobalWhereClause> GlobalWhereClauses { get; init; } = [];
+    public IList<string> ExcludeColumns { get; set; } = new List<string>();
 
     /// <summary>
-    /// Gets SQL Server WHERE predicates applied to exact selected source tables.
+    /// SQL Server WHERE predicates applied to every selected table that contains the named column — useful for tenant or soft-delete filtering. Defaults to an empty list.
     /// </summary>
-    public IReadOnlyCollection<PerTableWhereClause> PerTableWhereClauses { get; init; } = [];
+    public IList<GlobalWhereClause> GlobalWhereClauses { get; set; } = new List<GlobalWhereClause>();
 
     /// <summary>
-    /// Gets the SQLite table-name prefix used for exported data tables. Use <see langword="null"/> or an empty value to omit the prefix.
+    /// SQL Server WHERE predicates applied only to the specific tables they name. Defaults to an empty list.
     /// </summary>
-    public string? DataTablePrefix { get; init; } = "zsb_data";
+    public IList<PerTableWhereClause> PerTableWhereClauses { get; set; } = new List<PerTableWhereClause>();
 
     /// <summary>
-    /// Gets the number of rows to write per batch.
+    /// Prefix prepended to every exported data table inside the SQLite package — keeps data tables separate from internal metadata tables. Defaults to <c>"zsb_data"</c>; set to <see langword="null"/> or empty to write tables without a prefix.
     /// </summary>
-    public int BatchSize { get; init; } = 1_000;
+    public string? DataTablePrefix { get; set; } = "zsb_data";
 
     /// <summary>
-    /// Gets whether table size metadata should reduce batch sizes for large or wide tables.
+    /// Row count per SQLite write batch for normal-sized tables. Defaults to <c>1000</c>; raise for narrow tables to reduce commit overhead, lower for very wide rows.
     /// </summary>
-    public bool AdaptiveBatchingEnabled { get; init; } = true;
+    public int BatchSize { get; set; } = 1_000;
 
     /// <summary>
-    /// Gets the estimated table size, in bytes, at which large-table batching is used.
+    /// Enables the large-table planner that shrinks batch sizes for tables exceeding <see cref="LargeTableThresholdBytes"/>/<see cref="LargeTableRowThreshold"/>, trading throughput for memory pressure. Defaults to <see langword="true"/>; set to <see langword="false"/> to always use <see cref="BatchSize"/>.
     /// </summary>
-    public long LargeTableThresholdBytes { get; init; } = BatchPlanner.DefaultLargeTableThresholdBytes;
+    public bool AdaptiveBatchingEnabled { get; set; } = true;
 
     /// <summary>
-    /// Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
+    /// Estimated table size, in bytes, at or above which a table is treated as "large" and switched to <see cref="LargeTableBatchSize"/>. Defaults to 50 MiB.
     /// </summary>
-    public long LargeTableRowThreshold { get; init; } = BatchPlanner.DefaultLargeTableRowThreshold;
+    public long LargeTableThresholdBytes { get; set; } = BatchPlanner.DefaultLargeTableThresholdBytes;
 
     /// <summary>
-    /// Gets the row batch size used for tables at or above the configured large-table thresholds.
+    /// Estimated row count at or above which a table is treated as "large" when size metadata is unavailable. Defaults to <c>100,000</c> rows.
     /// </summary>
-    public int LargeTableBatchSize { get; init; } = BatchPlanner.DefaultLargeTableBatchSize;
+    public long LargeTableRowThreshold { get; set; } = BatchPlanner.DefaultLargeTableRowThreshold;
 
     /// <summary>
-    /// Gets the approximate maximum bytes represented by one batch when table size and row count metadata are available.
+    /// Row count per batch used when a table crosses either large-table threshold. Defaults to <c>250</c>.
     /// </summary>
-    public long MaxBatchBytes { get; init; } = BatchPlanner.DefaultMaxBatchBytes;
+    public int LargeTableBatchSize { get; set; } = BatchPlanner.DefaultLargeTableBatchSize;
 
     /// <summary>
-    /// Gets the optional timeout, in seconds, for SQL Server metadata and data commands during export.
+    /// Approximate upper bound, in bytes, on the in-memory size of a single batch when size and row-count metadata are both available — caps memory regardless of <see cref="BatchSize"/>. Defaults to 4 MiB.
     /// </summary>
-    public int? CommandTimeout { get; init; }
+    public long MaxBatchBytes { get; set; } = BatchPlanner.DefaultMaxBatchBytes;
 
     /// <summary>
-    /// Gets the optional progress reporter for export operations.
+    /// SQL Server command timeout, in seconds, for metadata queries and data reads during export. Defaults to <see langword="null"/> (use the provider's default, typically 30 seconds).
     /// </summary>
-    public IProgress<BridgeProgress>? Progress { get; init; }
+    public int? CommandTimeout { get; set; }
 
     /// <summary>
-    /// Gets whether an existing SQLite package at the destination path may be replaced after a successful export.
+    /// Progress reporter that receives table- and row-level updates as the export runs. Defaults to <see langword="null"/> (no progress reporting).
     /// </summary>
-    public bool OverwriteExistingPackage { get; init; }
+    public IProgress<BridgeProgress>? Progress { get; set; }
 
     /// <summary>
-    /// Gets whether SQL Server schema should be captured in the SQLite package.
+    /// Allows the export to replace an existing SQLite file at the destination path on successful completion. Defaults to <see langword="false"/>; an existing file otherwise fails the export.
     /// </summary>
-    public SchemaCaptureMode SchemaCaptureMode { get; init; } = SchemaCaptureMode.None;
+    public bool OverwriteExistingPackage { get; set; }
 
     /// <summary>
-    /// Gets dacpac extraction settings used when <see cref="SchemaCaptureMode"/> is <see cref="SchemaCaptureMode.Dacpac"/>.
+    /// Selects whether to embed source-schema information in the package. Defaults to <see cref="SchemaCaptureMode.None"/> (data-only package); set to <see cref="SchemaCaptureMode.Dacpac"/> to extract a dacpac during export.
     /// </summary>
-    public DacpacCaptureOptions DacpacCaptureOptions { get; init; } = new();
+    public SchemaCaptureMode SchemaCaptureMode { get; set; } = SchemaCaptureMode.None;
+
+    /// <summary>
+    /// Dacpac extraction settings used only when <see cref="SchemaCaptureMode"/> is <see cref="SchemaCaptureMode.Dacpac"/>. Defaults to a new <see cref="DacpacCaptureOptions"/> with its own defaults.
+    /// </summary>
+    public DacpacCaptureOptions DacpacCaptureOptions { get; set; } = new();
 }
 
 /// <summary>
@@ -264,59 +313,74 @@ public sealed class ExportOptions
 public sealed class ImportOptions
 {
     /// <summary>
-    /// Gets the number of rows to import per bulk-copy batch.
+    /// Returns a new <see cref="ImportOptions"/> populated with the documented defaults — a convenient starting point to tweak.
+    /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public int BatchSize { get; init; } = 1_000;
+    public static ImportOptions Default => new()
+    {
+        BatchSize = 1_000,
+        AdaptiveBatchingEnabled = true,
+        LargeTableThresholdBytes = BatchPlanner.DefaultLargeTableThresholdBytes,
+        LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
+        LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
+        MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
+        SchemaDeploymentMode = SchemaDeploymentMode.None
+    };
 
     /// <summary>
-    /// Gets whether package table size metadata should reduce bulk-copy batch sizes for large or wide tables.
+    /// Row count per bulk-copy batch for normal-sized tables. Defaults to <c>1000</c>.
     /// </summary>
-    public bool AdaptiveBatchingEnabled { get; init; } = true;
+    public int BatchSize { get; set; } = 1_000;
 
     /// <summary>
-    /// Gets the estimated table size, in bytes, at which large-table batching is used.
+    /// Enables the large-table planner that shrinks bulk-copy batch sizes for tables exceeding <see cref="LargeTableThresholdBytes"/>/<see cref="LargeTableRowThreshold"/>, trading throughput for lower memory pressure. Defaults to <see langword="true"/>; set to <see langword="false"/> to always use <see cref="BatchSize"/>.
     /// </summary>
-    public long LargeTableThresholdBytes { get; init; } = BatchPlanner.DefaultLargeTableThresholdBytes;
+    public bool AdaptiveBatchingEnabled { get; set; } = true;
 
     /// <summary>
-    /// Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
+    /// Estimated table size, in bytes, at or above which a table is treated as "large" and switched to <see cref="LargeTableBatchSize"/>. Defaults to 50 MiB.
     /// </summary>
-    public long LargeTableRowThreshold { get; init; } = BatchPlanner.DefaultLargeTableRowThreshold;
+    public long LargeTableThresholdBytes { get; set; } = BatchPlanner.DefaultLargeTableThresholdBytes;
 
     /// <summary>
-    /// Gets the row batch size used for tables at or above the configured large-table thresholds.
+    /// Estimated row count at or above which a table is treated as "large" when size metadata is unavailable. Defaults to <c>100,000</c> rows.
     /// </summary>
-    public int LargeTableBatchSize { get; init; } = BatchPlanner.DefaultLargeTableBatchSize;
+    public long LargeTableRowThreshold { get; set; } = BatchPlanner.DefaultLargeTableRowThreshold;
 
     /// <summary>
-    /// Gets the approximate maximum bytes represented by one bulk-copy batch when table size and row count metadata are available.
+    /// Row count per bulk-copy batch used when a table crosses either large-table threshold. Defaults to <c>250</c>.
     /// </summary>
-    public long MaxBatchBytes { get; init; } = BatchPlanner.DefaultMaxBatchBytes;
+    public int LargeTableBatchSize { get; set; } = BatchPlanner.DefaultLargeTableBatchSize;
 
     /// <summary>
-    /// Gets the optional timeout, in seconds, for SQL Server target validation commands during import.
+    /// Approximate upper bound, in bytes, on the in-memory size of a single bulk-copy batch when size and row-count metadata are both available — caps memory regardless of <see cref="BatchSize"/>. Defaults to 4 MiB.
     /// </summary>
-    public int? ValidationCommandTimeout { get; init; }
+    public long MaxBatchBytes { get; set; } = BatchPlanner.DefaultMaxBatchBytes;
 
     /// <summary>
-    /// Gets the optional timeout, in seconds, for SQL Server bulk-copy operations during import.
+    /// SQL Server command timeout, in seconds, for the target validation queries run before bulk copy begins. Defaults to <see langword="null"/> (use the provider's default).
     /// </summary>
-    public int? BulkCopyTimeout { get; init; }
+    public int? ValidationCommandTimeout { get; set; }
 
     /// <summary>
-    /// Gets the optional progress reporter for import operations.
+    /// Timeout, in seconds, for each <c>SqlBulkCopy</c> operation. Defaults to <see langword="null"/> (use <c>SqlBulkCopy</c>'s default of 30 seconds); raise this for very large or slow tables.
     /// </summary>
-    public IProgress<BridgeProgress>? Progress { get; init; }
+    public int? BulkCopyTimeout { get; set; }
 
     /// <summary>
-    /// Gets whether schema stored in the package should be deployed before data import.
+    /// Progress reporter that receives table- and row-level updates as the import runs. Defaults to <see langword="null"/> (no progress reporting).
     /// </summary>
-    public SchemaDeploymentMode SchemaDeploymentMode { get; init; } = SchemaDeploymentMode.None;
+    public IProgress<BridgeProgress>? Progress { get; set; }
 
     /// <summary>
-    /// Gets dacpac deployment settings used when <see cref="SchemaDeploymentMode"/> is <see cref="SchemaDeploymentMode.DeployDacpac"/>.
+    /// Selects whether to deploy the package's embedded schema before loading data. Defaults to <see cref="SchemaDeploymentMode.None"/> (assume target schema already exists); set to <see cref="SchemaDeploymentMode.DeployDacpac"/> to apply the captured dacpac first.
     /// </summary>
-    public DacpacDeploymentOptions DacpacDeploymentOptions { get; init; } = new();
+    public SchemaDeploymentMode SchemaDeploymentMode { get; set; } = SchemaDeploymentMode.None;
+
+    /// <summary>
+    /// Dacpac deployment settings used only when <see cref="SchemaDeploymentMode"/> is <see cref="SchemaDeploymentMode.DeployDacpac"/>. Defaults to a new <see cref="DacpacDeploymentOptions"/> with its own defaults.
+    /// </summary>
+    public DacpacDeploymentOptions DacpacDeploymentOptions { get; set; } = new();
 }
 
 /// <summary>
@@ -326,109 +390,128 @@ public sealed class ImportOptions
 public sealed class BridgeOptions
 {
     /// <summary>
-    /// Gets how <see cref="Tables"/> is applied during export.
+    /// Returns a new <see cref="BridgeOptions"/> populated with the documented defaults — a convenient starting point to tweak.
+    /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public ExportTableSelectionMode TableSelection { get; init; } = ExportTableSelectionMode.AllExcept;
+    public static BridgeOptions Default => new()
+    {
+        TableSelection = ExportTableSelectionMode.AllExcept,
+        DataTablePrefix = "zsb_data",
+        BatchSize = 1_000,
+        AdaptiveBatchingEnabled = true,
+        LargeTableThresholdBytes = BatchPlanner.DefaultLargeTableThresholdBytes,
+        LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
+        LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
+        MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
+        OverwriteExistingPackage = false,
+        SchemaCaptureMode = SchemaCaptureMode.None,
+        SchemaDeploymentMode = SchemaDeploymentMode.None
+    };
 
     /// <summary>
-    /// Gets table patterns used by <see cref="TableSelection"/> during export. Patterns support exact source table names and <c>*</c> wildcards.
+    /// Controls how <see cref="Tables"/> is interpreted during export: <see cref="ExportTableSelectionMode.AllExcept"/> excludes matches from a full export, <see cref="ExportTableSelectionMode.Only"/> exports just the matches. Defaults to <see cref="ExportTableSelectionMode.AllExcept"/>.
     /// </summary>
-    public IReadOnlyCollection<string> Tables { get; init; } = [];
+    public ExportTableSelectionMode TableSelection { get; set; } = ExportTableSelectionMode.AllExcept;
 
     /// <summary>
-    /// Gets the column paths to omit during export.
+    /// Table-name patterns that <see cref="TableSelection"/> applies to during export (exact <c>schema.table</c> names or <c>*</c> wildcards). Defaults to an empty list.
     /// </summary>
-    public IReadOnlyCollection<string> ExcludeColumns { get; init; } = [];
+    public IList<string> Tables { get; set; } = new List<string>();
 
     /// <summary>
-    /// Gets global SQL Server WHERE predicates applied to selected export tables containing the configured source column.
+    /// Fully qualified column paths (<c>schema.table.column</c>) to omit during export. Defaults to an empty list (export every column).
     /// </summary>
-    public IReadOnlyCollection<GlobalWhereClause> GlobalWhereClauses { get; init; } = [];
+    public IList<string> ExcludeColumns { get; set; } = new List<string>();
 
     /// <summary>
-    /// Gets SQL Server WHERE predicates applied to exact selected source tables during export.
+    /// SQL Server WHERE predicates applied to every selected table that contains the named column — useful for tenant or soft-delete filtering. Defaults to an empty list.
     /// </summary>
-    public IReadOnlyCollection<PerTableWhereClause> PerTableWhereClauses { get; init; } = [];
+    public IList<GlobalWhereClause> GlobalWhereClauses { get; set; } = new List<GlobalWhereClause>();
 
     /// <summary>
-    /// Gets the SQLite table-name prefix used for exported data tables. Use <see langword="null"/> or an empty value to omit the prefix.
+    /// SQL Server WHERE predicates applied only to the specific export tables they name. Defaults to an empty list.
     /// </summary>
-    public string? DataTablePrefix { get; init; } = "zsb_data";
+    public IList<PerTableWhereClause> PerTableWhereClauses { get; set; } = new List<PerTableWhereClause>();
 
     /// <summary>
-    /// Gets the row batch size used by export and import.
+    /// Prefix prepended to every exported data table inside the SQLite package — separates data tables from internal metadata tables. Defaults to <c>"zsb_data"</c>; set to <see langword="null"/> or empty to omit the prefix.
     /// </summary>
-    public int BatchSize { get; init; } = 1_000;
+    public string? DataTablePrefix { get; set; } = "zsb_data";
 
     /// <summary>
-    /// Gets whether table size metadata should reduce batch sizes for large or wide tables.
+    /// Row count per batch used by both export writes and import bulk-copy on normal-sized tables. Defaults to <c>1000</c>.
     /// </summary>
-    public bool AdaptiveBatchingEnabled { get; init; } = true;
+    public int BatchSize { get; set; } = 1_000;
 
     /// <summary>
-    /// Gets the estimated table size, in bytes, at which large-table batching is used.
+    /// Enables the large-table planner that shrinks batch sizes for tables exceeding <see cref="LargeTableThresholdBytes"/>/<see cref="LargeTableRowThreshold"/>. Defaults to <see langword="true"/>.
     /// </summary>
-    public long LargeTableThresholdBytes { get; init; } = BatchPlanner.DefaultLargeTableThresholdBytes;
+    public bool AdaptiveBatchingEnabled { get; set; } = true;
 
     /// <summary>
-    /// Gets the estimated table row count at which large-table batching is used when size metadata is unavailable.
+    /// Estimated table size, in bytes, at or above which a table is treated as "large" and switched to <see cref="LargeTableBatchSize"/>. Defaults to 50 MiB.
     /// </summary>
-    public long LargeTableRowThreshold { get; init; } = BatchPlanner.DefaultLargeTableRowThreshold;
+    public long LargeTableThresholdBytes { get; set; } = BatchPlanner.DefaultLargeTableThresholdBytes;
 
     /// <summary>
-    /// Gets the row batch size used for tables at or above the configured large-table thresholds.
+    /// Estimated row count at or above which a table is treated as "large" when size metadata is unavailable. Defaults to <c>100,000</c> rows.
     /// </summary>
-    public int LargeTableBatchSize { get; init; } = BatchPlanner.DefaultLargeTableBatchSize;
+    public long LargeTableRowThreshold { get; set; } = BatchPlanner.DefaultLargeTableRowThreshold;
 
     /// <summary>
-    /// Gets the approximate maximum bytes represented by one batch when table size and row count metadata are available.
+    /// Row count per batch used when a table crosses either large-table threshold. Defaults to <c>250</c>.
     /// </summary>
-    public long MaxBatchBytes { get; init; } = BatchPlanner.DefaultMaxBatchBytes;
+    public int LargeTableBatchSize { get; set; } = BatchPlanner.DefaultLargeTableBatchSize;
 
     /// <summary>
-    /// Gets the optional timeout, in seconds, for SQL Server metadata and data commands during export.
+    /// Approximate upper bound, in bytes, on the in-memory size of a single batch when size and row-count metadata are both available. Defaults to 4 MiB.
     /// </summary>
-    public int? ExportCommandTimeout { get; init; }
+    public long MaxBatchBytes { get; set; } = BatchPlanner.DefaultMaxBatchBytes;
 
     /// <summary>
-    /// Gets the optional timeout, in seconds, for SQL Server target validation commands during import.
+    /// SQL Server command timeout, in seconds, for metadata and data-read commands during export. Defaults to <see langword="null"/> (use the provider's default).
     /// </summary>
-    public int? ImportValidationCommandTimeout { get; init; }
+    public int? ExportCommandTimeout { get; set; }
 
     /// <summary>
-    /// Gets the optional timeout, in seconds, for SQL Server bulk-copy operations during import.
+    /// SQL Server command timeout, in seconds, for the target validation queries run before bulk copy begins during import. Defaults to <see langword="null"/> (use the provider's default).
     /// </summary>
-    public int? ImportBulkCopyTimeout { get; init; }
+    public int? ImportValidationCommandTimeout { get; set; }
 
     /// <summary>
-    /// Gets the optional progress reporter used by export and import operations.
+    /// Timeout, in seconds, for each <c>SqlBulkCopy</c> operation during import. Defaults to <see langword="null"/> (use <c>SqlBulkCopy</c>'s 30-second default).
     /// </summary>
-    public IProgress<BridgeProgress>? Progress { get; init; }
+    public int? ImportBulkCopyTimeout { get; set; }
 
     /// <summary>
-    /// Gets whether an existing SQLite package at the destination path may be replaced after a successful export.
+    /// Progress reporter that receives table- and row-level updates for both export and import. Defaults to <see langword="null"/>.
     /// </summary>
-    public bool OverwriteExistingPackage { get; init; }
+    public IProgress<BridgeProgress>? Progress { get; set; }
 
     /// <summary>
-    /// Gets whether SQL Server schema should be captured in the SQLite package during export.
+    /// Allows the export to replace an existing SQLite file at the destination path on successful completion. Defaults to <see langword="false"/>; an existing file otherwise fails the export.
     /// </summary>
-    public SchemaCaptureMode SchemaCaptureMode { get; init; } = SchemaCaptureMode.None;
+    public bool OverwriteExistingPackage { get; set; }
 
     /// <summary>
-    /// Gets dacpac extraction settings used when schema capture is enabled.
+    /// Selects whether export embeds source-schema information in the package. Defaults to <see cref="SchemaCaptureMode.None"/>; set to <see cref="SchemaCaptureMode.Dacpac"/> to extract a dacpac during export.
     /// </summary>
-    public DacpacCaptureOptions DacpacCaptureOptions { get; init; } = new();
+    public SchemaCaptureMode SchemaCaptureMode { get; set; } = SchemaCaptureMode.None;
 
     /// <summary>
-    /// Gets whether schema stored in the package should be deployed before data import.
+    /// Dacpac extraction settings used only when <see cref="SchemaCaptureMode"/> is <see cref="SchemaCaptureMode.Dacpac"/>. Defaults to a new <see cref="DacpacCaptureOptions"/> with its own defaults.
     /// </summary>
-    public SchemaDeploymentMode SchemaDeploymentMode { get; init; } = SchemaDeploymentMode.None;
+    public DacpacCaptureOptions DacpacCaptureOptions { get; set; } = new();
 
     /// <summary>
-    /// Gets dacpac deployment settings used when schema deployment is enabled.
+    /// Selects whether import deploys the package's embedded schema before loading data. Defaults to <see cref="SchemaDeploymentMode.None"/>; set to <see cref="SchemaDeploymentMode.DeployDacpac"/> to apply the captured dacpac first.
     /// </summary>
-    public DacpacDeploymentOptions DacpacDeploymentOptions { get; init; } = new();
+    public SchemaDeploymentMode SchemaDeploymentMode { get; set; } = SchemaDeploymentMode.None;
+
+    /// <summary>
+    /// Dacpac deployment settings used only when <see cref="SchemaDeploymentMode"/> is <see cref="SchemaDeploymentMode.DeployDacpac"/>. Defaults to a new <see cref="DacpacDeploymentOptions"/> with its own defaults.
+    /// </summary>
+    public DacpacDeploymentOptions DacpacDeploymentOptions { get; set; } = new();
 
     internal ExportOptions ToExportOptions()
     {

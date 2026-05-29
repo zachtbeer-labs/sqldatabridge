@@ -59,22 +59,24 @@ In addition to `using Zachtbeer.SqlDataBridge;`, configured examples use the mod
 using Zachtbeer.SqlDataBridge.Models;
 ```
 
+Every options type (`ExportOptions`, `ImportOptions`, `BridgeOptions`, `DacpacCaptureOptions`, `DacpacDeploymentOptions`) exposes a static `Default` property that returns a fresh, mutable instance pre-populated with the documented defaults. Use it as a discoverable starting point and tweak only what you need — each access returns a new instance, so mutating it never affects other callers.
+
 Export only the tables needed to reproduce an issue:
 
 ```csharp
+var options = ExportOptions.Default;
+options.TableSelection = ExportTableSelectionMode.Only;
+options.Tables =
+[
+    "dbo.Customers",
+    "dbo.Invoices",
+    "dbo.InvoiceLineItems"
+];
+
 var result = await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "billing-repro.sqlite",
-    new ExportOptions
-    {
-        TableSelection = ExportTableSelectionMode.Only,
-        Tables =
-        [
-            "dbo.Customers",
-            "dbo.Invoices",
-            "dbo.InvoiceLineItems"
-        ]
-    });
+    options);
 ```
 
 `Tables` supports exact source table names and `*` wildcards. Use schema-qualified names such as `dbo.Customers`, table names such as `Customers`, or wildcard patterns such as `dbo.zz*` and `*.zz*`.
@@ -82,43 +84,43 @@ var result = await new SqlDataBridgeExporter().ExportAsync(
 By default, table patterns are exclusions because `TableSelection` defaults to `AllExcept`:
 
 ```csharp
+var options = ExportOptions.Default;
+options.Tables = ["*.zz*"];
+
 var result = await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "without-staging.sqlite",
-    new ExportOptions
-    {
-        Tables = ["*.zz*"]
-    });
+    options);
 ```
 
 Exclude unsupported, sensitive, or unhelpful columns:
 
 ```csharp
+var options = ExportOptions.Default;
+options.TableSelection = ExportTableSelectionMode.Only;
+options.Tables = ["dbo.Payloads", "dbo.SupportCases"];
+options.ExcludeColumns =
+[
+    "dbo.Payloads.RawXml",
+    "dbo.SupportCases.InternalNotes"
+];
+
 var result = await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "support-snapshot.sqlite",
-    new ExportOptions
-    {
-        TableSelection = ExportTableSelectionMode.Only,
-        Tables = ["dbo.Payloads", "dbo.SupportCases"],
-        ExcludeColumns =
-        [
-            "dbo.Payloads.RawXml",
-            "dbo.SupportCases.InternalNotes"
-        ]
-    });
+    options);
 ```
 
 Customize the SQLite data table prefix when a package needs to fit another local naming convention:
 
 ```csharp
+var options = ExportOptions.Default;
+options.DataTablePrefix = "support_data";
+
 var result = await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "support-snapshot.sqlite",
-    new ExportOptions
-    {
-        DataTablePrefix = "support_data"
-    });
+    options);
 ```
 
 `DataTablePrefix` defaults to `zsb_data`, which creates data tables like `zsb_data_dbo__customers`. Set it to `null` or an empty string to omit the prefix and create names like `dbo__customers`. Metadata tables remain `zsb_*`.
@@ -126,36 +128,36 @@ var result = await new SqlDataBridgeExporter().ExportAsync(
 Apply global WHERE predicates to any selected table that has a matching source column:
 
 ```csharp
+var options = ExportOptions.Default;
+options.GlobalWhereClauses =
+[
+    new GlobalWhereClause("TenantId", "TenantId = 123"),
+    new GlobalWhereClause("Active", "Active = 1")
+];
+
 var result = await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "tenant-snapshot.sqlite",
-    new ExportOptions
-    {
-        GlobalWhereClauses =
-        [
-            new GlobalWhereClause("TenantId", "TenantId = 123"),
-            new GlobalWhereClause("Active", "Active = 1")
-        ]
-    });
+    options);
 ```
 
 Stack per-table WHERE predicates with global predicates for exact source tables:
 
 ```csharp
+var options = ExportOptions.Default;
+options.GlobalWhereClauses =
+[
+    new GlobalWhereClause("TenantId", "TenantId = 123")
+];
+options.PerTableWhereClauses =
+[
+    new PerTableWhereClause("dbo.Orders", "Status = 'Open'")
+];
+
 var result = await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "tenant-snapshot.sqlite",
-    new ExportOptions
-    {
-        GlobalWhereClauses =
-        [
-            new GlobalWhereClause("TenantId", "TenantId = 123")
-        ],
-        PerTableWhereClauses =
-        [
-            new PerTableWhereClause("dbo.Orders", "Status = 'Open'")
-        ]
-    });
+    options);
 ```
 
 Check an import before copying rows:
@@ -206,28 +208,26 @@ var progress = new Progress<BridgeProgress>(p =>
     Console.WriteLine($"{p.Kind}: {p.TableName} {p.RowsProcessed}/{p.TotalRows}");
 });
 
+var options = ExportOptions.Default;
+options.TableSelection = ExportTableSelectionMode.Only;
+options.Tables = ["dbo.Payloads"];
+options.CommandTimeout = 120;
+options.Progress = progress;
+
 await new SqlDataBridgeExporter().ExportAsync(
     sourceSqlServerConnectionString,
     "large-table.sqlite",
-    new ExportOptions
-    {
-        TableSelection = ExportTableSelectionMode.Only,
-        Tables = ["dbo.Payloads"],
-        CommandTimeout = 120,
-        Progress = progress
-    });
+    options);
 ```
 
 Tune batching for large or wide tables:
 
 ```csharp
-var options = new ExportOptions
-{
-    BatchSize = 1_000,
-    LargeTableThresholdBytes = 50L * 1024 * 1024,
-    LargeTableBatchSize = 250,
-    MaxBatchBytes = 4L * 1024 * 1024
-};
+var options = ExportOptions.Default;
+options.BatchSize = 1_000;
+options.LargeTableThresholdBytes = 50L * 1024 * 1024;
+options.LargeTableBatchSize = 250;
+options.MaxBatchBytes = 4L * 1024 * 1024;
 ```
 
 Size-aware batching is enabled by default. `BatchSize` is the upper bound; adaptive batching only lowers it for large or wide tables.
@@ -239,10 +239,8 @@ By default, SqlDataBridge exports data and metadata, not SQL Server schema scrip
 To carry schema in the SQLite file, enable dacpac capture:
 
 ```csharp
-var exportOptions = new ExportOptions
-{
-    SchemaCaptureMode = SchemaCaptureMode.Dacpac
-};
+var exportOptions = ExportOptions.Default;
+exportOptions.SchemaCaptureMode = SchemaCaptureMode.Dacpac;
 ```
 
 By default, dacpac capture includes the full source database schema. To capture only the tables selected by the export plan, set `DacpacCaptureOptions.SchemaScope = DacpacSchemaScope.SelectedExportTables`.
@@ -250,15 +248,12 @@ By default, dacpac capture includes the full source database schema. To capture 
 Then opt into dacpac deployment before import:
 
 ```csharp
-var importOptions = new ImportOptions
-{
-    SchemaDeploymentMode = SchemaDeploymentMode.DeployDacpac,
-    DacpacDeploymentOptions = new DacpacDeploymentOptions
-    {
-        AllowIncompatiblePlatform = false
-    }
-};
+var importOptions = ImportOptions.Default;
+importOptions.SchemaDeploymentMode = SchemaDeploymentMode.DeployDacpac;
+importOptions.DacpacDeploymentOptions.AllowIncompatiblePlatform = false;
 ```
+
+`DacpacDeploymentOptions` is already initialized to its defaults on a fresh `ImportOptions`, so you can adjust its fields directly without replacing the object.
 
 Dacpac deployment is conservative by default: possible data loss is blocked, target objects are not dropped, and users, logins, permissions, and role membership are skipped unless you explicitly enable them.
 
