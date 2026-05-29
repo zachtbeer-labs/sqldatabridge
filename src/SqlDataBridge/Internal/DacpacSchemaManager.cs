@@ -349,6 +349,7 @@ internal static class DacpacSchemaManager
             IgnoreFilegroupPlacement = !options.DeployDatabaseFiles,
             IgnoreFileSize = !options.DeployDatabaseFiles,
             IncludeTransactionalScripts = true,
+            ScriptDatabaseOptions = options.DeployDatabaseOptions,
             VerifyDeployment = options.VerifyDeployment
         };
     }

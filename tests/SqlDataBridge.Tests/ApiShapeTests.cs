@@ -296,6 +296,7 @@ public sealed class ApiShapeTests
         deployment.DeployPermissions.ShouldBeFalse();
         deployment.DeployRoleMembership.ShouldBeFalse();
         deployment.DeployDatabaseFiles.ShouldBeFalse();
+        deployment.DeployDatabaseOptions.ShouldBeFalse();
         deployment.VerifyDeployment.ShouldBeTrue();
     }
 
@@ -320,6 +321,7 @@ public sealed class ApiShapeTests
         options.IgnoreFileAndLogFilePath.ShouldBeTrue();
         options.IgnoreFilegroupPlacement.ShouldBeTrue();
         options.IgnoreFileSize.ShouldBeTrue();
+        options.ScriptDatabaseOptions.ShouldBeFalse();
     }
 
     [Fact]
@@ -336,6 +338,7 @@ public sealed class ApiShapeTests
                 DeployPermissions = true,
                 DeployRoleMembership = true,
                 DeployDatabaseFiles = true,
+                DeployDatabaseOptions = true,
                 VerifyDeployment = false
             });
 
@@ -352,6 +355,7 @@ public sealed class ApiShapeTests
         options.IgnoreFileAndLogFilePath.ShouldBeFalse();
         options.IgnoreFilegroupPlacement.ShouldBeFalse();
         options.IgnoreFileSize.ShouldBeFalse();
+        options.ScriptDatabaseOptions.ShouldBeTrue();
     }
 
     [Fact]

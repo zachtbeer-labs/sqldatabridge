@@ -135,6 +135,7 @@ public sealed class DacpacDeploymentOptions
         DeployPermissions = false,
         DeployRoleMembership = false,
         DeployDatabaseFiles = false,
+        DeployDatabaseOptions = false,
         VerifyDeployment = true
     };
 
@@ -177,6 +178,11 @@ public sealed class DacpacDeploymentOptions
     /// Deploys database file and filegroup definitions from the dacpac. Defaults to <see langword="false"/> because storage layout is usually managed per-environment.
     /// </summary>
     public bool DeployDatabaseFiles { get; set; }
+
+    /// <summary>
+    /// Applies the source database's <c>ALTER DATABASE</c> property scripts (containment, recovery model, compatibility-adjacent options, etc.) to the target. Defaults to <see langword="false"/> because these settings are usually environment-specific and Azure-extracted dacpacs ship with <c>SET CONTAINMENT = PARTIAL</c>, which requires <c>sp_configure 'contained database authentication', 1</c> on most on-prem targets.
+    /// </summary>
+    public bool DeployDatabaseOptions { get; set; }
 
     /// <summary>
     /// Runs DacFx's deployment-plan verification before applying changes; disable to skip the pre-flight check at the cost of catching issues only at apply time. Defaults to <see langword="true"/>.
