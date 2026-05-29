@@ -75,7 +75,15 @@ public sealed class DacpacCaptureOptions
     /// Returns a new <see cref="DacpacCaptureOptions"/> populated with the documented defaults — a convenient starting point to tweak.
     /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public static DacpacCaptureOptions Default => new();
+    public static DacpacCaptureOptions Default => new()
+    {
+        SchemaScope = DacpacSchemaScope.Database,
+        ExtractReferencedServerScopedElements = false,
+        ExtractApplicationScopedObjectsOnly = false,
+        IgnorePermissions = true,
+        IgnoreUserLoginMappings = true,
+        VerifyExtraction = true
+    };
 
     /// <summary>
     /// Controls which schema objects are extracted into the dacpac. Defaults to <see cref="DacpacSchemaScope.Database"/> (full database model).
@@ -117,7 +125,18 @@ public sealed class DacpacDeploymentOptions
     /// Returns a new <see cref="DacpacDeploymentOptions"/> populated with the documented defaults — a convenient starting point to tweak.
     /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public static DacpacDeploymentOptions Default => new();
+    public static DacpacDeploymentOptions Default => new()
+    {
+        AllowIncompatiblePlatform = false,
+        BlockOnPossibleDataLoss = true,
+        AllowObjectDrops = false,
+        DeployUsers = false,
+        DeployLogins = false,
+        DeployPermissions = false,
+        DeployRoleMembership = false,
+        DeployDatabaseFiles = false,
+        VerifyDeployment = true
+    };
 
     /// <summary>
     /// Allows DacFx to deploy even when the source and target SQL platforms differ (e.g. on-prem dacpac to Azure SQL). Defaults to <see langword="false"/> (fail-fast on platform mismatch).
@@ -188,7 +207,19 @@ public sealed class ExportOptions
     /// Returns a new <see cref="ExportOptions"/> populated with the documented defaults — a convenient starting point to tweak.
     /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public static ExportOptions Default => new();
+    public static ExportOptions Default => new()
+    {
+        TableSelection = ExportTableSelectionMode.AllExcept,
+        DataTablePrefix = "zsb_data",
+        BatchSize = 1_000,
+        AdaptiveBatchingEnabled = true,
+        LargeTableThresholdBytes = BatchPlanner.DefaultLargeTableThresholdBytes,
+        LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
+        LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
+        MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
+        OverwriteExistingPackage = false,
+        SchemaCaptureMode = SchemaCaptureMode.None
+    };
 
     /// <summary>
     /// Controls how <see cref="Tables"/> is interpreted: <see cref="ExportTableSelectionMode.AllExcept"/> uses it as an exclusion list against a full export, <see cref="ExportTableSelectionMode.Only"/> uses it as an inclusion list. Defaults to <see cref="ExportTableSelectionMode.AllExcept"/>.
@@ -285,7 +316,16 @@ public sealed class ImportOptions
     /// Returns a new <see cref="ImportOptions"/> populated with the documented defaults — a convenient starting point to tweak.
     /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public static ImportOptions Default => new();
+    public static ImportOptions Default => new()
+    {
+        BatchSize = 1_000,
+        AdaptiveBatchingEnabled = true,
+        LargeTableThresholdBytes = BatchPlanner.DefaultLargeTableThresholdBytes,
+        LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
+        LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
+        MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
+        SchemaDeploymentMode = SchemaDeploymentMode.None
+    };
 
     /// <summary>
     /// Row count per bulk-copy batch for normal-sized tables. Defaults to <c>1000</c>.
@@ -353,7 +393,20 @@ public sealed class BridgeOptions
     /// Returns a new <see cref="BridgeOptions"/> populated with the documented defaults — a convenient starting point to tweak.
     /// Each access returns a fresh instance, so mutating the returned object never affects subsequent callers.
     /// </summary>
-    public static BridgeOptions Default => new();
+    public static BridgeOptions Default => new()
+    {
+        TableSelection = ExportTableSelectionMode.AllExcept,
+        DataTablePrefix = "zsb_data",
+        BatchSize = 1_000,
+        AdaptiveBatchingEnabled = true,
+        LargeTableThresholdBytes = BatchPlanner.DefaultLargeTableThresholdBytes,
+        LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
+        LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
+        MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
+        OverwriteExistingPackage = false,
+        SchemaCaptureMode = SchemaCaptureMode.None,
+        SchemaDeploymentMode = SchemaDeploymentMode.None
+    };
 
     /// <summary>
     /// Controls how <see cref="Tables"/> is interpreted during export: <see cref="ExportTableSelectionMode.AllExcept"/> excludes matches from a full export, <see cref="ExportTableSelectionMode.Only"/> exports just the matches. Defaults to <see cref="ExportTableSelectionMode.AllExcept"/>.

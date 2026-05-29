@@ -21,7 +21,7 @@ public sealed class SqlDataBridgeImporter
     public async Task<BridgeResult> ImportAsync(string sqliteFilePath, string sqlServerConnectionString,
         ImportOptions? options = null, CancellationToken cancellationToken = default)
     {
-        options ??= new ImportOptions();
+        options ??= ImportOptions.Default;
         BatchPlanner.Validate(options);
         options.Progress?.Report(new BridgeProgress(BridgeProgressKind.OperationStarted, Message: "Import started."));
 
@@ -137,7 +137,7 @@ public sealed class SqlDataBridgeImporter
     public async Task<BridgePreflightResult> PreflightAsync(string sqliteFilePath, string sqlServerConnectionString,
         ImportOptions? options = null, CancellationToken cancellationToken = default)
     {
-        options ??= new ImportOptions();
+        options ??= ImportOptions.Default;
         var errors = new List<string>();
         try
         {
