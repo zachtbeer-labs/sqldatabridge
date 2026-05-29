@@ -181,6 +181,7 @@ public sealed class DacpacDeploymentOptions
 
     /// <summary>
     /// Applies the source database's <c>ALTER DATABASE</c> property scripts (containment, recovery model, compatibility-adjacent options, etc.) to the target. Defaults to <see langword="false"/> because these settings are usually environment-specific and Azure-extracted dacpacs ship with <c>SET CONTAINMENT = PARTIAL</c>, which requires <c>sp_configure 'contained database authentication', 1</c> on most on-prem targets.
+    /// When <see langword="false"/>, the deploy probes <c>SERVERPROPERTY('EngineEdition')</c> on the target and strips the source's containment declaration from the dacpac on a temp copy unless the target reports Azure SQL Database (engine edition 5), in which case the source model is deployed as-is because Azure SQL Database is always partially contained. The probe failing aborts the deploy with a <see cref="BridgeException"/>; set this to <see langword="true"/> to skip the probe and the strip.
     /// </summary>
     public bool DeployDatabaseOptions { get; set; }
 

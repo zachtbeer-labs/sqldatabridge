@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Xml.Linq;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Dac;
 using Microsoft.SqlServer.Dac.Model;
@@ -107,6 +108,28 @@ internal static class DacpacSchemaManager
         try
         {
             await File.WriteAllBytesAsync(path, package.Payload, cancellationToken);
+
+            if (!options.DeployDatabaseOptions)
+            {
+                const int azureSqlDatabaseEngineEdition = 5;
+                int engineEdition;
+                try
+                {
+                    engineEdition = await ReadTargetEngineEditionAsync(connectionString, cancellationToken);
+                }
+                catch (Exception exception) when (exception is not OperationCanceledException and not BridgeException)
+                {
+                    throw new BridgeException(
+                        $"Failed to probe target SQL Server engine edition before dacpac deploy to '{targetDatabaseName}'. "
+                        + "Set DacpacDeploymentOptions.DeployDatabaseOptions = true to bypass the probe and deploy source database options as-is.",
+                        exception);
+                }
+
+                if (engineEdition != azureSqlDatabaseEngineEdition)
+                {
+                    NeutralizeDatabaseContainment(path);
+                }
+            }
 
             var services = new DacServices(connectionString);
             using var dacpac = DacPackage.Load(path);
@@ -383,5 +406,55 @@ internal static class DacpacSchemaManager
         {
             // Best effort cleanup only; preserve the operation failure.
         }
+    }
+
+    private static async Task<int> ReadTargetEngineEditionAsync(string connectionString, CancellationToken cancellationToken)
+    {
+        await using var connection = new SqlConnection(connectionString);
+        await connection.OpenAsync(cancellationToken);
+        await using var command = new SqlCommand("SELECT CAST(SERVERPROPERTY('EngineEdition') AS int);", connection);
+        var result = await command.ExecuteScalarAsync(cancellationToken);
+        return result is int value
+            ? value
+            : throw new BridgeException("Failed to determine target SQL Server engine edition; SERVERPROPERTY('EngineEdition') returned no value.");
+    }
+
+    // Azure SQL DB-sourced dacpacs declare CONTAINMENT = PARTIAL at the model level. DacFx then emits an
+    // ALTER DATABASE ... SET CONTAINMENT = PARTIAL prerequisite that cannot be suppressed by DacDeployOptions
+    // (ScriptDatabaseOptions=false only skips comparison-driven option ALTERs, not model prerequisites). On a
+    // target whose 'contained database authentication' sp_configure is 0 the ALTER fails with Msg 12824 and
+    // the whole deploy aborts. This rewrite removes the Containment property from the dacpac's model.xml on
+    // the temp deploy copy so DacFx no longer scripts the prerequisite. Origin.xml's model.xml checksum is
+    // recomputed so DacFx still accepts the package.
+    private static void NeutralizeDatabaseContainment(string dacpacPath)
+    {
+        DacpacEditor.Edit(dacpacPath, context =>
+        {
+            context.MutateXml("model.xml", TryRemoveDatabaseContainmentProperty);
+        });
+    }
+
+    private static bool TryRemoveDatabaseContainmentProperty(XDocument modelDocument)
+    {
+        var containmentProperties = modelDocument
+            .Descendants()
+            .Where(e => e.Name.LocalName == "Element"
+                        && string.Equals((string?)e.Attribute("Type"), "SqlDatabaseOptions", StringComparison.Ordinal))
+            .SelectMany(e => e.Elements())
+            .Where(p => p.Name.LocalName == "Property"
+                        && string.Equals((string?)p.Attribute("Name"), "Containment", StringComparison.Ordinal))
+            .ToList();
+
+        if (containmentProperties.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (var property in containmentProperties)
+        {
+            property.Remove();
+        }
+
+        return true;
     }
 }
