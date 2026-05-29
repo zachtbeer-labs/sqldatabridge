@@ -10,4 +10,5 @@ internal sealed record SchemaPackage(
     string? SourceDatabaseName,
     string? DacFxVersion,
     DacpacSchemaScope SchemaScope,
-    byte[] Payload);
+    byte[] Payload,
+    int? SourceEngineEdition = null);

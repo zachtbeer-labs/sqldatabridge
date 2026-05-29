@@ -136,6 +136,7 @@ public sealed class DacpacDeploymentOptions
         DeployRoleMembership = false,
         DeployDatabaseFiles = false,
         DeployDatabaseOptions = false,
+        AdaptAzureSourceForOnPremTarget = true,
         VerifyDeployment = true
     };
 
@@ -180,10 +181,33 @@ public sealed class DacpacDeploymentOptions
     public bool DeployDatabaseFiles { get; set; }
 
     /// <summary>
-    /// Applies the source database's <c>ALTER DATABASE</c> property scripts (containment, recovery model, compatibility-adjacent options, etc.) to the target. Defaults to <see langword="false"/> because these settings are usually environment-specific and Azure-extracted dacpacs ship with <c>SET CONTAINMENT = PARTIAL</c>, which requires <c>sp_configure 'contained database authentication', 1</c> on most on-prem targets.
-    /// When <see langword="false"/>, the deploy probes <c>SERVERPROPERTY('EngineEdition')</c> on the target and strips the source's containment declaration from the dacpac on a temp copy unless the target reports Azure SQL Database (engine edition 5), in which case the source model is deployed as-is because Azure SQL Database is always partially contained. The probe failing aborts the deploy with a <see cref="BridgeException"/>; set this to <see langword="true"/> to skip the probe and the strip.
+    /// Applies the source database's <c>ALTER DATABASE</c> property scripts (containment, recovery model, compatibility-adjacent options, etc.) to the target. Defaults to <see langword="false"/> because these settings are usually environment-specific.
+    /// When <see langword="false"/>, cross-platform model adaptation is delegated to <see cref="AdaptAzureSourceForOnPremTarget"/>; set this to <see langword="true"/> only when you genuinely want the source database options applied verbatim to the target.
     /// </summary>
     public bool DeployDatabaseOptions { get; set; }
+
+    /// <summary>
+    /// Rewrites Azure SQL-specific model elements on a temp copy of the dacpac when deploying an Azure-source extract to an on-prem (non-Azure) target, so DacFx no longer scripts prerequisites the target cannot satisfy. Defaults to <see langword="true"/>.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// When <see langword="true"/>, the deploy probes <c>SERVERPROPERTY('EngineEdition')</c> on the target and — if the source package was stamped as Azure SQL (edition 5 / 8 / 11 / 12) and the target is non-Azure — performs the following model.xml mutations before invoking DacFx:
+    /// </para>
+    /// <list type="bullet">
+    /// <item><description>Removes the optional <c>Containment</c> property from <c>SqlDatabaseOptions</c>.</description></item>
+    /// <item><description>Rewrites <c>SqlUser</c> elements whose <c>AuthenticationType</c> is 2 (contained password user) or 4 (Entra / external provider) to <c>IsWithoutLogin=True</c>, dropping the <c>Password</c> / <c>Sid</c> properties. The element is kept (not deleted) so model-internal references stay valid.</description></item>
+    /// </list>
+    /// <para>
+    /// Without this rewrite, DacFx emits <c>ALTER DATABASE ... SET CONTAINMENT = PARTIAL</c> as a deploy-script prerequisite, which fails with Msg 12824 on targets where <c>sp_configure 'contained database authentication'</c> is 0.
+    /// </para>
+    /// <para>
+    /// Set this to <see langword="false"/> to deploy the source model verbatim. Useful when you want the deploy to fail loudly so you can fix the source dacpac upstream, or when the operator has already configured <c>contained database authentication = 1</c> on the target and wants the original users preserved.
+    /// </para>
+    /// <para>
+    /// The probe failing aborts the deploy with a <see cref="BridgeException"/>; disable this flag or <see cref="DeployDatabaseOptions"/> to bypass it. The source-platform signal travels in the SQLite package (column <c>source_engine_edition</c> on <c>zsb_schema_packages</c>); packages produced before that column existed are treated as "unknown source" and rewritten the same way a non-Azure target would be probed for, preserving pre-stamp behaviour.
+    /// </para>
+    /// </remarks>
+    public bool AdaptAzureSourceForOnPremTarget { get; set; } = true;
 
     /// <summary>
     /// Runs DacFx's deployment-plan verification before applying changes; disable to skip the pre-flight check at the cost of catching issues only at apply time. Defaults to <see langword="true"/>.

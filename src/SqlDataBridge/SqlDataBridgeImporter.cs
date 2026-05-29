@@ -164,6 +164,18 @@ public sealed class SqlDataBridgeImporter
                 errors.Add("DacpacDeploymentOptions.AllowObjectDrops cannot be used with a selected-table dacpac schema package because unrelated target objects would be compared against a reduced source model.");
             }
 
+            // Surface the cross-platform foot-gun: if the source is stamped as Azure and the user has
+            // disabled the auto-adaptation, the deploy is very likely to fail with Msg 12824 on a
+            // non-Azure target. We don't probe the target here (preflight should stay cheap and
+            // network-only-once) — this is a heads-up, not a hard block.
+            if (options.SchemaDeploymentMode == SchemaDeploymentMode.DeployDacpac
+                && manifest.SourceEngineEdition is int sourceEdition
+                && (sourceEdition is 5 or 8 or 11 or 12)
+                && !options.DacpacDeploymentOptions.AdaptAzureSourceForOnPremTarget)
+            {
+                errors.Insert(0, "Schema package was extracted from Azure SQL but DacpacDeploymentOptions.AdaptAzureSourceForOnPremTarget is disabled. Deploys to non-Azure SQL Server targets will fail with Msg 12824 (contained database authentication) unless the target has 'contained database authentication' enabled via sp_configure. Re-enable the flag or set DeployDatabaseOptions=true to proceed.");
+            }
+
             var tables = await SqlitePackage.ReadTablesAsync(sqlite, cancellationToken);
             try
             {

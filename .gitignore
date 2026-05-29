@@ -418,3 +418,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Real-world dacpac fixtures are large (~300 MB) and may contain sensitive
+# schema/data. Keep them out of the repo — drop your own copy locally to run
+# the optional [Fact] in RealWorldDacpacIntegrationTests.
+tests/SqlDataBridge.IntegrationTests/Fixtures/realworld*.db

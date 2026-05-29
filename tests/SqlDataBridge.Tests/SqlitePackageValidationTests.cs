@@ -48,12 +48,12 @@ public sealed class SqlitePackageValidationTests
     {
         await using var connection = await OpenConnectionAsync();
         await CreateMetadataTablesAsync(connection);
-        await ExecuteAsync(connection, "UPDATE zsb_export_runs SET package_format_version = 4;");
+        await ExecuteAsync(connection, "UPDATE zsb_export_runs SET package_format_version = 99;");
 
         var exception = await Should.ThrowAsync<BridgeException>(() =>
             SqlitePackage.ValidateForImportAsync(connection, CancellationToken.None));
 
-        exception.Message.ShouldContain("format version '4' is not supported");
+        exception.Message.ShouldContain("format version '99' is not supported");
     }
 
     [Fact]
@@ -220,11 +220,12 @@ public sealed class SqlitePackageValidationTests
                 source_database_name TEXT NULL,
                 dacfx_version TEXT NULL,
                 schema_scope TEXT NULL,
-                payload BLOB NOT NULL
+                payload BLOB NOT NULL,
+                source_engine_edition INTEGER NULL
             );
 
             INSERT INTO zsb_export_runs(id, package_format_version, application_version, exported_at_utc, source_schema_hash)
-            VALUES (1, 3, '1.0.0', '2026-01-01T00:00:00.0000000Z', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+            VALUES (1, 4, '1.0.0', '2026-01-01T00:00:00.0000000Z', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
             """);
     }
 

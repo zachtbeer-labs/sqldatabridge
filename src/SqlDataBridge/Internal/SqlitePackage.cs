@@ -80,7 +80,8 @@ internal static class SqlitePackage
                 source_database_name TEXT NULL,
                 dacfx_version TEXT NULL,
                 schema_scope TEXT NULL,
-                payload BLOB NOT NULL
+                payload BLOB NOT NULL,
+                source_engine_edition INTEGER NULL
             );
             """, cancellationToken);
 
@@ -311,9 +312,9 @@ internal static class SqlitePackage
         await using var command = connection.CreateCommand();
         command.CommandText = """
             INSERT INTO zsb_schema_packages(
-                id, package_type, package_name, package_sha256, created_at_utc, source_database_name, dacfx_version, schema_scope, payload)
+                id, package_type, package_name, package_sha256, created_at_utc, source_database_name, dacfx_version, schema_scope, payload, source_engine_edition)
             VALUES (
-                1, $type, $name, $sha256, $created, $source_database, $dacfx_version, $schema_scope, $payload)
+                1, $type, $name, $sha256, $created, $source_database, $dacfx_version, $schema_scope, $payload, $source_engine_edition)
             """;
         command.Parameters.AddWithValue("$type", package.PackageType);
         command.Parameters.AddWithValue("$name", package.PackageName);
@@ -323,6 +324,7 @@ internal static class SqlitePackage
         command.Parameters.AddWithValue("$dacfx_version", (object?)package.DacFxVersion ?? DBNull.Value);
         command.Parameters.AddWithValue("$schema_scope", package.SchemaScope.ToString());
         command.Parameters.Add("$payload", SqliteType.Blob).Value = package.Payload;
+        command.Parameters.AddWithValue("$source_engine_edition", (object?)package.SourceEngineEdition ?? DBNull.Value);
         await command.ExecuteNonQueryAsync(cancellationToken);
     }
 
@@ -330,7 +332,7 @@ internal static class SqlitePackage
     {
         await using var command = connection.CreateCommand();
         command.CommandText = """
-            SELECT package_type, package_name, package_sha256, created_at_utc, source_database_name, dacfx_version, schema_scope, payload
+            SELECT package_type, package_name, package_sha256, created_at_utc, source_database_name, dacfx_version, schema_scope, payload, source_engine_edition
             FROM zsb_schema_packages
             WHERE id = 1
             """;
@@ -348,7 +350,8 @@ internal static class SqlitePackage
             reader.IsDBNull(4) ? null : reader.GetString(4),
             reader.IsDBNull(5) ? null : reader.GetString(5),
             reader.IsDBNull(6) ? DacpacSchemaScope.Database : ParseDacpacSchemaScope(reader.GetString(6)),
-            reader.GetFieldValue<byte[]>(7));
+            reader.GetFieldValue<byte[]>(7),
+            reader.IsDBNull(8) ? null : reader.GetInt32(8));
     }
 
     public static async Task<BridgePackageManifest> ReadManifestAsync(SqliteConnection connection, CancellationToken cancellationToken)
@@ -363,6 +366,7 @@ internal static class SqlitePackage
         var warnings = await ReadWarningsAsync(connection, cancellationToken);
         var containsDacpac = await ContainsDacpacAsync(connection, cancellationToken);
         var dacpacSchemaScope = await ReadDacpacSchemaScopeAsync(connection, cancellationToken);
+        var sourceEngineEdition = await ReadSourceEngineEditionAsync(connection, cancellationToken);
 
         var tableManifests = tables
             .Select(t => ToTableManifest(t, rowCounts.TryGetValue(t.Name.FullName, out var rows) ? rows : 0))
@@ -378,7 +382,8 @@ internal static class SqlitePackage
             exclusions,
             warnings,
             containsDacpac,
-            dacpacSchemaScope);
+            dacpacSchemaScope,
+            sourceEngineEdition);
     }
 
     public static BridgePackageManifest CreatePlannedManifest(ExportPlan plan, ExportOptions options)
@@ -595,6 +600,23 @@ internal static class SqlitePackage
             : DacpacSchemaScope.Database;
     }
 
+    private static async Task<int?> ReadSourceEngineEditionAsync(SqliteConnection connection, CancellationToken cancellationToken)
+    {
+        await using var command = connection.CreateCommand();
+        command.CommandText = """
+            SELECT source_engine_edition
+            FROM zsb_schema_packages
+            WHERE id = 1
+            """;
+        var value = await command.ExecuteScalarAsync(cancellationToken);
+        if (value is null || value is DBNull)
+        {
+            return null;
+        }
+
+        return Convert.ToInt32(value, CultureInfo.InvariantCulture);
+    }
+
     private static async Task<IReadOnlyList<string>> ReadExclusionsAsync(SqliteConnection connection, CancellationToken cancellationToken)
     {
         return await ReadStringsAsync(connection, """
@@ -740,7 +762,7 @@ internal static class SqlitePackage
 
 internal static class BridgeVersion
 {
-    public const int PackageFormatVersion = 3;
+    public const int PackageFormatVersion = 4;
 
     public static string PackageVersion { get; } =
         typeof(BridgeVersion).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
