@@ -424,3 +424,8 @@ FodyWeavers.xsd
 # the optional [Fact] in RealWorldDacpacIntegrationTests.
 tests/SqlDataBridge.IntegrationTests/Fixtures/realworld*.db
 tests/SqlDataBridge.IntegrationTests/Fixtures/realworld.*.sql
+
+# WideWorldImporters backups (~120 MB+) for the opt-in WideWorldImporters tests.
+# Download from https://github.com/Microsoft/sql-server-samples/releases and drop
+# the .bak here (or point SQLDATABRIDGE_WWI_OLTP_BAK / SQLDATABRIDGE_WWI_DW_BAK at it).
+tests/SqlDataBridge.IntegrationTests/Fixtures/*.bak

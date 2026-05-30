@@ -97,41 +97,7 @@ public sealed class RealWorldDacpacIntegrationTests
     // end-to-end check (Azure-extracted dacpac actually deploys to a non-contained-auth on-prem target).
 
     private static bool TryLocateFixture(out string path)
-    {
-        var assemblyDirectory = Path.GetDirectoryName(typeof(RealWorldDacpacIntegrationTests).Assembly.Location);
-        if (assemblyDirectory is not null)
-        {
-            var candidate = Path.Combine(assemblyDirectory, "Fixtures", FixtureFileName);
-            if (File.Exists(candidate))
-            {
-                path = candidate;
-                return true;
-            }
-        }
-
-        // Walk up from the assembly directory looking for tests/SqlDataBridge.IntegrationTests/Fixtures —
-        // useful when the test runner copies binaries but not unmanaged data files.
-        var dir = assemblyDirectory is null ? null : new DirectoryInfo(assemblyDirectory);
-        while (dir is not null)
-        {
-            var candidate = Path.Combine(
-                dir.FullName,
-                "tests",
-                "SqlDataBridge.IntegrationTests",
-                "Fixtures",
-                FixtureFileName);
-            if (File.Exists(candidate))
-            {
-                path = candidate;
-                return true;
-            }
-
-            dir = dir.Parent;
-        }
-
-        path = string.Empty;
-        return false;
-    }
+        => OptionalFixture.TryLocate(FixtureFileName, environmentVariable: null, out path);
 
     private static async Task<SchemaPackage> ReadSchemaPackageAsync(string sqlitePath)
     {
