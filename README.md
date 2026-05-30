@@ -376,7 +376,7 @@ SqlDataBridge is a pre-release package from Zachtbeer Labs B.V. It is published 
 
 SqlDataBridge is maintained by Zachtbeer Labs B.V., which also owns the `Zachtbeer.SqlDataBridge` package on NuGet.
 
-To report a security vulnerability, prefer GitHub private vulnerability reporting through the [security advisory page](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new). As a backup, you can email the maintainer security contact (TODO: `security@zachtbeer.<domain>`, to be confirmed). Please do not open a public issue for security reports. See [SECURITY.md](SECURITY.md) for the full policy.
+To report a security vulnerability, prefer GitHub private vulnerability reporting through the [security advisory page](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new). As a backup, you can email the maintainer security contact at `security@zachtbeerlabs.nl`. Please do not open a public issue for security reports. See [SECURITY.md](SECURITY.md) for the full policy.
 
 ## Verifying Build Provenance
 

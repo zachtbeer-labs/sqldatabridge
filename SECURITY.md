@@ -10,7 +10,7 @@ If you discover a security vulnerability, please report it responsibly:
 
 1. **Do not open a public issue.**
 2. Preferred: use [GitHub's private security advisory](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new) to report the vulnerability.
-3. Backup: email the maintainer security contact (TODO: `security@zachtbeer.<domain>`, to be confirmed).
+3. Backup: email the maintainer security contact at `security@zachtbeerlabs.nl`.
 
 ## What to Expect
 
