@@ -47,6 +47,8 @@ internal static class SqlServerSchemaReader
         ValidateGlobalWhereClauseMatches(tables, options.GlobalWhereClauses);
         ValidateSupported(tables);
         warnings.AddRange(BuildServerGeneratedColumnWarnings(tables));
+        var temporalNames = await ReadTemporalCurrentTableNamesAsync(connection, options.CommandTimeout, cancellationToken);
+        warnings.AddRange(BuildTemporalTableWarnings(selected, temporalNames));
 
         var allForeignKeys = await ReadForeignKeysAsync(connection, options.CommandTimeout, cancellationToken);
         var selectedNames = selected.Select(t => t.FullName).ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -108,8 +110,12 @@ internal static class SqlServerSchemaReader
                 if (table.ExportedColumns.Any(c => string.Equals(c.Name, target.Name, StringComparison.OrdinalIgnoreCase))
                     || target.IsComputed
                     || target.IsIdentity
+                    || target.IsGeneratedAlways
                     || ValueConverter.IsServerGenerated(target.SqlServerTypeName))
                 {
+                    // GENERATED ALWAYS period columns on a target-only temporal table are auto-populated by SQL
+                    // Server, so a NOT NULL period column the package does not carry must not trip the extra-column
+                    // check.
                     continue;
                 }
 
@@ -433,6 +439,45 @@ internal static class SqlServerSchemaReader
             .ToArray();
     }
 
+    private static async Task<HashSet<string>> ReadTemporalCurrentTableNamesAsync(SqlConnection connection, int? commandTimeout, CancellationToken cancellationToken)
+    {
+        // temporal_type = 2 is the system-versioned current table. Used only to enrich export warnings, so a
+        // failure here is non-fatal (older engines without temporal support simply return nothing / are skipped).
+        const string sql = """
+            SELECT s.name, t.name
+            FROM sys.tables t
+            INNER JOIN sys.schemas s ON s.schema_id = t.schema_id
+            WHERE t.temporal_type = 2;
+            """;
+
+        var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        try
+        {
+            await using var command = new SqlCommand(sql, connection);
+            ApplyTimeout(command, commandTimeout);
+            await using var reader = await command.ExecuteReaderAsync(cancellationToken);
+            while (await reader.ReadAsync(cancellationToken))
+            {
+                result.Add($"{reader.GetString(0)}.{reader.GetString(1)}");
+            }
+        }
+        catch (SqlException)
+        {
+            // Best effort: leave the set empty rather than failing the export over a metadata probe.
+        }
+
+        return result;
+    }
+
+    private static string[] BuildTemporalTableWarnings(List<TableName> selected, HashSet<string> temporalCurrentTableNames)
+    {
+        return selected
+            .Where(t => temporalCurrentTableNames.Contains(t.FullName))
+            .Select(t => $"Table '{t.FullName}' is a system-versioned temporal table. Its period columns and history rows are captured; on import, system versioning is temporarily suspended so the original values can be reloaded (see ImportOptions.SuspendTemporalSystemVersioning).")
+            .Order(StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+    }
+
     private static string[] BuildForeignKeyScopeWarnings(List<ForeignKeyMetadata> foreignKeys, HashSet<string> selectedTables)
     {
         return foreignKeys
@@ -485,14 +530,14 @@ internal static class SqlServerSchemaReader
         return Convert.ToInt64(await command.ExecuteScalarAsync(cancellationToken)) == 1;
     }
 
-    private sealed record TargetColumn(string Name, string SqlServerTypeName, bool IsNullable, bool IsIdentity, bool IsComputed, bool HasDefault);
+    private sealed record TargetColumn(string Name, string SqlServerTypeName, bool IsNullable, bool IsIdentity, bool IsComputed, bool HasDefault, bool IsGeneratedAlways);
 
     private sealed record TableSizeEstimate(long EstimatedSourceRowCount, long EstimatedSourceBytes);
 
     private static async Task<Dictionary<string, TargetColumn>> ReadTargetColumnsAsync(SqlConnection connection, TableName table, int? commandTimeout, CancellationToken cancellationToken)
     {
         const string sql = """
-            SELECT c.name, ty.name, c.is_nullable, c.is_identity, c.is_computed, CASE WHEN dc.object_id IS NULL THEN 0 ELSE 1 END
+            SELECT c.name, ty.name, c.is_nullable, c.is_identity, c.is_computed, CASE WHEN dc.object_id IS NULL THEN 0 ELSE 1 END, c.generated_always_type
             FROM sys.columns c
             INNER JOIN sys.tables t ON t.object_id = c.object_id
             INNER JOIN sys.schemas s ON s.schema_id = t.schema_id
@@ -509,7 +554,7 @@ internal static class SqlServerSchemaReader
         await using var reader = await command.ExecuteReaderAsync(cancellationToken);
         while (await reader.ReadAsync(cancellationToken))
         {
-            var column = new TargetColumn(reader.GetString(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3), reader.GetBoolean(4), reader.GetInt32(5) == 1);
+            var column = new TargetColumn(reader.GetString(0), reader.GetString(1), reader.GetBoolean(2), reader.GetBoolean(3), reader.GetBoolean(4), reader.GetInt32(5) == 1, reader.GetByte(6) != 0);
             result[column.Name] = column;
         }
 

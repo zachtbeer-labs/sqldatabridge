@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E379
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlDataBridge.WorkflowSample", "samples\SqlDataBridge.WorkflowSample\SqlDataBridge.WorkflowSample.csproj", "{AB47E6FD-C63C-46DE-9203-CCEF017A38A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlDataBridge.DeployRepro", "samples\SqlDataBridge.DeployRepro\SqlDataBridge.DeployRepro.csproj", "{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,18 @@ Global
 		{AB47E6FD-C63C-46DE-9203-CCEF017A38A2}.Release|x64.Build.0 = Release|Any CPU
 		{AB47E6FD-C63C-46DE-9203-CCEF017A38A2}.Release|x86.ActiveCfg = Release|Any CPU
 		{AB47E6FD-C63C-46DE-9203-CCEF017A38A2}.Release|x86.Build.0 = Release|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Debug|x64.Build.0 = Debug|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Debug|x86.Build.0 = Debug|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Release|x64.ActiveCfg = Release|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Release|x64.Build.0 = Release|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Release|x86.ActiveCfg = Release|Any CPU
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,5 +112,6 @@ Global
 		{3527EE3D-3BDB-4126-AFDA-77AD4D053DCB} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{E27D827B-D3AF-46C1-8B1F-6DB1E45EC107} = {E3796669-B311-411E-B402-52C9C9FD408D}
 		{AB47E6FD-C63C-46DE-9203-CCEF017A38A2} = {E3796669-B311-411E-B402-52C9C9FD408D}
+		{7B03CDD4-4C50-4981-BB63-AF8FC2305F28} = {E3796669-B311-411E-B402-52C9C9FD408D}
 	EndGlobalSection
 EndGlobal

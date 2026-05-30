@@ -65,38 +65,68 @@ public sealed class SqlDataBridgeImporter
             await using var sqlServer = new SqlConnection(sqlServerConnectionString);
             await sqlServer.OpenAsync(cancellationToken);
 
-            long totalRows = 0;
-            foreach (var name in importOrder)
+            // System-versioned temporal tables reject direct inserts into their history table and into the
+            // GENERATED ALWAYS period columns of the current table. Suspend versioning (and drop the period)
+            // up front for every affected pair so the per-table bulk-copy loop can load both tables with their
+            // original period values, then restore versioning afterwards.
+            IReadOnlyList<TemporalSuspension> temporalSuspensions = Array.Empty<TemporalSuspension>();
+            if (options.SuspendTemporalSystemVersioning)
             {
-                var table = tables.Single(t =>
-                    string.Equals(t.Name.FullName, name.FullName, StringComparison.OrdinalIgnoreCase));
-                var expected = await SqlitePackage.ReadExpectedRowCountAsync(sqlite, table, cancellationToken);
-                var batchSize = BatchPlanner.GetEffectiveBatchSize(options, expected, table.EstimatedSourceBytes);
-                if (options.AdaptiveBatchingEnabled)
+                temporalSuspensions = TemporalTableManager.ResolveSuspensions(
+                    await TemporalTableManager.DiscoverAsync(sqlServer, options.ValidationCommandTimeout, cancellationToken),
+                    tables);
+                await TemporalTableManager.SuspendAsync(sqlServer, temporalSuspensions, options.ValidationCommandTimeout, cancellationToken);
+                foreach (var suspension in temporalSuspensions)
                 {
-                    batchSize = Math.Min(batchSize, table.ExportBatchSize);
+                    AddWarning(warnings, TemporalTableManager.DescribeSuspend(suspension), options.Progress);
+                }
+            }
+
+            long totalRows = 0;
+            try
+            {
+                foreach (var name in importOrder)
+                {
+                    var table = tables.Single(t =>
+                        string.Equals(t.Name.FullName, name.FullName, StringComparison.OrdinalIgnoreCase));
+                    var expected = await SqlitePackage.ReadExpectedRowCountAsync(sqlite, table, cancellationToken);
+                    var batchSize = BatchPlanner.GetEffectiveBatchSize(options, expected, table.EstimatedSourceBytes);
+                    if (options.AdaptiveBatchingEnabled)
+                    {
+                        batchSize = Math.Min(batchSize, table.ExportBatchSize);
+                    }
+
+                    if (options.AdaptiveBatchingEnabled && batchSize < options.BatchSize)
+                    {
+                        AddWarning(warnings,
+                            $"Adaptive batching set import batch size for '{table.Name.FullName}' to {batchSize} rows.",
+                            options.Progress);
+                    }
+
+                    options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableStarted, table.Name.FullName,
+                        TotalRows: expected));
+                    var rows = await ImportTableAsync(sqlite, sqlServer, table, batchSize, options.BulkCopyTimeout,
+                        options.Progress, expected, cancellationToken);
+                    if (rows != expected)
+                    {
+                        throw new BridgeException(
+                            $"Imported row count for '{table.Name.FullName}' was {rows}, expected {expected}.");
+                    }
+
+                    totalRows += rows;
+                    options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableCompleted, table.Name.FullName, rows,
+                        expected));
                 }
 
-                if (options.AdaptiveBatchingEnabled && batchSize < options.BatchSize)
-                {
-                    AddWarning(warnings,
-                        $"Adaptive batching set import batch size for '{table.Name.FullName}' to {batchSize} rows.",
-                        options.Progress);
-                }
-
-                options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableStarted, table.Name.FullName,
-                    TotalRows: expected));
-                var rows = await ImportTableAsync(sqlite, sqlServer, table, batchSize, options.BulkCopyTimeout,
-                    options.Progress, expected, cancellationToken);
-                if (rows != expected)
-                {
-                    throw new BridgeException(
-                        $"Imported row count for '{table.Name.FullName}' was {rows}, expected {expected}.");
-                }
-
-                totalRows += rows;
-                options.Progress?.Report(new BridgeProgress(BridgeProgressKind.TableCompleted, table.Name.FullName, rows,
-                    expected));
+                await TemporalTableManager.RestoreAsync(sqlServer, temporalSuspensions,
+                    options.TemporalDataConsistencyCheck, options.ValidationCommandTimeout, cancellationToken);
+            }
+            catch
+            {
+                // The data load or restore failed; try not to strand temporal tables with versioning off.
+                await TemporalTableManager.TryRestoreBestEffortAsync(sqlServer, temporalSuspensions,
+                    options.TemporalDataConsistencyCheck, warnings);
+                throw;
             }
 
             options.Progress?.Report(new BridgeProgress(BridgeProgressKind.OperationCompleted, RowsProcessed: totalRows,

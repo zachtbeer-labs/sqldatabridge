@@ -51,7 +51,7 @@ dotnet tool run docfx metadata docfx.json
 - Add integration coverage for SQL Server behavior changes.
 - Describe what you changed and why.
 - Make sure CI passes before requesting review.
-- Update `README.md` and `CHANGELOG.md` for user-visible changes.
+- Update `README.md` for user-visible changes.
 - Do not commit generated packages from `bin`, `obj`, or `packages`.
 - Keep issues and pull requests focused on one behavior or scenario.
 

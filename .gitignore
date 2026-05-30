@@ -423,3 +423,4 @@ FodyWeavers.xsd
 # schema/data. Keep them out of the repo — drop your own copy locally to run
 # the optional [Fact] in RealWorldDacpacIntegrationTests.
 tests/SqlDataBridge.IntegrationTests/Fixtures/realworld*.db
+tests/SqlDataBridge.IntegrationTests/Fixtures/realworld.*.sql

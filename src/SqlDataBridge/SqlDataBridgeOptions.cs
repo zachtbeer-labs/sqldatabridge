@@ -82,7 +82,7 @@ public sealed class DacpacCaptureOptions
         ExtractApplicationScopedObjectsOnly = false,
         IgnorePermissions = true,
         IgnoreUserLoginMappings = true,
-        VerifyExtraction = true
+        VerifyExtraction = false
     };
 
     /// <summary>
@@ -111,9 +111,17 @@ public sealed class DacpacCaptureOptions
     public bool IgnoreUserLoginMappings { get; set; } = true;
 
     /// <summary>
-    /// Runs DacFx's post-extraction model verification; disable to skip the validation pass for faster extraction at the cost of catching model issues later. Defaults to <see langword="true"/>.
+    /// Runs DacFx's post-extraction model verification. Defaults to <see langword="false"/>.
     /// </summary>
-    public bool VerifyExtraction { get; set; } = true;
+    /// <remarks>
+    /// <para>
+    /// Verification only <em>validates</em> the model DacFx has already built — it does not change which objects are extracted or the resulting dacpac bytes, and it is independent of the deploy-side <see cref="DacpacDeploymentOptions.VerifyDeployment"/> check. Leaving it off therefore captures exactly the same schema while avoiding <c>SQL71501</c> "unresolved reference" failures on procedures, views, and functions that work in the live source database but defeat DacFx's stricter static validator — ambiguous unqualified columns in multi-table joins, cross-database or three-part names, temp tables, and other deferred-resolvable references. These are common in real, legacy databases and create and run correctly on the target via SQL Server's own binding / deferred name resolution.
+    /// </para>
+    /// <para>
+    /// Set to <see langword="true"/> to fail the export early when a captured object has a genuinely unresolvable reference (for example, a column that no longer exists on an existing table), rather than discovering it at deploy time. Note that verification has no per-rule suppression: enabling it re-enables <em>all</em> model-validation rules, so a single benign false positive will block the whole export.
+    /// </para>
+    /// </remarks>
+    public bool VerifyExtraction { get; set; }
 }
 
 /// <summary>
@@ -355,7 +363,9 @@ public sealed class ImportOptions
         LargeTableRowThreshold = BatchPlanner.DefaultLargeTableRowThreshold,
         LargeTableBatchSize = BatchPlanner.DefaultLargeTableBatchSize,
         MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
-        SchemaDeploymentMode = SchemaDeploymentMode.None
+        SchemaDeploymentMode = SchemaDeploymentMode.None,
+        SuspendTemporalSystemVersioning = true,
+        TemporalDataConsistencyCheck = true
     };
 
     /// <summary>
@@ -412,6 +422,39 @@ public sealed class ImportOptions
     /// Dacpac deployment settings used only when <see cref="SchemaDeploymentMode"/> is <see cref="SchemaDeploymentMode.DeployDacpac"/>. Defaults to a new <see cref="DacpacDeploymentOptions"/> with its own defaults.
     /// </summary>
     public DacpacDeploymentOptions DacpacDeploymentOptions { get; set; } = new();
+
+    /// <summary>
+    /// Handles system-versioned temporal tables on the target by temporarily setting <c>SYSTEM_VERSIONING = OFF</c>
+    /// and dropping the <c>SYSTEM_TIME</c> period before loading, then re-adding the period and re-enabling versioning.
+    /// Defaults to <see langword="true"/>.
+    /// </summary>
+    /// <remarks>
+    /// Without this, importing a temporal table fails: SQL Server rejects direct inserts into the history table
+    /// (Msg 13560) and into the <c>GENERATED ALWAYS</c> period columns of the current table (Msg 13536). The
+    /// ceremony lets the import reload both the current and history rows with their original
+    /// <c>ValidFrom</c>/<c>ValidTo</c> values, and re-applies a finite <c>HISTORY_RETENTION_PERIOD</c> (which
+    /// <c>SET SYSTEM_VERSIONING = OFF</c> would otherwise reset to INFINITE). The period is dropped only when the
+    /// package actually carries the period columns; when it does not (a non-temporal source loaded into a
+    /// temporal target, or period columns excluded during export) versioning stays on and SQL Server
+    /// auto-populates the period. Set to <see langword="false"/> to load every target table as-is and let those
+    /// inserts fail loudly — useful when the target has no temporal tables and you want to skip the catalog
+    /// probe, or when temporal handling is managed externally.
+    /// </remarks>
+    public bool SuspendTemporalSystemVersioning { get; set; } = true;
+
+    /// <summary>
+    /// When re-enabling system versioning after a temporal load, runs SQL Server's <c>DATA_CONSISTENCY_CHECK</c>
+    /// to validate that the current and history period ranges do not overlap. Defaults to <see langword="true"/>.
+    /// Only applies when <see cref="SuspendTemporalSystemVersioning"/> is <see langword="true"/>.
+    /// </summary>
+    /// <remarks>
+    /// A faithful full-table export passes the check. It fails (and aborts the import with a descriptive
+    /// <see cref="BridgeException"/>) when the temporal data is inconsistent — for example when the temporal table
+    /// or its history was filtered with a WHERE clause, a period column was excluded, or the source changed
+    /// mid-export. Set to <see langword="false"/> to re-enable versioning without validation, at the risk of a
+    /// temporal table that returns incorrect <c>AS OF</c> query results.
+    /// </remarks>
+    public bool TemporalDataConsistencyCheck { get; set; } = true;
 }
 
 /// <summary>
@@ -436,7 +479,9 @@ public sealed class BridgeOptions
         MaxBatchBytes = BatchPlanner.DefaultMaxBatchBytes,
         OverwriteExistingPackage = false,
         SchemaCaptureMode = SchemaCaptureMode.None,
-        SchemaDeploymentMode = SchemaDeploymentMode.None
+        SchemaDeploymentMode = SchemaDeploymentMode.None,
+        SuspendTemporalSystemVersioning = true,
+        TemporalDataConsistencyCheck = true
     };
 
     /// <summary>
@@ -544,6 +589,19 @@ public sealed class BridgeOptions
     /// </summary>
     public DacpacDeploymentOptions DacpacDeploymentOptions { get; set; } = new();
 
+    /// <summary>
+    /// On import, handles system-versioned temporal tables by temporarily suspending system versioning (and dropping the
+    /// <c>SYSTEM_TIME</c> period) so the current and history rows can be loaded with their original period values, then
+    /// restoring it. Defaults to <see langword="true"/>. See <see cref="ImportOptions.SuspendTemporalSystemVersioning"/>.
+    /// </summary>
+    public bool SuspendTemporalSystemVersioning { get; set; } = true;
+
+    /// <summary>
+    /// On import, runs SQL Server's <c>DATA_CONSISTENCY_CHECK</c> when re-enabling system versioning after a temporal load.
+    /// Defaults to <see langword="true"/>. See <see cref="ImportOptions.TemporalDataConsistencyCheck"/>.
+    /// </summary>
+    public bool TemporalDataConsistencyCheck { get; set; } = true;
+
     internal ExportOptions ToExportOptions()
     {
         return new ExportOptions
@@ -582,7 +640,9 @@ public sealed class BridgeOptions
             BulkCopyTimeout = ImportBulkCopyTimeout,
             Progress = Progress,
             SchemaDeploymentMode = SchemaDeploymentMode,
-            DacpacDeploymentOptions = DacpacDeploymentOptions
+            DacpacDeploymentOptions = DacpacDeploymentOptions,
+            SuspendTemporalSystemVersioning = SuspendTemporalSystemVersioning,
+            TemporalDataConsistencyCheck = TemporalDataConsistencyCheck
         };
     }
 }

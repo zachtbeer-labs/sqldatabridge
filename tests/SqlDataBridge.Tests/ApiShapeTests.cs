@@ -246,6 +246,8 @@ public sealed class ApiShapeTests
             BulkCopyTimeout = 180,
             Progress = new Progress<BridgeProgress>(),
             SchemaDeploymentMode = SchemaDeploymentMode.DeployDacpac,
+            SuspendTemporalSystemVersioning = false,
+            TemporalDataConsistencyCheck = false,
             DacpacDeploymentOptions = new DacpacDeploymentOptions
             {
                 AllowIncompatiblePlatform = true,
@@ -255,6 +257,10 @@ public sealed class ApiShapeTests
             }
         };
 
+        ImportOptions.Default.SuspendTemporalSystemVersioning.ShouldBeTrue();
+        ImportOptions.Default.TemporalDataConsistencyCheck.ShouldBeTrue();
+        options.SuspendTemporalSystemVersioning.ShouldBeFalse();
+        options.TemporalDataConsistencyCheck.ShouldBeFalse();
         options.BatchSize.ShouldBe(500);
         options.AdaptiveBatchingEnabled.ShouldBeTrue();
         options.LargeTableThresholdBytes.ShouldBe(20_000_000);
@@ -286,7 +292,7 @@ public sealed class ApiShapeTests
         capture.ExtractApplicationScopedObjectsOnly.ShouldBeFalse();
         capture.IgnorePermissions.ShouldBeTrue();
         capture.IgnoreUserLoginMappings.ShouldBeTrue();
-        capture.VerifyExtraction.ShouldBeTrue();
+        capture.VerifyExtraction.ShouldBeFalse();
 
         deployment.AllowIncompatiblePlatform.ShouldBeFalse();
         deployment.BlockOnPossibleDataLoss.ShouldBeTrue();
@@ -376,6 +382,9 @@ public sealed class ApiShapeTests
         options.IgnorePermissions.ShouldBeFalse();
         options.IgnoreUserLoginMappings.ShouldBeFalse();
         options.VerifyExtraction.ShouldBeFalse();
+
+        DacpacSchemaManager.CreateExtractOptions(new DacpacCaptureOptions { VerifyExtraction = true })
+            .VerifyExtraction.ShouldBeTrue();
     }
 
     [Fact]
@@ -460,6 +469,8 @@ public sealed class ApiShapeTests
             SchemaCaptureMode = SchemaCaptureMode.Dacpac,
             DacpacCaptureOptions = new DacpacCaptureOptions { IgnorePermissions = false },
             SchemaDeploymentMode = SchemaDeploymentMode.DeployDacpac,
+            SuspendTemporalSystemVersioning = false,
+            TemporalDataConsistencyCheck = false,
             DacpacDeploymentOptions = new DacpacDeploymentOptions
             {
                 AllowIncompatiblePlatform = true,
@@ -498,6 +509,8 @@ public sealed class ApiShapeTests
         import.Progress.ShouldBeSameAs(shared.Progress);
         import.SchemaDeploymentMode.ShouldBe(shared.SchemaDeploymentMode);
         import.DacpacDeploymentOptions.ShouldBeSameAs(shared.DacpacDeploymentOptions);
+        import.SuspendTemporalSystemVersioning.ShouldBe(shared.SuspendTemporalSystemVersioning);
+        import.TemporalDataConsistencyCheck.ShouldBe(shared.TemporalDataConsistencyCheck);
     }
 
     [Fact]

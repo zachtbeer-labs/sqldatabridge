@@ -30,6 +30,7 @@ It is built for application-controlled extracts, not for SQL Server backups, liv
 - Report progress during long exports and imports.
 - Read a package manifest without importing it.
 - Optionally capture SQL Server schema as a dacpac and deploy it before import.
+- Import system-versioned temporal tables, preserving current and history rows and their original period values.
 
 ## Install
 
@@ -245,6 +246,8 @@ exportOptions.SchemaCaptureMode = SchemaCaptureMode.Dacpac;
 
 By default, dacpac capture includes the full source database schema. To capture only the tables selected by the export plan, set `DacpacCaptureOptions.SchemaScope = DacpacSchemaScope.SelectedExportTables`.
 
+Dacpac capture does not run DacFx model verification by default (`DacpacCaptureOptions.VerifyExtraction = false`), so functional-but-imperfect legacy schema — ambiguous unqualified columns, cross-database references, temp tables, and similar `SQL71501` false positives that DacFx's static validator rejects but SQL Server accepts — captures cleanly. Set `DacpacCaptureOptions.VerifyExtraction = true` to validate the extracted model at capture time and fail early on genuinely broken references. See [Troubleshooting](docs/TROUBLESHOOTING.md#export-failed-sql71501-unresolved-reference) for details.
+
 Then opt into dacpac deployment before import:
 
 ```csharp
@@ -346,7 +349,6 @@ Use another tool if you need:
 - [API reference](docs/API.md): generated API metadata entry points
 - [Versioning](docs/VERSIONING.md): compatibility policy
 - [Release checklist](docs/RELEASE.md)
-- [Changelog](CHANGELOG.md)
 - [Contributing](CONTRIBUTING.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Security](SECURITY.md)
