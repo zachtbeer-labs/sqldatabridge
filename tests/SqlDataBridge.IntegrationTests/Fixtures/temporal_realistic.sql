@@ -11,5 +11,8 @@ CREATE TABLE dbo.Subscription (
     PERIOD FOR SYSTEM_TIME (LastUpdateDate, LastUpdateValidTo)
 ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.Subscription_History, HISTORY_RETENTION_PERIOD = 3 MONTHS));
 
+-- WAITFOR forces a real clock tick so the closed row version gets a non-zero period (ValidFrom < ValidTo);
+-- SQL Server discards zero-duration history rows, which on a fast host would empty the history table.
 INSERT INTO dbo.Subscription (CustomerId, PlanName) VALUES (1, N'Basic'), (2, N'Pro');
+WAITFOR DELAY '00:00:00.050';
 UPDATE dbo.Subscription SET PlanName = N'Premium' WHERE CustomerId = 1;

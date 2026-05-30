@@ -18,7 +18,12 @@ CREATE TABLE dbo.Team (
     PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
 ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.TeamHistory));
 
+-- WAITFOR between insert and update forces a real clock tick so the closed row versions get a
+-- non-zero period (ValidFrom < ValidTo). SQL Server discards zero-duration history rows, so without
+-- this the history table can come up empty on a fast host and the FOR SYSTEM_TIME ALL counts fall short.
 INSERT INTO dbo.Region (RegionName) VALUES (N'North'), (N'South');
+WAITFOR DELAY '00:00:00.050';
 UPDATE dbo.Region SET RegionName = N'North-2' WHERE RegionName = N'North';
 INSERT INTO dbo.Team (TeamName) VALUES (N'Alpha');
+WAITFOR DELAY '00:00:00.050';
 UPDATE dbo.Team SET TeamName = N'Alpha-2' WHERE TeamName = N'Alpha';

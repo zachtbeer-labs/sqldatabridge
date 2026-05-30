@@ -9,5 +9,8 @@ CREATE TABLE dbo.Flag (
     PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
 ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.FlagHistory));
 
+-- WAITFOR forces a real clock tick so the closed row version gets a non-zero period (ValidFrom < ValidTo);
+-- SQL Server discards zero-duration history rows, which on a fast host would empty the history table.
 INSERT INTO dbo.Flag (FlagName) VALUES (N'x'), (N'y');
+WAITFOR DELAY '00:00:00.050';
 UPDATE dbo.Flag SET FlagName = N'x2' WHERE FlagName = N'x';

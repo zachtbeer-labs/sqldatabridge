@@ -18,4 +18,7 @@ CREATE TABLE dbo.Worker (
 
 INSERT INTO dbo.Office (OfficeName) VALUES (N'HQ'), (N'Branch');
 INSERT INTO dbo.Worker (OfficeId, WorkerName) VALUES (1, N'Ann'), (2, N'Bob');
+-- WAITFOR forces a real clock tick so the closed row version gets a non-zero period (ValidFrom < ValidTo);
+-- SQL Server discards zero-duration history rows, which on a fast host would empty the history table.
+WAITFOR DELAY '00:00:00.050';
 UPDATE dbo.Worker SET WorkerName = N'Ann-2' WHERE OfficeId = 1;
