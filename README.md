@@ -1,6 +1,8 @@
 # SqlDataBridge
 
 [![CI](https://github.com/zachtbeer-labs/sqldatabridge/actions/workflows/ci.yml/badge.svg)](https://github.com/zachtbeer-labs/sqldatabridge/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/zachtbeer-labs/sqldatabridge/actions/workflows/codeql.yml/badge.svg)](https://github.com/zachtbeer-labs/sqldatabridge/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/zachtbeer-labs/sqldatabridge/badge)](https://securityscorecards.dev/viewer/?uri=github.com/zachtbeer-labs/sqldatabridge)
 [![NuGet](https://img.shields.io/nuget/vpre/Zachtbeer.SqlDataBridge.svg)](https://www.nuget.org/packages/Zachtbeer.SqlDataBridge)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Target frameworks](https://img.shields.io/badge/targets-net8.0%20%7C%20net10.0-512bd4.svg)](src/SqlDataBridge/SqlDataBridge.csproj)
@@ -60,7 +62,7 @@ In addition to `using Zachtbeer.SqlDataBridge;`, configured examples use the mod
 using Zachtbeer.SqlDataBridge.Models;
 ```
 
-Every options type (`ExportOptions`, `ImportOptions`, `BridgeOptions`, `DacpacCaptureOptions`, `DacpacDeploymentOptions`) exposes a static `Default` property that returns a fresh, mutable instance pre-populated with the documented defaults. Use it as a discoverable starting point and tweak only what you need — each access returns a new instance, so mutating it never affects other callers.
+Every options type (`ExportOptions`, `ImportOptions`, `BridgeOptions`, `DacpacCaptureOptions`, `DacpacDeploymentOptions`) exposes a static `Default` property that returns a fresh, mutable instance pre-populated with the documented defaults. Use it as a discoverable starting point and tweak only what you need; each access returns a new instance, so mutating it never affects other callers.
 
 Export only the tables needed to reproduce an issue:
 
@@ -246,7 +248,7 @@ exportOptions.SchemaCaptureMode = SchemaCaptureMode.Dacpac;
 
 By default, dacpac capture includes the full source database schema. To capture only the tables selected by the export plan, set `DacpacCaptureOptions.SchemaScope = DacpacSchemaScope.SelectedExportTables`.
 
-Dacpac capture does not run DacFx model verification by default (`DacpacCaptureOptions.VerifyExtraction = false`), so functional-but-imperfect legacy schema — ambiguous unqualified columns, cross-database references, temp tables, and similar `SQL71501` false positives that DacFx's static validator rejects but SQL Server accepts — captures cleanly. Set `DacpacCaptureOptions.VerifyExtraction = true` to validate the extracted model at capture time and fail early on genuinely broken references. See [Troubleshooting](docs/TROUBLESHOOTING.md#export-failed-sql71501-unresolved-reference) for details.
+Dacpac capture does not run DacFx model verification by default (`DacpacCaptureOptions.VerifyExtraction = false`), so functional-but-imperfect legacy schema (ambiguous unqualified columns, cross-database references, temp tables, and similar `SQL71501` false positives that DacFx's static validator rejects but SQL Server accepts) captures cleanly. Set `DacpacCaptureOptions.VerifyExtraction = true` to validate the extracted model at capture time and fail early on genuinely broken references. See [Troubleshooting](docs/TROUBLESHOOTING.md#export-failed-sql71501-unresolved-reference) for details.
 
 Then opt into dacpac deployment before import:
 
@@ -332,7 +334,7 @@ Unsupported included types fail export preflight:
 
 Exclude unsupported columns with `ExcludeColumns`.
 
-`rowversion` / `timestamp` columns are captured as 8-byte `BLOB` values during export (for inspection) but skipped during import — SQL Server generates fresh values on the target. Export and import each emit a warning when one of these columns is present.
+`rowversion` / `timestamp` columns are captured as 8-byte `BLOB` values during export (for inspection) but skipped during import. SQL Server generates fresh values on the target. Export and import each emit a warning when one of these columns is present.
 
 XML columns are stored as SQLite `TEXT` and imported back into SQL Server `xml` columns. If a package is edited and an XML value is no longer valid XML, import fails with SQL Server's XML conversion error.
 
@@ -375,6 +377,20 @@ SqlDataBridge is a pre-release package from Zachtbeer Labs B.V. It is published 
 SqlDataBridge is maintained by Zachtbeer Labs B.V., which also owns the `Zachtbeer.SqlDataBridge` package on NuGet.
 
 To report a security vulnerability, prefer GitHub private vulnerability reporting through the [security advisory page](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new). As a backup, you can email the maintainer security contact (TODO: `security@zachtbeer.<domain>`, to be confirmed). Please do not open a public issue for security reports. See [SECURITY.md](SECURITY.md) for the full policy.
+
+## Verifying Build Provenance
+
+Release builds are produced by GitHub Actions, which generates a signed build provenance attestation for the produced `.nupkg` and a CycloneDX SBOM. Both are attached to the matching GitHub release.
+
+nuget.org adds its own repository signature to the published package, which changes the file bytes, so the attestation does not verify against the package downloaded from nuget.org. To verify provenance, download the `.nupkg`, the `provenance.intoto.jsonl` bundle, and `bom.json` from the GitHub release, then run:
+
+```bash
+gh attestation verify <package>.nupkg \
+  --repo zachtbeer-labs/sqldatabridge \
+  --bundle provenance.intoto.jsonl
+```
+
+`bom.json` lists the dependency graph of the published library.
 
 ## Running Tests
 

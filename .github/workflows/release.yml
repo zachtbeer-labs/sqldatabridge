@@ -13,6 +13,7 @@ jobs:
     permissions:
       contents: write
       id-token: write
+      attestations: write
 
     steps:
       - uses: actions/checkout@v4
@@ -46,6 +47,22 @@ jobs:
             ./release-packages/*.nupkg
             ./release-packages/*.snupkg
 
+      # Attest the nupkg bytes we built, before publishing. nuget.org appends a
+      # repository signature to the published package, which changes its bytes and
+      # invalidates this attestation when verified against the nuget.org file. The
+      # attestation bundle and the exact attested nupkg are therefore attached to the
+      # GitHub release below, and the README documents verifying against that file.
+      - name: Attest build provenance
+        id: attest
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: "./release-packages/*.nupkg"
+
+      - name: Generate SBOM (CycloneDX)
+        run: |
+          dotnet tool install --global CycloneDX
+          dotnet CycloneDX src/SqlDataBridge/SqlDataBridge.csproj -o ./sbom -j --set-version ${{ inputs.version }}
+
       - name: NuGet login (OIDC trusted publishing)
         uses: NuGet/login@v1
         id: nuget-login
@@ -62,7 +79,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          cp "${{ steps.attest.outputs.bundle-path }}" ./release-packages/provenance.intoto.jsonl
           gh release create "v${{ inputs.version }}" \
             ./release-packages/*.nupkg \
+            ./sbom/bom.json \
+            ./release-packages/provenance.intoto.jsonl \
             -t "v${{ inputs.version }}" \
             --generate-notes
