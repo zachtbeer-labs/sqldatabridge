@@ -1,13 +1,13 @@
 # SqlDataBridge
 
 [![CI](https://github.com/zachtbeer-labs/sqldatabridge/actions/workflows/ci.yml/badge.svg)](https://github.com/zachtbeer-labs/sqldatabridge/actions/workflows/ci.yml)
-[![NuGet](https://img.shields.io/nuget/v/Zachtbeer.SqlDataBridge.svg)](https://www.nuget.org/packages/Zachtbeer.SqlDataBridge)
+[![NuGet](https://img.shields.io/nuget/vpre/Zachtbeer.SqlDataBridge.svg)](https://www.nuget.org/packages/Zachtbeer.SqlDataBridge)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Target frameworks](https://img.shields.io/badge/targets-net8.0%20%7C%20net10.0-512bd4.svg)](src/SqlDataBridge/SqlDataBridge.csproj)
 
-Create portable, queryable SQL Server data packages for careful support, testing, and roundtrip import workflows.
+Give an AI coding agent a local, queryable SQLite slice of your SQL Server, with no production credentials and no network access.
 
-SqlDataBridge is a .NET library for exporting selected SQL Server data into a single local package. The package can be opened with common SQLite tools, attached to a ticket, moved between machines, inspected by humans or AI coding agents, and imported into a prepared SQL Server database later.
+SqlDataBridge is a .NET library for exporting selected SQL Server data into a single local SQLite package. The package can be opened with common SQLite tools, handed to a coding agent, attached to a ticket, moved between machines, inspected by humans, and imported into a prepared SQL Server database later.
 
 It is built for application-controlled extracts, not for SQL Server backups, live replication, incremental sync, or general-purpose ETL.
 
@@ -295,6 +295,19 @@ SqlDataBridge is designed for scoped, application-controlled extracts. Select on
 
 The package is local and portable by design. Treat it with the same care as any exported production data.
 
+## No Network and No Telemetry
+
+SqlDataBridge makes no outbound network calls except to the SQL Server you specify in the connection string you pass to it. It has no telemetry, no analytics, no usage reporting, and no update or license checks. It reads and writes only the local SQLite file at the path you provide, plus the SQL Server connection you supply.
+
+The runtime dependencies are:
+
+- `Microsoft.Data.SqlClient` connects only to the SQL Server in the connection string you pass; it contacts no other endpoint.
+- `Microsoft.Data.Sqlite` is a local SQLite file engine with no network access.
+- `Microsoft.SqlServer.DacFx` is used only when you opt into dacpac schema capture or deployment; it talks only to your SQL Server connection and works on local dacpac files.
+- `Microsoft.SourceLink.GitHub` is a build-time only dependency (`PrivateAssets=All`) and is not shipped inside the package.
+
+This is enforced in CI: an integration test runs a representative export and import while monitoring outbound socket connections and name resolutions, and fails if anything other than the loopback SQL Server is contacted.
+
 ## Supported SQL Server Types
 
 Supported types:
@@ -344,7 +357,7 @@ Use another tool if you need:
 ## Documentation
 
 - [Troubleshooting](docs/TROUBLESHOOTING.md): common failures and fixes
-- [Support matrix](docs/SUPPORT_MATRIX.md): supported frameworks, platforms, files, and v1 boundaries
+- [Support matrix](docs/SUPPORT_MATRIX.md): supported frameworks, platforms, and files
 - [Architecture](docs/ARCHITECTURE.md): export/import flow, package internals, type conversion, and dacpac behavior
 - [API reference](docs/API.md): generated API metadata entry points
 - [Versioning](docs/VERSIONING.md): compatibility policy
@@ -355,7 +368,13 @@ Use another tool if you need:
 
 ## Project Status
 
-SqlDataBridge is prepared as a v1 NuGet package from Zachtbeer Labs B.V. The public API and SQLite file format are intended to stay stable across v1.x releases, with breaking changes reserved for a new major version.
+SqlDataBridge is a pre-release package from Zachtbeer Labs B.V. It is published as pre-release builds while the public API and SQLite package format are still being finalized, so both may change before the first stable 1.0.0 release. Pin a specific version and review the release notes before upgrading. Once 1.0.0 ships, the project will follow Semantic Versioning as described in [Versioning](docs/VERSIONING.md).
+
+## Maintainers
+
+SqlDataBridge is maintained by Zachtbeer Labs B.V., which also owns the `Zachtbeer.SqlDataBridge` package on NuGet.
+
+To report a security vulnerability, prefer GitHub private vulnerability reporting through the [security advisory page](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new). As a backup, you can email the maintainer security contact (TODO: `security@zachtbeer.<domain>`, to be confirmed). Please do not open a public issue for security reports. See [SECURITY.md](SECURITY.md) for the full policy.
 
 ## Running Tests
 

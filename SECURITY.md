@@ -1,11 +1,16 @@
 # Security Policy
 
+## Maintainers
+
+SqlDataBridge is maintained by Zachtbeer Labs B.V., the owner of the `Zachtbeer.SqlDataBridge` NuGet package.
+
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability, please report it responsibly:
 
 1. **Do not open a public issue.**
-2. Use [GitHub's private security advisory](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new) to report the vulnerability.
+2. Preferred: use [GitHub's private security advisory](https://github.com/zachtbeer-labs/sqldatabridge/security/advisories/new) to report the vulnerability.
+3. Backup: email the maintainer security contact (TODO: `security@zachtbeer.<domain>`, to be confirmed).
 
 ## What to Expect
 

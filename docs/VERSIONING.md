@@ -1,10 +1,10 @@
 # Versioning
 
-Zachtbeer.SqlDataBridge follows Semantic Versioning for the NuGet package.
+Zachtbeer.SqlDataBridge is currently published as pre-release builds. While it is pre-release, the public API and the SQLite package format may still change between releases. Pin a specific version and review the release notes before upgrading. Once a stable 1.0.0 release ships, the NuGet package will follow Semantic Versioning, and the policies below describe how that will work.
 
 ## Public API
 
-Public types and members in the `Zachtbeer.SqlDataBridge` namespace are treated as the supported API surface. Breaking API changes require a new major version.
+Public types and members in the `Zachtbeer.SqlDataBridge` namespace are the intended supported API surface. Before 1.0.0 they may change without a major version bump. From 1.0.0 onward, breaking API changes require a new major version.
 
 Internal types, metadata table implementation details, and test harness APIs are not public API.
 
@@ -12,11 +12,11 @@ Internal types, metadata table implementation details, and test harness APIs are
 
 SQLite packages include a package format version. Import validates that the package was produced by a supported format before copying data.
 
-For v1:
+While pre-release, the package format may change between versions, so regenerate packages after upgrading rather than relying on older pre-release packages. From the first stable release onward:
 
-- v1.x package releases should continue to read v1 packages.
+- Patch and minor releases within a major version should continue to read packages produced by that major version.
 - Unsupported future package versions fail with a clear `BridgeException`.
-- Package metadata may gain additive fields in minor releases when existing v1 import behavior remains compatible.
+- Package metadata may gain additive fields in minor releases when existing import behavior remains compatible.
 - Breaking package format changes require a new major version.
 
 ## Target Frameworks
