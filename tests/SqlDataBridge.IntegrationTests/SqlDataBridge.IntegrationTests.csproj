@@ -23,6 +23,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!--
+      Force Microsoft.Data.SqlClient onto its managed networking stack on Windows. By default it
+      uses native SNI there, whose socket connects bypass the managed System.Net.Sockets layer and
+      are therefore invisible to NetworkIsolationTests' EventListener-based monitor. Linux always
+      uses managed networking, so this only changes Windows; it keeps the no-network regression
+      check meaningful cross-platform. TDS behaviour is otherwise equivalent.
+    -->
+    <RuntimeHostConfigurationOption Include="Switch.Microsoft.Data.SqlClient.UseManagedNetworkingOnWindows" Value="true" Trim="false" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="Fixtures/*.sql" />
   </ItemGroup>
 

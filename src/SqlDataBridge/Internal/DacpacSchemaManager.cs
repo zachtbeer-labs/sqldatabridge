@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Xml.Linq;
 using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Dac;
 using Microsoft.SqlServer.Dac.Model;
@@ -25,6 +26,20 @@ internal static class DacpacSchemaManager
             var services = new DacServices(connectionString);
             var applicationVersion = typeof(BridgeVersion).Assembly.GetName().Version ?? new Version(1, 0, 0);
             var extractOptions = CreateExtractOptions(options);
+
+            // Source-side platform stamp. Soft-fails to null so an unusual provider doesn't kill the export;
+            // import-side decision tree treats null as "unknown" and falls back to the conservative path
+            // (= no model rewrite, deploy as-is).
+            int? sourceEngineEdition = null;
+            try
+            {
+                sourceEngineEdition = await ReadEngineEditionAsync(connectionString, cancellationToken);
+            }
+            catch (Exception probeException) when (probeException is not OperationCanceledException)
+            {
+                // Swallow — leaving the stamp null is preferable to failing the whole export over a
+                // metadata probe.
+            }
 
             await Task.Run(
                 () => services.Extract(
@@ -61,7 +76,8 @@ internal static class DacpacSchemaManager
                 typeof(DacServices).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
                     ?? typeof(DacServices).Assembly.GetName().Version?.ToString(),
                 options.SchemaScope,
-                payload);
+                payload,
+                sourceEngineEdition);
         }
         catch (Exception exception) when (exception is not OperationCanceledException and not BridgeException)
         {
@@ -107,6 +123,27 @@ internal static class DacpacSchemaManager
         try
         {
             await File.WriteAllBytesAsync(path, package.Payload, cancellationToken);
+
+            if (!options.DeployDatabaseOptions && options.AdaptAzureSourceForOnPremTarget)
+            {
+                int targetEngineEdition;
+                try
+                {
+                    targetEngineEdition = await ReadEngineEditionAsync(connectionString, cancellationToken);
+                }
+                catch (Exception exception) when (exception is not OperationCanceledException and not BridgeException)
+                {
+                    throw new BridgeException(
+                        $"Failed to probe target SQL Server engine edition before dacpac deploy to '{targetDatabaseName}'. "
+                        + "Set DacpacDeploymentOptions.AdaptAzureSourceForOnPremTarget = false (or DeployDatabaseOptions = true) to skip the probe and deploy the source model as-is.",
+                        exception);
+                }
+
+                if (ShouldAdaptAzureSourceForOnPremTarget(package.SourceEngineEdition, targetEngineEdition))
+                {
+                    NeutralizeForNonAzureSqlTarget(path);
+                }
+            }
 
             var services = new DacServices(connectionString);
             using var dacpac = DacPackage.Load(path);
@@ -349,6 +386,7 @@ internal static class DacpacSchemaManager
             IgnoreFilegroupPlacement = !options.DeployDatabaseFiles,
             IgnoreFileSize = !options.DeployDatabaseFiles,
             IncludeTransactionalScripts = true,
+            ScriptDatabaseOptions = options.DeployDatabaseOptions,
             VerifyDeployment = options.VerifyDeployment
         };
     }
@@ -382,5 +420,160 @@ internal static class DacpacSchemaManager
         {
             // Best effort cleanup only; preserve the operation failure.
         }
+    }
+
+    private static async Task<int> ReadEngineEditionAsync(string connectionString, CancellationToken cancellationToken)
+    {
+        await using var connection = new SqlConnection(connectionString);
+        await connection.OpenAsync(cancellationToken);
+        await using var command = new SqlCommand("SELECT CAST(SERVERPROPERTY('EngineEdition') AS int);", connection);
+        var result = await command.ExecuteScalarAsync(cancellationToken);
+        return result is int value
+            ? value
+            : throw new BridgeException("Failed to determine SQL Server engine edition; SERVERPROPERTY('EngineEdition') returned no value.");
+    }
+
+    // EngineEdition values that map to Azure-hosted SQL platforms whose extracts can carry contained users
+    // and CONTAINMENT = PARTIAL implications that on-prem SQL Server cannot satisfy without sp_configure
+    // tweaks. 5 = Azure SQL Database, 8 = Azure SQL Managed Instance, 11 = Azure SQL Edge,
+    // 12 = Azure Synapse Analytics (SQL pool).
+    private static bool IsAzureSqlEngineEdition(int engineEdition)
+        => engineEdition is 5 or 8 or 11 or 12;
+
+    // Decision tree for the cross-platform model rewrite. Pure function so it can be unit-tested without
+    // DacFx or a live server.
+    //   - Unknown source (null) => fall back to "target is non-Azure => rewrite". This preserves the
+    //     pre-format-v4 behaviour for legacy callers that construct SchemaPackage directly without a
+    //     source stamp (tests, in-process API users).
+    //   - Known Azure source + non-Azure target => rewrite.
+    //   - Any other combination => skip (Azure->Azure is fine as-is; on-prem source never needs the rewrite).
+    internal static bool ShouldAdaptAzureSourceForOnPremTarget(int? sourceEngineEdition, int targetEngineEdition)
+    {
+        var targetIsAzure = IsAzureSqlEngineEdition(targetEngineEdition);
+        if (targetIsAzure)
+        {
+            return false;
+        }
+
+        if (sourceEngineEdition is null)
+        {
+            return true;
+        }
+
+        return IsAzureSqlEngineEdition(sourceEngineEdition.Value);
+    }
+
+    // Azure SQL DB-sourced dacpacs trigger DacFx to emit an ALTER DATABASE ... SET CONTAINMENT = PARTIAL
+    // prerequisite at the start of the deploy script. That ALTER fails with Msg 12824 on targets where
+    // 'contained database authentication' sp_configure is 0 (the default for on-prem / containerised
+    // SQL Server). ScriptDatabaseOptions=false / ExcludeObjectTypes do not suppress it because the
+    // prerequisite is derived from the *model contents*, not from comparison-driven options.
+    //
+    // Two model-level conditions can drive that inference:
+    //   1. SqlDatabaseOptions has an explicit Containment property (older Azure SQL extracts).
+    //   2. The model contains SqlUser elements with AuthenticationType = 2 (contained password user)
+    //      or 4 (External provider / Entra ID), even when ObjectType.Users is excluded from deploy.
+    //
+    // Both are rewritten on the temp deploy copy so DacFx no longer scripts the prerequisite. Contained /
+    // external SqlUser elements are converted to WITHOUT LOGIN rather than removed so any inbound
+    // references (Permissions, RoleMembership, etc.) in the model remain valid during DacFx load.
+    // DacpacEditor recomputes the model.xml checksum in Origin.xml so the package still verifies.
+    private static void NeutralizeForNonAzureSqlTarget(string dacpacPath)
+    {
+        DacpacEditor.Edit(dacpacPath, context =>
+        {
+            context.MutateXml("model.xml", document =>
+            {
+                var removedContainment = TryRemoveDatabaseContainmentProperty(document);
+                var rewroteUsers = TryRewriteContainedUsersAsWithoutLogin(document);
+                return removedContainment || rewroteUsers;
+            });
+        });
+    }
+
+    private static bool TryRemoveDatabaseContainmentProperty(XDocument modelDocument)
+    {
+        var containmentProperties = modelDocument
+            .Descendants()
+            .Where(e => e.Name.LocalName == "Element"
+                        && string.Equals((string?)e.Attribute("Type"), "SqlDatabaseOptions", StringComparison.Ordinal))
+            .SelectMany(e => e.Elements())
+            .Where(p => p.Name.LocalName == "Property"
+                        && string.Equals((string?)p.Attribute("Name"), "Containment", StringComparison.Ordinal))
+            .ToList();
+
+        if (containmentProperties.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (var property in containmentProperties)
+        {
+            property.Remove();
+        }
+
+        return true;
+    }
+
+    private static bool TryRewriteContainedUsersAsWithoutLogin(XDocument modelDocument)
+    {
+        var ns = modelDocument.Root?.GetDefaultNamespace() ?? XNamespace.None;
+        var changed = false;
+
+        var userElements = modelDocument
+            .Descendants()
+            .Where(e => e.Name.LocalName == "Element"
+                        && string.Equals((string?)e.Attribute("Type"), "SqlUser", StringComparison.Ordinal))
+            .ToList();
+
+        foreach (var user in userElements)
+        {
+            var properties = user.Elements()
+                .Where(p => p.Name.LocalName == "Property")
+                .ToList();
+
+            var authType = properties.FirstOrDefault(p =>
+                string.Equals((string?)p.Attribute("Name"), "AuthenticationType", StringComparison.Ordinal));
+            if (authType is null)
+            {
+                continue;
+            }
+
+            // AuthenticationType: 1 = Windows, 2 = Password (contained), 3 = Asymmetric Key, 4 = External (Entra).
+            // Both 2 and 4 drive DacFx to require CONTAINMENT = PARTIAL on the target. Windows / Asymmetric
+            // are fine on on-prem SQL so we leave them alone.
+            var value = (string?)authType.Attribute("Value");
+            if (!string.Equals(value, "2", StringComparison.Ordinal)
+                && !string.Equals(value, "4", StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            authType.Remove();
+            foreach (var prop in properties)
+            {
+                var propName = (string?)prop.Attribute("Name");
+                if (string.Equals(propName, "Password", StringComparison.Ordinal)
+                    || string.Equals(propName, "Sid", StringComparison.Ordinal))
+                {
+                    prop.Remove();
+                }
+            }
+
+            var hasWithoutLogin = user.Elements().Any(p =>
+                p.Name.LocalName == "Property"
+                && string.Equals((string?)p.Attribute("Name"), "IsWithoutLogin", StringComparison.Ordinal));
+            if (!hasWithoutLogin)
+            {
+                user.AddFirst(new XElement(
+                    ns + "Property",
+                    new XAttribute("Name", "IsWithoutLogin"),
+                    new XAttribute("Value", "True")));
+            }
+
+            changed = true;
+        }
+
+        return changed;
     }
 }

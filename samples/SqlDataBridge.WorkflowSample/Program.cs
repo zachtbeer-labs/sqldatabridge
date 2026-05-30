@@ -46,6 +46,7 @@ try
     Console.WriteLine($"Exported {exportResult.RowCount} rows from {exportResult.TableCount} tables to {sqlitePath}.");
 
     var manifest = await new DataPackageReader().ReadManifestAsync(sqlitePath);
+    Console.WriteLine($"Source platform: {DescribeEngineEdition(manifest.SourceEngineEdition)}");
     Console.WriteLine("SQLite file contents:");
     foreach (var table in manifest.Tables)
     {
@@ -104,3 +105,16 @@ static void PrintWarnings(IReadOnlyList<string> warnings)
         Console.WriteLine("Warning: " + warning);
     }
 }
+
+static string DescribeEngineEdition(int? engineEdition) => engineEdition switch
+{
+    null => "unknown (package predates source-platform stamping)",
+    2 => "SQL Server Standard / on-prem",
+    3 => "SQL Server Enterprise / on-prem",
+    4 => "SQL Server Express / on-prem",
+    5 => "Azure SQL Database",
+    8 => "Azure SQL Managed Instance",
+    11 => "Azure SQL Edge",
+    12 => "Azure Synapse Analytics (SQL pool)",
+    _ => $"unknown (SERVERPROPERTY('EngineEdition') = {engineEdition})"
+};

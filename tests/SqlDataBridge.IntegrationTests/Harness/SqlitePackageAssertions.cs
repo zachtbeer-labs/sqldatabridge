@@ -51,7 +51,7 @@ internal static class SqlitePackageAssertions
         (await connection.ScalarIntAsync("""
             SELECT COUNT(*)
             FROM zsb_export_runs
-            WHERE package_format_version = 3
+            WHERE package_format_version = 4
               AND application_version <> ''
               AND exported_at_utc <> ''
               AND length(source_schema_hash) = 64

@@ -29,6 +29,33 @@ var options = new ExportOptions
 
 Extra target columns are allowed only when they are nullable, computed, identity, or have a default. If import fails on an extra target column, make that column nullable, add a default constraint, or exclude the table from the export scope.
 
+## Import failed: cannot insert rows in a temporal history table (Msg 13560 / 13536)
+
+System-versioned temporal tables reject direct inserts into their history table (Msg 13560,
+"Cannot insert rows in a temporal history table") and into the `GENERATED ALWAYS` period
+columns of the current table (Msg 13536). By default SqlDataBridge handles this automatically:
+it discovers the temporal tables on the target, temporarily sets `SYSTEM_VERSIONING = OFF`,
+drops the `SYSTEM_TIME` period, loads the current and history rows with their original
+`ValidFrom`/`ValidTo` values, then re-adds the period and re-enables system versioning.
+
+You should only see these errors if you disabled the behavior:
+
+```csharp
+var options = ImportOptions.Default;
+options.SuspendTemporalSystemVersioning = false; // leave at the default `true` to import temporal tables
+```
+
+If re-enabling system versioning fails with a consistency error, the current and history rows
+are inconsistent — most often because the temporal table or its history was filtered with a
+WHERE clause, a period column was excluded, or the source changed between reading the two
+tables. Re-export the full table pair, or skip the validation (at the cost of possibly
+incorrect `AS OF` results):
+
+```csharp
+var options = ImportOptions.Default;
+options.TemporalDataConsistencyCheck = false;
+```
+
 ## Export failed: unsupported included type
 
 Export fails during preflight when an included column uses an unsupported SQL Server type. Exclude the column or exclude the table:
@@ -111,6 +138,30 @@ var options = new ImportOptions
     }
 };
 ```
+
+## Export failed: SQL71501 unresolved reference
+
+Dacpac capture no longer runs DacFx model verification by default, so this should not block a normal export. If you have opted into verification (`DacpacCaptureOptions.VerifyExtraction = true`) you may see an error like:
+
+```text
+SQL71501: ... Procedure [dbo].[SomeProcedure] contains an unresolved reference to an object.
+Either the object does not exist or the reference is ambiguous because it could refer to any of
+the following objects: [dbo].[TableA].[SharedKey], [dbo].[TableB].[SharedKey] ...
+```
+
+This comes from DacFx's static model validator, which is stricter than SQL Server's actual binder. The most common triggers — an ambiguous unqualified column in a multi-table join, a cross-database or three-part name, or a temp table — describe objects that create and run perfectly well on the target. SqlDataBridge therefore leaves verification off by default so functional-but-imperfect legacy schema captures cleanly.
+
+Turn verification back on only when you want the export to fail early on a genuinely broken object:
+
+```csharp
+var exportOptions = ExportOptions.Default;
+exportOptions.SchemaCaptureMode = SchemaCaptureMode.Dacpac;
+exportOptions.DacpacCaptureOptions.VerifyExtraction = true; // fail export early on broken refs
+```
+
+Verification has no per-rule suppression, so enabling it re-enables every model-validation rule — a single benign false positive will block the whole export.
+
+A reference that is *genuinely* unresolvable (for example, a procedure reading a column that no longer exists on an existing table) is not caught with verification off. It instead fails at deploy time with `Msg 207, Invalid column name`, and because dacpac deployment runs transactionally the whole deploy rolls back. Fix the source object or remove it from the capture scope.
 
 ## SQL Server certificate or trust errors
 

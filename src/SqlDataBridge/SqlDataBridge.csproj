@@ -19,19 +19,17 @@
     <Copyright>Copyright (c) 2026 Zachtbeer Labs B.V.</Copyright>
     <PackageReleaseNotes>https://github.com/zachtbeer-labs/sqldatabridge/releases</PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <Deterministic>true</Deterministic>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
+  <!--
+    Reproducible build settings (Deterministic, ContinuousIntegrationBuild, PublishRepositoryUrl,
+    EmbedUntrackedSources, IncludeSymbols/snupkg) and the SourceLink package reference are defined
+    once in Directory.Build.props at the repository root and apply here too.
+  -->
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.1" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.7" />
     <PackageReference Include="Microsoft.SqlServer.DacFx" Version="170.3.93" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>

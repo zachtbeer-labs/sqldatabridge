@@ -23,6 +23,20 @@ internal sealed class SqlServerFixtureDatabase : IAsyncDisposable
         return new SqlServerFixtureDatabase(fixture.MasterConnectionString, databaseName, connectionString);
     }
 
+    /// <summary>
+    /// Restores a local <c>.bak</c> into the shared container and wraps the resulting database so it is dropped on
+    /// dispose, exactly like a <see cref="CreateAsync"/> database. Used by the opt-in WideWorldImporters tests.
+    /// </summary>
+    public static async Task<SqlServerFixtureDatabase> RestoreFromBakAsync(
+        SqlServerContainerFixture fixture,
+        string localBakPath,
+        CancellationToken cancellationToken = default)
+    {
+        var connectionString = await fixture.RestoreDatabaseFromBakAsync(localBakPath, cancellationToken);
+        var databaseName = new SqlConnectionStringBuilder(connectionString).InitialCatalog;
+        return new SqlServerFixtureDatabase(fixture.MasterConnectionString, databaseName, connectionString);
+    }
+
     public async Task ExecuteSqlAsync(string sql)
     {
         await using var connection = new SqlConnection(ConnectionString);

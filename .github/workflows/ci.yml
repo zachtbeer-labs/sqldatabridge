@@ -154,3 +154,28 @@ jobs:
       - run: dotnet test tests/SqlDataBridge.IntegrationTests/SqlDataBridge.IntegrationTests.csproj -c Release --no-build --verbosity normal
         env:
           SQLDATABRIDGE_SQLSERVER_IMAGE: ${{ matrix.image }}
+
+  security-scan:
+    name: Vulnerable dependency scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - run: dotnet restore SqlDataBridge.sln
+
+      - name: Fail on vulnerable packages
+        shell: bash
+        run: |
+          report=$(dotnet list SqlDataBridge.sln package --vulnerable --include-transitive 2>&1)
+          echo "$report"
+          if echo "$report" | grep -q -i 'has the following vulnerable packages'; then
+            echo "::error::Vulnerable NuGet packages detected."
+            exit 1
+          fi

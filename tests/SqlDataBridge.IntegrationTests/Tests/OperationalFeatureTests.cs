@@ -43,7 +43,7 @@ public sealed class OperationalFeatureTests
 
         var manifest = await new DataPackageReader().ReadManifestAsync(sqlite.FilePath);
 
-        manifest.PackageFormatVersion.ShouldBe(3);
+        manifest.PackageFormatVersion.ShouldBe(4);
         manifest.ApplicationVersion.ShouldNotBeEmpty();
         manifest.Tables.Select(t => t.FullName).ShouldBe(["dbo.IncludeMe"]);
         manifest.Tables[0].ExportedRowCount.ShouldBe(3);

@@ -189,4 +189,105 @@ internal static class TargetSchemaScripts
             );
             """;
     }
+
+    public static string DepartmentTemporal()
+    {
+        // Mirror Fixtures/temporal.sql so a SchemaDeploymentMode.None import has a matching, empty,
+        // system-versioned target. SQL Server creates the named history table automatically.
+        return """
+            CREATE TABLE dbo.Department (
+                DepartmentId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Department PRIMARY KEY CLUSTERED,
+                DepartmentName NVARCHAR(100) NOT NULL,
+                ManagerId INT NULL,
+                ValidFrom DATETIME2(7) GENERATED ALWAYS AS ROW START NOT NULL,
+                ValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END NOT NULL,
+                PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DepartmentHistory));
+            """;
+    }
+
+    public static string SubscriptionTemporal()
+    {
+        // Mirror Fixtures/temporal_realistic.sql: custom period column names + finite retention.
+        return """
+            CREATE TABLE dbo.Subscription (
+                SubscriptionId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Subscription PRIMARY KEY CLUSTERED,
+                CustomerId INT NOT NULL,
+                PlanName NVARCHAR(100) NOT NULL,
+                LastUpdateDate DATETIME2(7) GENERATED ALWAYS AS ROW START NOT NULL,
+                LastUpdateValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END NOT NULL,
+                PERIOD FOR SYSTEM_TIME (LastUpdateDate, LastUpdateValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.Subscription_History, HISTORY_RETENTION_PERIOD = 3 MONTHS));
+            """;
+    }
+
+    public static string MultiTemporal()
+    {
+        // Mirror Fixtures/temporal_multi.sql.
+        return """
+            CREATE TABLE dbo.Region (
+                RegionId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Region PRIMARY KEY CLUSTERED,
+                RegionName NVARCHAR(100) NOT NULL,
+                ValidFrom DATETIME2(7) GENERATED ALWAYS AS ROW START NOT NULL,
+                ValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END NOT NULL,
+                PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.RegionHistory));
+
+            CREATE TABLE dbo.Team (
+                TeamId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Team PRIMARY KEY CLUSTERED,
+                TeamName NVARCHAR(100) NOT NULL,
+                ValidFrom DATETIME2(7) GENERATED ALWAYS AS ROW START NOT NULL,
+                ValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END NOT NULL,
+                PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.TeamHistory));
+            """;
+    }
+
+    public static string TemporalWithForeignKey()
+    {
+        // Mirror Fixtures/temporal_fk.sql.
+        return """
+            CREATE TABLE dbo.Office (
+                OfficeId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Office PRIMARY KEY CLUSTERED,
+                OfficeName NVARCHAR(100) NOT NULL
+            );
+
+            CREATE TABLE dbo.Worker (
+                WorkerId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Worker PRIMARY KEY CLUSTERED,
+                OfficeId INT NOT NULL CONSTRAINT FK_Worker_Office FOREIGN KEY REFERENCES dbo.Office (OfficeId),
+                WorkerName NVARCHAR(100) NOT NULL,
+                ValidFrom DATETIME2(7) GENERATED ALWAYS AS ROW START NOT NULL,
+                ValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END NOT NULL,
+                PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WorkerHistory));
+            """;
+    }
+
+    public static string HiddenPeriodTemporal()
+    {
+        // Mirror Fixtures/temporal_hidden.sql.
+        return """
+            CREATE TABLE dbo.Flag (
+                FlagId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Flag PRIMARY KEY CLUSTERED,
+                FlagName NVARCHAR(100) NOT NULL,
+                ValidFrom DATETIME2(7) GENERATED ALWAYS AS ROW START HIDDEN NOT NULL,
+                ValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END HIDDEN NOT NULL,
+                PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.FlagHistory));
+            """;
+    }
+
+    public static string LedgerTemporal()
+    {
+        // System-versioned target for the non-temporal Fixtures/temporal_plain_source.sql.
+        return """
+            CREATE TABLE dbo.Ledger (
+                LedgerId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Ledger PRIMARY KEY CLUSTERED,
+                Note NVARCHAR(100) NOT NULL,
+                ValidFrom DATETIME2(7) GENERATED ALWAYS AS ROW START NOT NULL,
+                ValidTo DATETIME2(7) GENERATED ALWAYS AS ROW END NOT NULL,
+                PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+            ) WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.LedgerHistory));
+            """;
+    }
 }

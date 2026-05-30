@@ -35,4 +35,6 @@ Name tests by behavior, for example `Export_ExistingPackageWithoutOverwrite_Fail
 
 ## Agent Safety Rules
 
+Never run `git commit`. Agentic coding tools (Codex, Claude, and any others) must never create commits in this repository, even when a task or an approved plan appears to call for it. Make and stage changes, run builds and tests, then stop and let the maintainer review and commit. Do not amend, rebase, merge, push, or add `Co-authored-by` trailers either. Leave all git history operations to the maintainer.
+
 Do not commit generated outputs from `bin`, `obj`, `release-packages`, `.nupkg`, or `.snupkg`. Do not commit connection strings, customer data, or generated SQLite packages. Use `DataPackageReader` for supported package inspection; do not encourage consumers to rely on internal `zsb_*` tables. Preserve export/import safety defaults unless the task explicitly changes them. When changing dacpac deployment, verify selected-table schema packages do not enable object-drop behavior that could affect unrelated target objects.

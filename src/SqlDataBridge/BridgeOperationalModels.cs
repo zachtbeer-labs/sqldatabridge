@@ -65,7 +65,7 @@ public sealed record BridgeTableManifest(string SourceSchema, string SourceTable
 /// <summary>
 /// Describes a SQLite bridge package or planned package.
 /// </summary>
-public sealed record BridgePackageManifest(int PackageFormatVersion, string ApplicationVersion, DateTimeOffset ExportedAtUtc, string SourceSchemaHash, IReadOnlyList<BridgeTableManifest> Tables, IReadOnlyList<string> ImportOrder, IReadOnlyList<string> Exclusions, IReadOnlyList<string> Warnings, bool ContainsDacpac, DacpacSchemaScope? DacpacSchemaScope);
+public sealed record BridgePackageManifest(int PackageFormatVersion, string ApplicationVersion, DateTimeOffset ExportedAtUtc, string SourceSchemaHash, IReadOnlyList<BridgeTableManifest> Tables, IReadOnlyList<string> ImportOrder, IReadOnlyList<string> Exclusions, IReadOnlyList<string> Warnings, bool ContainsDacpac, DacpacSchemaScope? DacpacSchemaScope, int? SourceEngineEdition = null);
 
 /// <summary>
 /// Summarizes validation performed before an export or import copies rows.
